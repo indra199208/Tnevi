@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.tnevi">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="false"
+        tools:replace="android:allowBackup"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Editseat"
+            android:exported="true" />
+        <activity
+            android:name=".Aboutus"
+            android:exported="true" />
+        <activity
+            android:name=".QRcode"
+            android:exported="true" />
+        <activity
+            android:name=".FAQ"
+            android:exported="true" />
+        <activity
+            android:name=".Contactsupport"
+            android:exported="true" />
+        <activity
+            android:name=".Ratenow"
+            android:exported="true" />
+        <activity android:name=".Viewallcategory" />
+        <activity android:name=".Cashouthistory" />
+        <activity android:name=".Ticketsales" />
+        <activity android:name=".Ticketdetails" />
+        <activity android:name=".Editevent2" />
+        <activity android:name=".Editevent" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.vlemonn.blog.captureimage.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- Facebook Login -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Arrangeseats" />
+        <activity android:name=".Updatepassword" />
+        <activity android:name=".Passwordchange" />
+        <activity android:name=".Emailverification2" />
+        <activity android:name=".Forgetpassword" />
+        <activity android:name=".Emailverification" />
+        <activity android:name=".Checkoutpaymentmethod" />
+        <activity android:name=".Checkoutpaymentoption" />
+        <activity android:name=".Checkoutaddbankacc" />
+        <activity android:name=".Checkoutbankinfo" />
+        <activity android:name=".Checkoutpaymentinfo" />
+        <activity android:name=".Checkoutaddress" />
+        <activity android:name=".Pricedetails" />
+        <activity android:name=".Gallerybooking" />
+        <activity android:name=".Comissiondetails" />
+        <activity android:name=".Eventgeneraldetails" />
+        <activity android:name=".Featuread" />
+        <activity android:name=".Ticketsalesreport" />
+        <activity android:name=".Commissionsearned" />
+        <activity android:name=".Eventdetails" />
+        <activity android:name=".Adcongrats" />
+        <activity android:name=".EventimageuploadActivity" />
+        <activity android:name=".Eventbaneerad" />
+        <activity android:name=".Eventcost" />
+        <activity android:name=".Eventdescription" />
+        <activity android:name=".Addeventdetails" />
+        <activity android:name=".Selectevent" />
+        <activity android:name=".Allcategory" />
+        <activity android:name=".Viewrewards" />
+        <activity android:name=".Buyepoint" />
+        <activity android:name=".Epointhistory" />
+        <activity android:name=".Sellingticket" />
+        <activity android:name=".Favticket" />
+        <activity android:name=".Soldticket" />
+        <activity android:name=".Mytickets" />
+        <activity android:name=".Events" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Wallet" />
+        <activity android:name=".Search" />
+        <activity android:name=".Search2" />
+        <activity android:name=".Registration" />
+        <activity android:name=".Login" />
+        <activity android:name=".Comissionsales"/>
+        <activity android:name=".Splash" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBOM8iPJeA6CXiCOpQU8XJ5MImxYtScbW4" />
+
+
+        <!-- pay pal server decler -->
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <!-- end -->
+
+        <activity
+            android:name=".Welcome"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="15dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etBlockname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Block Name"
+                android:inputType="text"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etNumberofrows"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Number of Rows"
+                android:inputType="number"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etNoseats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Number of Seats"
+                android:inputType="number"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/etSeatprice"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:hint="Prices Per Seats"
+                android:inputType="number"
+                android:padding="15dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button2"
+            android:text="Submit"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

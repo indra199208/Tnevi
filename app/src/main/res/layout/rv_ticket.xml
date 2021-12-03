@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_235sdp"
+    android:layout_height="@dimen/_220sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_ticketdetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:background="@drawable/ic_subtraction">
+
+
+        <TextView
+            android:id="@+id/tvEventName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Bright Music Festival"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="23 Jan 2020 - 7pm"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="402 3rd Street, Patchogue, UK"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_10sdp" />
+
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--            android:layout_marginTop="@dimen/_30sdp"-->
+<!--            android:layout_marginRight="@dimen/_15sdp"-->
+<!--            android:src="@drawable/dot" />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Section"
+                android:layout_weight="0.3"
+                android:textColor="#8E859D"
+                android:textSize="@dimen/_10sdp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:layout_weight="0.3"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Row"
+                android:textColor="#8E859D"
+                android:textSize="@dimen/_10sdp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:layout_weight="0.3"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Seat"
+                android:textColor="#8E859D"
+                android:textSize="@dimen/_10sdp"/>
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tvSection"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="P1"
+                android:layout_weight="0.3"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_10sdp"/>
+
+
+            <TextView
+                android:id="@+id/tvRow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="0.3"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:text="12"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tvSeat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center"
+                android:layout_weight="0.3"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="15, 16"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_10sdp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/btnDownloadticket"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/button2"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="Download Ticket"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/btnViewTicket"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@drawable/button2"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="View Ticket"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_10sdp" />
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

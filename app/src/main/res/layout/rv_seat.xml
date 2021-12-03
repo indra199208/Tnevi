@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:fontFamily="@font/proxima_nova"
+            android:text=""
+            android:textColor="#8E859D"
+            android:textSize="@dimen/_12sdp" />
+
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_centerInParent="true"
+            app:tint="@color/colorAccent"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:src="@drawable/ic_edit" />
+
+        <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_centerInParent="true"
+            app:tint="@color/colorAccent"
+            android:src="@drawable/ic_delete" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDecisions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvBlockname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:hint="Block Name"
+                    android:imeOptions="actionNext"
+                    android:singleLine="true"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#888A8C"
+                    android:textSize="@dimen/_12sdp" />
+                <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNumberofrows"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:hint="Number of Rows"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#888A8C"
+                    android:textSize="@dimen/_12sdp" />
+                <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tvNumberseats"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:hint="Number of Seats"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#888A8C"
+                    android:textSize="@dimen/_12sdp" />
+                <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvPriceperseat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:hint="Prices Per Seats"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#888A8C"
+                    android:textSize="@dimen/_12sdp" />
+                <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

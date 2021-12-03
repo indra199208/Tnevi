@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ticketdetails">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_220sdp"
+                android:background="@color/colorAccent"
+                android:orientation="vertical">
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTicket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/ic_congrts" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center"
+                    android:text="Congratulation your ticket is confirmed."
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center"
+                    android:text="Have a great time!"
+                    android:textColor="#5F01D0"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Email My Ticket"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:fontFamily="@font/proxima_nova"-->
+<!--                    android:textSize="@dimen/_12sdp"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                    android:textStyle="bold"/>-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                    android:layout_marginRight="@dimen/_15sdp"-->
+<!--                    android:backgroundTint="@android:color/darker_gray"-->
+<!--                    android:drawableRight="@drawable/ic_send"-->
+<!--                    android:drawablePadding="@dimen/_10sdp"-->
+<!--                    android:fontFamily="@font/proxima_nova"-->
+<!--                    android:hint="Enter your Email"-->
+<!--                    android:inputType="text"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textColorHint="@android:color/darker_gray"-->
+<!--                    android:textSize="@dimen/_12sdp" />-->
+
+
+
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:background="@android:color/darker_gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FAF6FF">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_60sdp"
+                    android:src="@drawable/ic_boxicon" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center"
+                    android:text="Reward"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center"
+                    android:text="You have earned"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_22sdp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center"
+                    android:text="500 ePoints"
+                    android:textStyle="bold"
+                    android:textColor="#5F01D0"
+                    android:textSize="@dimen/_30sdp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:background="@drawable/button2"
+                    android:layout_marginRight="@dimen/_95sdp"
+                    android:layout_marginLeft="@dimen/_95sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="View Balence"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Checkoutaddbankacc">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:text="Add Bank Account"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etIfsc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="IFCS"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+            <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etAccount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Bank Account Number"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+            <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etBank"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Bank Name"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+            <!--                    android:drawableRight="@drawable/ic_vector" />-->
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etBranch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Branch Name"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="@drawable/loginbutton2"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center_horizontal"
+            android:text="Save"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@color/colorAccent" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

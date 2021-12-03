@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Checkoutpaymentmethod">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/button10"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_paypal" />
+
+
+                </LinearLayout>
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_weight="0.9"
+                    android:backgroundTint="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_70sdp"-->
+<!--            android:layout_margin="@dimen/_10sdp"-->
+<!--            android:background="@drawable/button10"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                android:layout_marginRight="@dimen/_15sdp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="0.1"-->
+<!--                    android:orientation="vertical">-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="Debit Card/Credit Card"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:textStyle="bold" />-->
+
+
+<!--                </LinearLayout>-->
+
+
+<!--                <RadioButton-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_15sdp"-->
+<!--                    android:layout_weight="0.9"-->
+<!--                    android:backgroundTint="@color/colorAccent" />-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--        </LinearLayout>-->
+
+
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_45sdp"-->
+<!--            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--            android:layout_marginTop="@dimen/_20sdp"-->
+<!--            android:layout_marginRight="@dimen/_15sdp"-->
+<!--            android:background="@drawable/border"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:drawablePadding="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/proxima_nova"-->
+<!--                android:hint="Card Holder Name"-->
+<!--                android:imeOptions="actionNext"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                android:singleLine="true"-->
+<!--                android:textAppearance="?android:textAppearanceSmall"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:textColorHint="#9980B8"-->
+<!--                android:textSize="@dimen/_12sdp" />-->
+<!--            &lt;!&ndash;                    android:drawableRight="@drawable/ic_vector" />&ndash;&gt;-->
+
+<!--        </LinearLayout>-->
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_45sdp"-->
+<!--            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--            android:layout_marginTop="@dimen/_20sdp"-->
+<!--            android:layout_marginRight="@dimen/_15sdp"-->
+<!--            android:background="@drawable/border"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_10sdp"-->
+<!--                android:background="@null"-->
+<!--                android:drawablePadding="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/proxima_nova"-->
+<!--                android:hint="Card Number"-->
+<!--                android:imeOptions="actionNext"-->
+<!--                android:inputType="textEmailAddress"-->
+<!--                android:singleLine="true"-->
+<!--                android:textAppearance="?android:textAppearanceSmall"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:textColorHint="#9980B8"-->
+<!--                android:textSize="@dimen/_12sdp" />-->
+<!--            &lt;!&ndash;                    android:drawableRight="@drawable/ic_vector" />&ndash;&gt;-->
+
+<!--        </LinearLayout>-->
+
+
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--            android:layout_marginTop="@dimen/_20sdp"-->
+<!--            android:layout_marginRight="@dimen/_15sdp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_45sdp"-->
+<!--                android:background="@drawable/border"-->
+<!--                android:layout_marginRight="@dimen/_10sdp"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                    android:layout_marginRight="@dimen/_10sdp"-->
+<!--                    android:background="@null"-->
+<!--                    android:drawablePadding="@dimen/_10sdp"-->
+<!--                    android:fontFamily="@font/proxima_nova"-->
+<!--                    android:hint="Expire Month"-->
+<!--                    android:imeOptions="actionNext"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:singleLine="true"-->
+<!--                    android:textAppearance="?android:textAppearanceSmall"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textColorHint="#9980B8"-->
+<!--                    android:textSize="@dimen/_12sdp" />-->
+<!--                &lt;!&ndash;                    android:drawableRight="@drawable/ic_vector" />&ndash;&gt;-->
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/_45sdp"-->
+<!--                android:background="@drawable/border"-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:layout_weight="0.5"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <EditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                    android:layout_marginRight="@dimen/_10sdp"-->
+<!--                    android:background="@null"-->
+<!--                    android:drawablePadding="@dimen/_10sdp"-->
+<!--                    android:fontFamily="@font/proxima_nova"-->
+<!--                    android:hint="Expire Year"-->
+<!--                    android:imeOptions="actionNext"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:singleLine="true"-->
+<!--                    android:textAppearance="?android:textAppearanceSmall"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textColorHint="#9980B8"-->
+<!--                    android:textSize="@dimen/_12sdp" />-->
+<!--                &lt;!&ndash;                    android:drawableRight="@drawable/ic_vector" />&ndash;&gt;-->
+
+<!--            </LinearLayout>-->
+
+
+
+
+<!--        </LinearLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@color/colorAccent" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Payment Option"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:gravity="center"
+        android:background="@drawable/loginbutton2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textAlignment="center"
+            android:fontFamily="@font/proxima_nova"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@android:color/white"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ratenow">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:orientation="vertical">
+
+        <com.willy.ratingbar.ScaleRatingBar
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/simpleRatingBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srb_numStars="5"
+            app:srb_minimumStars="1"
+            app:srb_rating="0"
+            app:srb_starWidth="@dimen/_30sdp"
+            app:srb_starHeight="@dimen/_30sdp"
+            app:srb_starPadding="@dimen/_10sdp"
+            android:layout_margin="@dimen/_20sdp"
+            app:srb_stepSize="1"
+            app:srb_isIndicator="false"
+            app:srb_clickable="true"
+            app:srb_scrollable="true"
+            app:srb_clearRatingEnabled="false"
+            app:srb_drawableEmpty="@drawable/ic_star_outline"
+            app:srb_drawableFilled="@drawable/ic_starfilled">
+        </com.willy.ratingbar.ScaleRatingBar>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="#F2EEF8"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:background="@drawable/border"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:hint="Message"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="#888A8C"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:background="@drawable/button2"
+            android:fontFamily="@font/proxima_nova"
+            android:text="SUBMIT"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14sdp" />
+
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@android:color/black" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Give Us Feedback"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

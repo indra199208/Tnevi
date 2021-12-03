@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_62sdp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/darker_gray"
+                android:background="@drawable/ic_home" />
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                android:fontFamily="@font/lora_regular"-->
+<!--                android:text="Home"-->
+<!--                android:gravity="center_horizontal" />-->
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconSearch"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/darker_gray"
+                android:background="@drawable/ic_search" />
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                android:fontFamily="@font/lora_regular"-->
+<!--                android:text="Profile"-->
+<!--                android:gravity="center_horizontal" />-->
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnWallet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconWallet"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_wallet" />
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                android:fontFamily="@font/lora_regular"-->
+<!--                android:text="Profile"-->
+<!--                android:gravity="center_horizontal" />-->
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconEvent"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_calender" />
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                android:fontFamily="@font/lora_regular"-->
+<!--                android:text="Favourite"-->
+<!--                android:textAlignment="center"-->
+<!--                android:gravity="center_horizontal" />-->
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnProf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconProf"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:backgroundTint="@android:color/darker_gray"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_prof" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iconSetting"
+                android:layout_width="@dimen/_17sdp"
+                android:layout_height="@dimen/_17sdp"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/darker_gray"
+                android:background="@drawable/ic_settings" />
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                android:fontFamily="@font/lora_regular"-->
+<!--                android:text="Favourite"-->
+<!--                android:textAlignment="center"-->
+<!--                android:gravity="center_horizontal" />-->
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>

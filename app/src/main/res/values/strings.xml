@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tnevi</string>
+    <string name="start">Let\'s Started</string>
+    <string name="next">Next</string>
+
+    <string name="slide_1_title">Get Paid Real Money</string>
+    <string name="slide_1_desc">Event organizers offer huge commissions on tickets to fans to share their events</string>
+
+    <string name="slide_2_title">Tickets and Rewards</string>
+    <string name="slide_2_desc">Automatically earn ePoints with ticket purchases to your favorite events. ePoints can be used to redeem free tickets or apply for a discount on future ticket purchases.</string>
+
+    <string name="slide_3_title">Sell More Seats</string>
+    <string name="slide_3_desc">Fans share their favorite events with friends and family to earn cash and points rewards</string>
+
+    <string name="loading">Loading . . .</string>
+    <string name="api_key">AIzaSyBOM8iPJeA6CXiCOpQU8XJ5MImxYtScbW4</string>
+    <string name="fb_login_protocol_scheme">fb293916555768285</string>
+    <string name="facebook_app_id">293916555768285</string>
+
+
+</resources>

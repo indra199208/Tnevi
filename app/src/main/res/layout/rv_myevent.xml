@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/btn_details"
+    android:background="@android:color/white"
+    android:layout_margin="@dimen/_10sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        app:cardCornerRadius="@dimen/_7sdp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgBanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg7" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:background="@drawable/ic_bg4"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lora_regular"
+                            android:maxLength="18"
+                            android:text=""
+                            android:textSize="@dimen/_12sdp" />
+
+                        />
+
+                        <LinearLayout
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center">
+
+                            <com.like.LikeButton
+                                android:id="@+id/btnHeart"
+                                android:layout_width="@dimen/_14sdp"
+                                android:layout_height="@dimen/_14sdp"
+                                android:layout_alignParentRight="true"
+                                android:textAlignment="textEnd"
+                                app:icon_size="21dp"
+                                app:icon_type="heart" />
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvEventname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Bright Music Festival"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:src="@drawable/ic_percentage"
+                            app:tint="@android:color/white" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvTicketprice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$5.00/Ticket"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/ll_live"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_180sdp"
+        android:background="@drawable/button5"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:src="@drawable/ic_brightness"
+            app:tint="#19C81F" />
+
+        <TextView
+            android:id="@+id/tvLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:text="Live"
+            android:textColor="#19C81F"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_review"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_180sdp"
+        android:background="@drawable/button6"
+        android:gravity="center"
+        android:visibility="visible"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center_horizontal"
+            android:text="In Review"
+            android:textColor="#FFAB3E"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_35sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:layout_weight="0.7"
+            android:background="@drawable/ic_bg9"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calender"
+                app:tint="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Date and Time"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="23 Jan 2020 - 7pm"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_35sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:layout_weight="0.7"
+            android:background="@drawable/ic_bg9"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:src="@drawable/ic_location"
+                app:tint="@color/colorAccent" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Location"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="402 3rd Street, Patchogue, UK"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_35sdp"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMarksold"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button4"
+            android:fontFamily="@font/proxima_nova"
+            android:text="Mark Sold Out"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFeatureNow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button4"
+            android:fontFamily="@font/proxima_nova"
+            android:text="Features Now"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_35sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/btnEditevent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button4"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Edit Event"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_weight="0.5"
+            android:background="@drawable/button4"
+            android:fontFamily="@font/proxima_nova"
+            android:text="Delete Event"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

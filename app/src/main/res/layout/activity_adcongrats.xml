@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Adcongrats">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:src="@drawable/ic_congrts" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/proxima_nova"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:gravity="center"
+            android:text="Congratulation!"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_18sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/proxima_nova"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="Your Ad go live shortly..."
+            android:textColor="#4E4A5B"
+            android:textSize="@dimen/_14sdp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5sp"
+            android:layout_marginTop="@dimen/_55sdp"
+            android:background="@android:color/darker_gray" />
+
+
+        <LinearLayout
+            android:id="@+id/btnFeaturead"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_75sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:layout_marginRight="@dimen/_75sdp"
+            android:background="@drawable/button2"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:src="@drawable/ic_label" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Featured Now"
+                android:textColor="#FFDF3E"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/btnPreview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_75sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_75sdp"
+            android:background="@drawable/button4"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:src="@drawable/ic_enable" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Peview Ad"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_75sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_75sdp"
+            android:background="@drawable/button4"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                app:tint="@color/colorAccent"
+                android:src="@drawable/ic_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Share this Ad"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_14sdp" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

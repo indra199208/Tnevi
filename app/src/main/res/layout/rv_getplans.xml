@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/button10"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_weight="0.1"
+                android:backgroundTint="@color/colorAccent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlantitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Featured Ad for 30 Days"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPlanprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="end"
+                android:text="$300"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:src="@drawable/ic_check"
+                app:tint="@color/colorAccent" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tvPlandetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginRight="@dimen/_120sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="Reach up to 10 times more buyers"
+                    android:textColor="@android:color/black" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/relGenerate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_event_nav"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginBottom="1dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnMytickets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.example.tnevi.Utils.AutoResizeTextView
+                    android:id="@+id/myTickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="My Tickets" />
+
+
+                <!--            <View-->
+                <!--                android:id="@+id/myTicketunderline"-->
+                <!--                android:visibility="invisible"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="1dp"-->
+                <!--                android:layout_margin="@dimen/_5sdp"-->
+                <!--                android:background="@color/colorAccent"/>-->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnMysearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.example.tnevi.Utils.AutoResizeTextView
+                    android:id="@+id/myEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="My Events" />
+
+                <!--            <View-->
+                <!--                android:id="@+id/myEventsunderline"-->
+                <!--                android:visibility="invisible"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="1dp"-->
+                <!--                android:layout_margin="@dimen/_5sdp"-->
+                <!--                android:background="@color/colorAccent"/>-->
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnFav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.example.tnevi.Utils.AutoResizeTextView
+                    android:id="@+id/Fav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="Favorites" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnSelling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <com.example.tnevi.Utils.AutoResizeTextView
+                    android:id="@+id/tvSelling"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="Selling" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnSold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.example.tnevi.Utils.AutoResizeTextView
+                    android:id="@+id/tvSold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="Sold" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <LinearLayout
+            android:id="@+id/underlineTab"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/ll_event_nav"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+
+            <View
+                android:id="@+id/myTicketU"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:background="@color/colorAccent" />
+
+
+            <View
+                android:id="@+id/myEventU"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"/>
+
+
+            <View
+                android:id="@+id/myFavU"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/mySellingU"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/mySoldU"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Gallerybooking">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:background="@color/colorAccent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEventname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:text="Bright Music Festival"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:text="23 Jan 2020 - 7pm"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="402 3rd Street, Patchogue, UK"
+                    android:gravity="center_horizontal"
+                    android:textColor="@android:color/white"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_370sdp">
+
+                <ImageView
+                    android:id="@+id/venueImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/gallery"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select your Seats"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:layout_marginTop="@dimen/_15sdp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:layout_weight="0.5"
+                        android:text="Section"
+                        android:textSize="@dimen/_14sdp"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Row"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_weight="0.5"
+                        android:fontFamily="@font/proxima_nova"
+                        android:textSize="@dimen/_14sdp"/>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="0.5"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:background="@drawable/button14">
+
+                        <Spinner
+                            android:id="@+id/spSection"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/lora_regular"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="0.5"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button14">
+
+                        <Spinner
+                            android:id="@+id/spRow"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/lora_regular"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_marginTop="@dimen/_15sdp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Selected Seat: P1,"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:gravity="center_horizontal"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_14sdp"/>-->
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text=" Row 12"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:gravity="center_horizontal"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_14sdp"/>-->
+
+
+<!--                </LinearLayout>-->
+
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@android:color/darker_gray" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:layout_weight="0.5"
+                        android:text="Number Of Tickets"
+                        android:textSize="@dimen/_12sdp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_weight="0.5"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/button14">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:weightSum="3">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/ivDecrese"
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_margin="2dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_remove"
+                                    app:tint="#49368B" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvQuantity"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/_2sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/proxima_nova"
+                                    android:gravity="center_horizontal"
+                                    android:text="0"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/ivIncrease"
+                                    android:layout_width="@dimen/_18sdp"
+                                    android:layout_height="@dimen/_18sdp"
+                                    android:layout_margin="@dimen/_2sdp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/ic_add"
+                                    app:tint="#49368B" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:id="@+id/btnRemove"
+                                android:layout_width="@dimen/_30sdp"
+                                android:visibility="gone"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_alignParentRight="true"
+                                android:background="#1CCF25">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_14sdp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_close" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="0.5">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvGrandtotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$0"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_18sdp"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="+fees"
+                            android:textSize="@dimen/_12sdp"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/btnDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/button2"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Done"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@android:color/white" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

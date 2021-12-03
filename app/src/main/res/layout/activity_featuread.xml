@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".Featuread">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:src="@drawable/ic_sell" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center_horizontal"
+            android:text="Reach More Featured &amp; Sell Faster"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_16sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center_horizontal"
+            android:text="Your Ad go live shortly..."
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_12sdp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:cardCornerRadius="@dimen/_18sdp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Feature Ad"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_14sdp"
+                            android:textStyle="bold" />
+
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_140sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.9"
+                            android:src="@drawable/ic_check"
+                            app:tint="@color/colorAccent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.1"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:fontFamily="@font/proxima_nova"
+                                android:text="Get noticed with *Feature* tag in a top Position"
+                                android:textColor="@android:color/black" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_plans"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginLeft="@dimen/_100sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_100sdp"
+                        android:layout_marginBottom="@dimen/_80sdp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/loginbutton2"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:gravity="center_horizontal"
+                            android:text="Pay $300"
+                            android:textAlignment="center"
+                            android:textColor="#FFDF3E" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

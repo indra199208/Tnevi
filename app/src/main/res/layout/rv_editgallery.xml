@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_120sdp"
+    android:layout_height="@dimen/_120sdp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/_115sdp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/btnDelete"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentRight="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_close"
+                    android:textAlignment="textEnd"
+                    app:tint="@color/red" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imgGallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_imgplaceholder" />
+
+</LinearLayout>

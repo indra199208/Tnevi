@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".Allcategory">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2EEF8"
+            android:orientation="vertical">
+
+
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="@dimen/_150sdp"-->
+            <!--                android:layout_margin="@dimen/_10sdp"-->
+            <!--                android:background="@drawable/bg1"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent">-->
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+            <!--                        android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                        android:layout_weight="0.5"-->
+            <!--                        android:orientation="vertical">-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:layout_width="@dimen/_24sdp"-->
+            <!--                            android:layout_height="@dimen/_24sdp"-->
+            <!--                            android:src="@drawable/wallet" />-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                            android:id="@+id/tvBalance"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                            android:fontFamily="@font/proxima_nova"-->
+            <!--                            android:text="$2050.25"-->
+            <!--                            android:textStyle="bold"-->
+            <!--                            android:textColor="@android:color/white"-->
+            <!--                            android:textSize="@dimen/_14sdp" />-->
+
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                            android:orientation="horizontal">-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:id="@+id/tvName"-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:fontFamily="@font/proxima_nova"-->
+            <!--                                android:text="Balance"-->
+            <!--                                android:textColor="@android:color/white"-->
+            <!--                                android:textSize="@dimen/_10sdp" />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                                android:layout_width="@dimen/_10sdp"-->
+            <!--                                android:layout_height="@dimen/_10sdp"-->
+            <!--                                android:layout_gravity="center"-->
+            <!--                                android:layout_marginLeft="@dimen/_15sdp"-->
+            <!--                                android:src="@drawable/arrow" />-->
+
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+            <!--                    <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_marginLeft="@dimen/_25sdp"-->
+            <!--                        android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                        android:layout_marginRight="@dimen/_10sdp"-->
+            <!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+            <!--                        android:layout_weight="0.5"-->
+            <!--                        android:orientation="vertical">-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                            android:layout_width="@dimen/_24sdp"-->
+            <!--                            android:layout_height="@dimen/_24sdp"-->
+            <!--                            android:src="@drawable/star" />-->
+
+            <!--                        <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                            android:id="@+id/tvEponts"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="@dimen/_10sdp"-->
+            <!--                            android:fontFamily="@font/proxima_nova"-->
+            <!--                            android:text="1365"-->
+            <!--                            android:textStyle="bold"-->
+            <!--                            android:textColor="@android:color/white"-->
+            <!--                            android:textSize="@dimen/_14sdp" />-->
+
+
+            <!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                            android:orientation="horizontal">-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                                android:layout_width="wrap_content"-->
+            <!--                                android:layout_height="wrap_content"-->
+            <!--                                android:fontFamily="@font/proxima_nova"-->
+            <!--                                android:text="ePoints"-->
+            <!--                                android:textColor="@android:color/white"-->
+            <!--                                android:textSize="@dimen/_10sdp" />-->
+
+            <!--                            <androidx.appcompat.widget.AppCompatImageView-->
+            <!--                                android:layout_width="@dimen/_10sdp"-->
+            <!--                                android:layout_height="@dimen/_10sdp"-->
+            <!--                                android:layout_gravity="center"-->
+            <!--                                android:layout_marginLeft="@dimen/_15sdp"-->
+            <!--                                android:src="@drawable/arrow" />-->
+
+            <!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                    </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+            <!--                </LinearLayout>-->
+
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="@dimen/_60sdp"-->
+            <!--                    android:layout_alignParentBottom="true"-->
+            <!--                    android:background="@drawable/layer2" />-->
+
+
+            <!--            </RelativeLayout>-->
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:id="@+id/rv_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:id="@+id/ll_bottom_view"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_25sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:layout_marginBottom="1dp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnReligious"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:id="@+id/imgPrf"-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_religious" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkReligious"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Religious" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnFreeticket"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_park_tickets_couple" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkfreeEvent"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Free event" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnConcert"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_concert" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkConcert"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Concert" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:layout_marginBottom="1dp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnClub"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_club" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkClub"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@+id/iv_cart"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Club"-->
+<!--                                    android:textAlignment="center" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnSports"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_sport" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkSport"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Sports" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnParty"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_party" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkParty"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Party" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:layout_marginBottom="1dp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnKids"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_kids" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkKids"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Kids" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnCarnival"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_carnivel" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkCarnival"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@+id/iv_cart4"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Carnival"-->
+<!--                                    android:textAlignment="center" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnTheatre"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_thearter" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkThearter"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Theatre" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:layout_marginBottom="1dp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnTrade"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_tradeshow" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkTrade"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Trade Show" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnFestival"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_festivel" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkFestival"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Festival" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnConf"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_club" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkConf"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@+id/iv_cart3"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Conference"-->
+<!--                                    android:textAlignment="center" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                    android:layout_width="@dimen/_24sdp"-->
+<!--                                    android:layout_height="@dimen/_24sdp"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:background="@drawable/ic_seminners" />-->
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Seminars" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnBanquet"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_banquet" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkBanquet"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Banquet" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnRetreat"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_retreat" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkRetreat"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Retreat" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnSocial"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_social" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkSocial"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_below="@+id/iv_cart2"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Social"-->
+<!--                                    android:textAlignment="center" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_54sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                            android:layout_marginTop="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_15sdp"-->
+<!--                            android:layout_marginBottom="@dimen/_70sdp"-->
+<!--                            android:gravity="center_vertical"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="3">-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnAward"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_awards" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkAwards"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Awards" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+<!--                            <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--                                android:id="@+id/btnTravel"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="1"-->
+<!--                                android:orientation="vertical">-->
+
+<!--                                <FrameLayout-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="0.7">-->
+
+<!--                                    <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                        android:layout_width="@dimen/_24sdp"-->
+<!--                                        android:layout_height="@dimen/_24sdp"-->
+<!--                                        android:layout_gravity="center"-->
+<!--                                        android:src="@drawable/ic_travel" />-->
+
+<!--                                    <LinearLayout-->
+<!--                                        android:id="@+id/checkTravel"-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="@dimen/_15sdp"-->
+<!--                                        android:gravity="right|top"-->
+<!--                                        android:visibility="gone">-->
+
+<!--                                        <ImageView-->
+<!--                                            android:layout_width="20dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:src="@drawable/ic_check" />-->
+<!--                                    </LinearLayout>-->
+<!--                                </FrameLayout>-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:gravity="center_horizontal"-->
+<!--                                    android:text="Travel" />-->
+
+<!--                            </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+
+<!--                        </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+                    </LinearLayout>
+
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/ll_buttons"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentBottom="true"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/btnAddevent"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_25sdp"-->
+<!--                            android:layout_marginLeft="@dimen/_70sdp"-->
+<!--                            android:layout_marginRight="@dimen/_70sdp"-->
+<!--                            android:background="@drawable/button11"-->
+<!--                            android:gravity="center"-->
+<!--                            android:orientation="horizontal">-->
+
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="@dimen/_14sdp"-->
+<!--                                android:layout_height="@dimen/_14sdp"-->
+<!--                                android:src="@drawable/ic_add" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="@dimen/_5sdp"-->
+<!--                                android:fontFamily="@font/proxima_nova"-->
+<!--                                android:text="Continue"-->
+<!--                                android:textColor="@android:color/white"-->
+<!--                                android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                        </LinearLayout>-->
+
+
+
+
+<!--                    </LinearLayout>-->
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@android:color/black" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Select Category"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

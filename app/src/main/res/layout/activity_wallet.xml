@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Wallet">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2EEF8"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_ticketsales"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/bg3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTicketsale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$1050.25"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:textStyle="bold" />
+
+
+                        <ImageView
+                            android:id="@+id/ticketImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_ticket"
+                            app:tint="@color/colorAccent" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTicketsales"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_weight="0.5"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Ticket Sales"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnTicketreport"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_40sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/button17"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="View Report"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btnTicketsell"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$00.00"
+                            android:textColor="@color/quantum_yellow"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/tvAvailablecash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Available for Cash Out"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ImageView
+                            android:id="@+id/tsArrow"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_weight="0.5"
+                            android:src="@drawable/ic_forward"
+                            app:tint="@color/colorAccent" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_commission"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/bg3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCommission"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$1000.00"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/comissionImg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="1dp"
+                            android:src="@drawable/ic_percentage" />
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvComi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_15sdp"
+                            android:layout_weight="0.5"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Commission"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnComissionreport"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginLeft="@dimen/_40sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/button17"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="View Report"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/btncashoutHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="$00.00"
+                            android:textColor="@color/quantum_yellow"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/tvCommissioncashout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_8sdp"
+                            android:layout_weight="0.25"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Available for Cash Out"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_12sdp" />
+
+
+                        <ImageView
+                            android:id="@+id/carrow"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_12sdp"
+                            android:layout_weight="0.5"
+                            android:src="@drawable/ic_forward"
+                            app:tint="@color/colorAccent" />
+
+                    </LinearLayout>
+
+
+                    <!--                    <androidx.appcompat.widget.AppCompatButton-->
+                    <!--                        android:id="@+id/btnCashout"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="@dimen/_30sdp"-->
+                    <!--                        android:layout_marginLeft="@dimen/_15sdp"-->
+                    <!--                        android:layout_marginTop="@dimen/_20sdp"-->
+                    <!--                        android:layout_marginRight="@dimen/_190sdp"-->
+                    <!--                        android:background="@drawable/button4"-->
+                    <!--                        android:fontFamily="@font/proxima_nova"-->
+                    <!--                        android:text="Cash Out"-->
+                    <!--                        android:textAllCaps="false"-->
+                    <!--                        android:textColor="@color/colorAccent"-->
+                    <!--                        android:textSize="16sp" />-->
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_epoints"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/bg3"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvEpoints"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="1365"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_20sdp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/Imgstar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_star" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tvep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnViewreport"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginRight="@dimen/_25sdp"
+                            android:layout_weight="0.4"
+                            android:background="@drawable/button17"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="View Report"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnBuynow"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/button17"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Buy Now"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:id="@+id/rewardsUnderline"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5sp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/colorAccent" />
+
+                    <LinearLayout
+                        android:id="@+id/btnViewrewards"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/rewardsImg"
+                            android:layout_width="@dimen/_18sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:src="@drawable/ic_sign1" />
+
+                        <TextView
+                            android:id="@+id/tvRewards"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_7sdp"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="View Rewards"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_14sdp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/btnEditbankinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginLeft="@dimen/_65sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_65sdp"
+                    android:background="@drawable/button4"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_edit" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Edit Bank Information"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginLeft="@dimen/_55sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_55sdp"
+                    android:background="@drawable/button4"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_edit" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Edit Payment Information"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/btnShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginLeft="@dimen/_75sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_75sdp"
+                    android:background="@drawable/button2"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:src="@drawable/ic_share" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_7sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Invite a friend"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:gravity="center_horizontal"
+                    android:text="Earn 50 points per accepted invites"
+                    android:textColor="#4E4A5B"
+                    android:textSize="@dimen/_12sdp" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_70sdp"
+                    android:src="@drawable/ic_boygirl" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="#F2EEF8"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/dp"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Wallet Balance"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/include_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+
+</RelativeLayout>

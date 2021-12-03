@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2EEF8"
+    tools:context=".Commissionsearned">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2EEF8"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Commissions Earned"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_16sdp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Commissions can be cash out once the event is pasted."
+                android:textSize="@dimen/_12sdp" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_commissionreport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+
+
+            <!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardCornerRadius="@dimen/_10sdp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_20sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:layout_marginRight="@dimen/_15sdp"-->
+<!--                    android:fontFamily="@font/proxima_nova"-->
+<!--                    android:text="23 Jan 2020"-->
+<!--                    android:textSize="@dimen/_12sdp" />-->
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_150sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    app:cardCornerRadius="@dimen/_7sdp">-->
+
+<!--                    <RelativeLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <androidx.appcompat.widget.AppCompatImageView-->
+<!--                            android:id="@+id/imgBanner"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:scaleType="centerCrop"-->
+<!--                            android:src="@drawable/bg7" />-->
+
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="@dimen/_150sdp"-->
+<!--                            android:background="@drawable/ic_bg4"-->
+<!--                            android:orientation="vertical">-->
+
+
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_alignParentBottom="true"-->
+<!--                                android:layout_marginLeft="@dimen/_20sdp"-->
+<!--                                android:layout_marginBottom="@dimen/_20sdp"-->
+<!--                                android:orientation="vertical">-->
+
+
+<!--                                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:fontFamily="@font/proxima_nova"-->
+<!--                                    android:text="Bright Music Festival"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:textSize="@dimen/_14sdp" />-->
+
+
+<!--                            </LinearLayout>-->
+
+
+<!--                        </RelativeLayout>-->
+
+
+<!--                    </RelativeLayout>-->
+
+
+<!--                </androidx.cardview.widget.CardView>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_35sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="@dimen/_10sdp"-->
+<!--                        android:layout_height="@dimen/_10sdp"-->
+<!--                        android:src="@drawable/ic_brightness"-->
+<!--                        app:tint="#3BD141" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="@dimen/_5sdp"-->
+<!--                        android:layout_marginRight="@dimen/_25sdp"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="Live"-->
+<!--                        android:textColor="#3BD141"-->
+<!--                        android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                </LinearLayout>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_35sdp"-->
+<!--                    android:layout_marginTop="@dimen/_10sdp"-->
+<!--                    android:layout_marginRight="@dimen/_20sdp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="Browse Category"-->
+<!--                        android:textSize="@dimen/_12sdp" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:id="@+id/btnViewall"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="Commission Earned"-->
+<!--                        android:textSize="@dimen/_12sdp" />-->
+
+<!--                </RelativeLayout>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_35sdp"-->
+<!--                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                    android:layout_marginRight="@dimen/_20sdp"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="276"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="$5,520.00"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                </RelativeLayout>-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_35sdp"-->
+<!--                    android:layout_marginTop="@dimen/_25sdp"-->
+<!--                    android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                    android:orientation="horizontal">-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/btnViewdeails"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginLeft="@dimen/_35sdp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/proxima_nova"-->
+<!--                            android:text="View Details"-->
+<!--                            android:textColor="@color/colorAccent"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginLeft="@dimen/_35sdp"-->
+<!--                        android:layout_marginRight="@dimen/_15sdp"-->
+<!--                        android:layout_weight="0.5"-->
+<!--                        android:background="@drawable/loginbutton2"-->
+<!--                        android:gravity="center">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/proxima_nova"-->
+<!--                            android:gravity="center_horizontal"-->
+<!--                            android:text="Cash Out"-->
+<!--                            android:textAlignment="center"-->
+<!--                            android:textColor="@android:color/white" />-->
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </LinearLayout>-->
+
+
+<!--                </LinearLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="#F2EEF8"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="@android:color/black" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

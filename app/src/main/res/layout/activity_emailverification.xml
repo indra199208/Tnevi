@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Emailverification">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical">
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:src="@drawable/ic_mail" />
+
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/_14sdp"
+                android:text="Please enter the 4 digit code sent to jhonsmith@gmail.com" />
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <EditText
+                    android:id="@+id/etOtp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:backgroundTint="@android:color/white"
+                    android:background="@null"
+                    android:layout_marginLeft="@dimen/_70sdp"
+                    android:layout_marginRight="@dimen/_70sdp"
+                    android:textSize="@dimen/_36sdp"
+                    android:drawablePadding="5dp"
+                    android:textAlignment="center"
+                    android:hint="-  -  -  -"
+                    android:imeOptions="actionNext"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/proxima_nova"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="#49368B"
+                    android:textColorHint="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/etResendotp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/_12sdp"
+                android:text="Resent Code" />
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVerify"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_70sdp"
+                android:layout_marginRight="@dimen/_40sdp"
+                android:background="@drawable/loginbutton2"
+                android:fontFamily="@font/proxima_nova"
+                android:text="Verify"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                app:tint="#8E859D" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Verify Email"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/btn_logout2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

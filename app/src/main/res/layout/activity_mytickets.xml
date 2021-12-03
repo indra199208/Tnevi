@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2EEF8"
+    tools:context=".Mytickets">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_45sdp">
+
+        <LinearLayout
+            android:id="@+id/ll_mytickets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F2EEF8"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Upcoming Events"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textSize="@dimen/_14sdp" />
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/button9"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center">
+
+
+                    <Spinner
+                        android:id="@+id/spSort"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/lora_regular"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </LinearLayout>
+
+
+                <!--                <LinearLayout-->
+<!--                    android:layout_width="@dimen/_50sdp"-->
+<!--                    android:layout_height="@dimen/_25sdp"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:layout_marginTop="@dimen/_5sdp"-->
+<!--                    android:background="@drawable/button9"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="All"-->
+<!--                        android:textColor="@android:color/darker_gray"-->
+<!--                        android:textSize="@dimen/_10sdp" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="@dimen/_10sdp"-->
+<!--                        android:layout_height="@dimen/_10sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_5sdp"-->
+<!--                        android:src="@drawable/ic_drop_down" />-->
+
+
+<!--                </LinearLayout>-->
+
+            </RelativeLayout>
+
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="23 Jan 2020"-->
+<!--                android:textStyle="bold"-->
+<!--                android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_15sdp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:fontFamily="@font/proxima_nova"-->
+<!--                android:textSize="@dimen/_12sdp" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_54sdp"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMytickets"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+    <include
+        layout="@layout/include_bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+
+    <include
+        layout="@layout/include_event_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>
