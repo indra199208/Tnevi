@@ -287,6 +287,8 @@ public class Ticketdetails extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+
+
             JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.EmailTicketSend, params, response -> {
 
                 Log.i("Response-->", String.valueOf(response));
