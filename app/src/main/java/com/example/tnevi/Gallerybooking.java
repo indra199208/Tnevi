@@ -100,8 +100,9 @@ public class Gallerybooking extends AppCompatActivity {
                 .into(venueImg);
 
         onClick();
-        sprow();
         spsection();
+        sprow();
+
     }
 
 
@@ -212,6 +213,36 @@ public class Gallerybooking extends AppCompatActivity {
 
 
 
+    public void spsection() {
+
+
+        block.clear();
+        setblock.clear();
+        block.add("Select");
+        try {
+            JSONObject result = new JSONObject(response2);
+            JSONObject userdeatisObj = result.getJSONObject("data");
+            JSONObject venueObj = userdeatisObj.getJSONObject("venue");
+            JSONArray blockarray = venueObj.getJSONArray("blocks");
+            for (int i = 0; i < blockarray.length(); i++) {
+                JSONObject blockobj = blockarray.getJSONObject(i);
+                String block_name = blockobj.getString("block_name");
+                String block_id = blockobj.getString("id");
+                block.add(block_name);
+                SeatModel2 seatModel2 = new SeatModel2 (block_name, block_id);
+                setblock.add(seatModel2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, block);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spSection.setAdapter(arrayAdapter);
+
+    }
+
+
 
     private void sprow() {
 
@@ -246,37 +277,11 @@ public class Gallerybooking extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spRow.setAdapter(arrayAdapter);
 
+
+
     }
 
 
-    public void spsection() {
-
-
-        block.clear();
-        setblock.clear();
-        block.add("Select");
-        try {
-            JSONObject result = new JSONObject(response2);
-            JSONObject userdeatisObj = result.getJSONObject("data");
-            JSONObject venueObj = userdeatisObj.getJSONObject("venue");
-            JSONArray blockarray = venueObj.getJSONArray("blocks");
-            for (int i = 0; i < blockarray.length(); i++) {
-                JSONObject blockobj = blockarray.getJSONObject(i);
-                String block_name = blockobj.getString("block_name");
-                String block_id = blockobj.getString("id");
-                block.add(block_name);
-                SeatModel2 seatModel2 = new SeatModel2 (block_name, block_id);
-                setblock.add(seatModel2);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, block);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spSection.setAdapter(arrayAdapter);
-
-    }
 
 
     public void seatAviliblity(){

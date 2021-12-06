@@ -58,6 +58,7 @@ public class Allurl {
     public static String ApplyEpoints;
     public static String ViewTickets;
     public static String EmailTicketSend;
+    public static String QRlist;
 
 
 
@@ -120,6 +121,7 @@ public class Allurl {
         ApplyEpoints = baseUrl+"/apply-epoints";
         ViewTickets = baseUrl+"/view-ticket";
         EmailTicketSend = baseUrl + "/email-ticket";
+        QRlist = baseUrl+"/qr-code-for-seats";
 
 
 

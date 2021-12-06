@@ -56,11 +56,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.MyViewHold
             public void onClick(View view) {
 
                 Intent intent = new Intent(ctx, QRcode.class);
-                intent.putExtra("section", ticketModelArrayList.get(position).getBlock_name());
-                intent.putExtra("row", ticketModelArrayList.get(position).getRow_name());
-                intent.putExtra("seat", ticketModelArrayList.get(position).getSeat_no());
-                intent.putExtra("qr",ticketModelArrayList.get(position).getQr_id());
-                intent.putExtra("status",ticketModelArrayList.get(position).getStatus());
+                intent.putExtra("booking_id", ticketModelArrayList.get(position).getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 ctx.startActivity(intent);
 
