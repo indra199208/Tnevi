@@ -22,7 +22,7 @@
             <RadioButton
                 android:id="@+id/radioButton"
                 android:layout_width="@dimen/_10sdp"
-                android:layout_height="@dimen/_15sdp"
+                android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:backgroundTint="@color/colorAccent" />
 

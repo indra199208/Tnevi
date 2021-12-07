@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FAF6FF"
     android:orientation="vertical"
-    tools:context=".Profile">
+    tools:context="com.ivan.tnevi.Profile">
 
 
     <ScrollView

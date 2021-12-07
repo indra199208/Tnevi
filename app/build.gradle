@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.tnevi"
+        applicationId "com.ivan.tnevi"
         minSdkVersion 19
         targetSdkVersion 31
         versionCode 1

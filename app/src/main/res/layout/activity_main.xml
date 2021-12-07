@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:context=".MainActivity">
+        app:context="com.ivan.tnevi.MainActivity">
 
 
         <com.amar.library.ui.StickyScrollView

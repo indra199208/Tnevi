@@ -1,49 +1,42 @@
 {
   "project_info": {
-    "project_number": "618250767982",
-    "project_id": "tnevi-1624430586346",
-    "storage_bucket": "tnevi-1624430586346.appspot.com"
+    "project_number": "1055532827686",
+    "project_id": "tnevi-ff65f",
+    "storage_bucket": "tnevi-ff65f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:618250767982:android:7cf82d318ee9d10bc0a07f",
+        "mobilesdk_app_id": "1:1055532827686:android:cc40a1f20e5b0d8e8cd2e7",
         "android_client_info": {
-          "package_name": "com.example.tnevi"
+          "package_name": "com.ivan.tnevi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "618250767982-6kcuusjbj3q4h8tj8s07kk133d1ebmgh.apps.googleusercontent.com",
+          "client_id": "1055532827686-9lbvs7uj6qhhv1647eof1dp0cb0056mm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.tnevi",
+            "package_name": "com.ivan.tnevi",
             "certificate_hash": "2672e4ae1a847f42f66295b98445851550004ae3"
           }
         },
         {
-          "client_id": "618250767982-3ljtvu3djtutmdum8tapn44ijesn4gsi.apps.googleusercontent.com",
+          "client_id": "1055532827686-t6ogtnge8b1n69pct3g75rsjgn7l7ss7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDmglNi7r7ToDBMft-sjnPE8qLk56YqSTY"
+          "current_key": "AIzaSyCIcKA6kJi3lBXFpC_41buPQYF4K_cb4HM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "618250767982-3ljtvu3djtutmdum8tapn44ijesn4gsi.apps.googleusercontent.com",
+              "client_id": "1055532827686-t6ogtnge8b1n69pct3g75rsjgn7l7ss7.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "618250767982-i8048p6h8u99j6ppqhndmhq2oj57eg83.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.ivan.tnevi"
-              }
             }
           ]
         }

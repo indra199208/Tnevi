@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Eventgeneraldetails">
+    tools:context="com.ivan.tnevi.Eventgeneraldetails">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -279,6 +279,7 @@
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
+                android:id="@+id/btnPayoutDownload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
@@ -295,11 +296,13 @@
                 android:fontFamily="@font/proxima_nova"
                 android:gravity="center_horizontal"
                 android:text="Report Download Will Call"
+                android:visibility="gone"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/_12sdp" />
 
 
             <TextView
+                android:id="@+id/btnAttendancereportDownload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
