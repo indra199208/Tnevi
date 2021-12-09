@@ -62,6 +62,7 @@ public class Allurl {
     public static String NotificationList;
     public static String ReportDownload;
     public static String PayoutDownload;
+    public static String EventsMayLike;
 
 
 
@@ -128,6 +129,7 @@ public class Allurl {
         NotificationList = baseUrl+"/user_notification";
         ReportDownload = baseUrl + "/event-attendance-report";
         PayoutDownload = baseUrl + "/event-payout-report";
+        EventsMayLike = baseUrl+"/events-may-like";
 
 
 

@@ -443,7 +443,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova"
-                            android:text="Date and Time"
+                            android:text="Start and End Date"
                             android:textSize="@dimen/_10sdp" />
 
                         <TextView
@@ -809,174 +809,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:layout_marginTop="@dimen/_15sdp">
 
-
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_youmaylike"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"/>
 
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_135sdp"
-                            android:layout_marginLeft="@dimen/_15sdp"
-                            android:layout_marginRight="@dimen/_5sdp"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/pic2" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_135sdp"
-                                android:background="@drawable/ic_pic1"
-                                android:orientation="vertical">
-
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginLeft="@dimen/_10sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
-                                    android:orientation="vertical">
-
-
-                                    <androidx.appcompat.widget.AppCompatTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/proxima_nova"
-                                        android:text="Bright Music Festival"
-                                        android:textColor="@android:color/white"
-                                        android:textSize="@dimen/_12sdp" />
-
-
-                                    <androidx.appcompat.widget.LinearLayoutCompat
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:orientation="horizontal">
-
-                                        <androidx.appcompat.widget.AppCompatImageView
-                                            android:layout_width="@dimen/_10sdp"
-                                            android:layout_height="@dimen/_10sdp"
-                                            android:layout_gravity="center"
-                                            android:layout_marginRight="@dimen/_10sdp"
-                                            android:src="@drawable/ic_percentage"
-                                            android:tint="@android:color/white" />
-
-                                        <androidx.appcompat.widget.AppCompatTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/proxima_nova"
-                                            android:text="$5.00/Ticket"
-                                            android:textColor="@android:color/white"
-                                            android:textSize="@dimen/_10sdp" />
-
-
-                                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-                                </LinearLayout>
-
-
-                            </RelativeLayout>
-
-
-                        </RelativeLayout>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_135sdp"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginRight="@dimen/_15sdp"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/pic3" />
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_135sdp"
-                                android:background="@drawable/ic_bg4"
-                                android:orientation="vertical">
-
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginLeft="@dimen/_10sdp"
-                                    android:layout_marginBottom="@dimen/_20sdp"
-                                    android:orientation="vertical">
-
-
-                                    <androidx.appcompat.widget.AppCompatTextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:fontFamily="@font/proxima_nova"
-                                        android:text="Bright Music Festival"
-                                        android:textColor="@android:color/white"
-                                        android:textSize="@dimen/_12sdp" />
-
-
-                                    <androidx.appcompat.widget.LinearLayoutCompat
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:orientation="horizontal">
-
-                                        <androidx.appcompat.widget.AppCompatImageView
-                                            android:layout_width="@dimen/_10sdp"
-                                            android:layout_height="@dimen/_10sdp"
-                                            android:layout_gravity="center"
-                                            android:layout_marginRight="@dimen/_10sdp"
-                                            android:src="@drawable/ic_percentage"
-                                            android:tint="@android:color/white" />
-
-                                        <androidx.appcompat.widget.AppCompatTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/proxima_nova"
-                                            android:text="$5.00/Ticket"
-                                            android:textColor="@android:color/white"
-                                            android:textSize="@dimen/_10sdp" />
-
-
-                                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-                                </LinearLayout>
-
-
-                            </RelativeLayout>
-
-
-                        </RelativeLayout>
-
-
-                    </LinearLayout>
 
 
                 </LinearLayout>

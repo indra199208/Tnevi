@@ -40,12 +40,13 @@ import java.util.Map;
 public class Checkoutpaymentinfo extends AppCompatActivity {
 
     ImageView btn_back;
-    TextView tvEventname, tvDate, tvAddress, tvSubtotal, tvGrandtotal;
+    TextView tvEventname, tvDate, tvAddress, tvSubtotal, tvGrandtotal, tvDiscount;
     LinearLayout btnDone;
-    String eventname, date, address, total, postedby, rowid, blockid, eventid, latvalue, lonvalue , currencyid, fees, seatnumber, token ;
+    String eventname, date, address, total, postedby, rowid, blockid, eventid, latvalue,
+            lonvalue , currencyid, fees, seatnumber, token, dis_amount ;
     private static final String SHARED_PREFS = "sharedPrefs";
 
-    public static final String clientKey = "AUdZashbU83Uow1ZgTUHgXL5lAXepjAd6hwymlCQi08TTEvWYfS132F91TVtt5jO0toWvTBjSDT7hc4O";
+    public static final String clientKey = "AXtUmNzJQFSZ_SmHv0nBBQ7tcrRMRplPK0C1ozdrytJeDEImYlN5OBSOD0fXUUp2ce9_MtQFVreVQqPI";
     public static final int PAYPAL_REQUEST_CODE = 123;
 
     // Paypal Configuration Object
@@ -70,6 +71,7 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
         currencyid = intent.getStringExtra("currencyid");
         fees = intent.getStringExtra("fees");
         seatnumber = intent.getStringExtra("seatnumber");
+        dis_amount = intent.getStringExtra("dis_amount");
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
         tvEventname = findViewById(R.id.tvEventname);
@@ -79,11 +81,21 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
         btnDone = findViewById(R.id.btnDone);
         tvSubtotal = findViewById(R.id.tvSubtotal);
         tvGrandtotal = findViewById(R.id.tvGrandtotal);
+        tvDiscount = findViewById(R.id.tvDiscount);
         tvEventname.setText(eventname);
         tvDate.setText(date);
         tvAddress.setText(address);
         tvSubtotal.setText("$"+total);
-        tvGrandtotal.setText("$"+total);
+        if (dis_amount==null){
+            tvDiscount.setText("$0.00");
+            tvGrandtotal.setText("$"+total);
+        }else {
+            tvDiscount.setText("$"+dis_amount);
+            int final_ = Integer.parseInt(total) - Integer.parseInt(dis_amount);
+            String GrandTotal = String.valueOf(final_);
+            tvGrandtotal.setText("$"+GrandTotal);
+
+        }
 
 
         btnDone.setOnClickListener(new View.OnClickListener() {

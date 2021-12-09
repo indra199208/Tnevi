@@ -3,8 +3,15 @@ package com.ivan.tnevi.model;
 public class CategoryModel {
 
     private String categoryname, pic, description, id;
+    private boolean isSelected = false;
 
+    public boolean isSelected() {
+        return isSelected;
+    }
 
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 
     public String getId() {
         return id;

@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amar.library.ui.StickyScrollView;
@@ -37,13 +38,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.ivan.tnevi.Adapters.GalleryAdapter;
-import com.ivan.tnevi.Allurl.Allurl;
 import com.example.tnevi.R;
-import com.ivan.tnevi.Utils.ItemOffsetDecoration;
-import com.ivan.tnevi.internet.CheckConnectivity;
-import com.ivan.tnevi.model.GalleryModel;
-import com.ivan.tnevi.session.SessionManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -54,6 +49,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.ivan.tnevi.Adapters.FeaturedAdapter;
+import com.ivan.tnevi.Adapters.GalleryAdapter;
+import com.ivan.tnevi.Allurl.Allurl;
+import com.ivan.tnevi.Utils.ItemOffsetDecoration;
+import com.ivan.tnevi.internet.CheckConnectivity;
+import com.ivan.tnevi.model.GalleryModel;
+import com.ivan.tnevi.model.GeteventModel;
+import com.ivan.tnevi.session.SessionManager;
 import com.kv.popupimageview.PopupImageView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -77,13 +80,14 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
     private static final String TAG = "myapp";
     private static final String SHARED_PREFS = "sharedPrefs";
+    private static final String SHARED_PREFS2 = "chooselike";
     SessionManager sessionManager;
     String useremail, username, token, eventId, response2;
     ImageView btn_back, imgBanner, btnSend;
     String msg, eventname, postedby, eventimage, freestat, social, comission,
             eventdate, stime, etime, minprice, maxprice, phonenumber,
             address, longval, latval, description, venuename, venueaddress, currencyid,
-            youtubelink, videoid, id, userid, favstatus, venueImage;
+            youtubelink, videoid, id, userid, favstatus, venueImage, event_edate, choosecategoryid;
 
     LikeButton btnHeart;
     YouTubePlayerView youtube_player_view;
@@ -92,15 +96,16 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
     LinearLayout btnEarncash, btnBuyticket, btnSpam;
-    RecyclerView rv_gallery;
+    RecyclerView rv_gallery, rv_youmaylike;
     private ArrayList<GalleryModel> galleryModelArrayList;
     private GalleryAdapter galleryAdapter;
     StickyScrollView scrollview;
     CardView ll_details;
-    int maxTexSize = 30;
     EditText etEmail;
     JSONArray gallery_data;
     ArrayList<String> list = new ArrayList<>();
+    private ArrayList<GeteventModel> homeEventsModelArrayList;
+    private FeaturedAdapter featuredAdapter;
 
 
 
@@ -130,6 +135,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         btnSend = findViewById(R.id.btnSend);
         etEmail = findViewById(R.id.etEmail);
         btnSpam = findViewById(R.id.btnSpam);
+        rv_youmaylike = findViewById(R.id.rv_youmaylike);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -138,6 +144,8 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         token = sharedPreferences.getString("token", "");
         username = sharedPreferences.getString("name", "");
         useremail = sharedPreferences.getString("email", "");
+        SharedPreferences sharedPreferences2 = getApplicationContext().getSharedPreferences(SHARED_PREFS2, MODE_PRIVATE);
+        choosecategoryid = sharedPreferences2.getString("chosen_categories", "");
 
         getEventDetails();
 
@@ -237,12 +245,12 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                 intent.putExtra("response2", response2);
                 intent.putExtra("maxprice", maxprice);
                 intent.putExtra("event_id", eventId);
-                intent.putExtra("name",postedby);
-                intent.putExtra("latvalue",latval);
-                intent.putExtra("lonvalue",longval);
-                intent.putExtra("currencyid",currencyid);
-                intent.putExtra("venueimage",venueImage);
-                intent.putExtra("fees","12");
+                intent.putExtra("name", postedby);
+                intent.putExtra("latvalue", latval);
+                intent.putExtra("lonvalue", longval);
+                intent.putExtra("currencyid", currencyid);
+                intent.putExtra("venueimage", venueImage);
+                intent.putExtra("fees", "12");
                 startActivity(intent);
 
             }
@@ -250,9 +258,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
-
-    public void Spam(){
+    public void Spam() {
 
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
@@ -377,6 +383,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                         comission = userdeatisObj.getString("event_commission");
                         currencyid = userdeatisObj.getString("currency_id");
                         eventdate = userdeatisObj.getString("event_date");
+                        event_edate = userdeatisObj.getString("event_edate");
                         stime = userdeatisObj.getString("event_stime");
                         etime = userdeatisObj.getString("event_etime");
                         minprice = userdeatisObj.getString("min_price");
@@ -404,7 +411,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                         tvPostedby.setText(postedby);
                         tvEventdate.setText("$" + minprice + "-" + "$" + maxprice);
                         tvTicketprice.setText("$" + comission + "/Price");
-                        tvEventdate2.setText(eventdate);
+                        tvEventdate2.setText(eventdate+" - "+event_edate);
                         tvAddress.setText(address);
                         tvEventdetails.setText(description);
                         btnHeart.setLiked(favstatus.equals("1"));
@@ -424,6 +431,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                         }, true);
 
                         fetchLocation();
+                        choosemaylike();
 
 
                     } else {
@@ -468,6 +476,124 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+
+    public void choosemaylike() {
+
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+
+            showProgressDialog();
+
+            JSONObject params = new JSONObject();
+
+            try {
+                params.put("commission", "");
+                params.put("search_address", "");
+                params.put("page_no", 1);
+                params.put("categories", choosecategoryid);
+                params.put("search_date", "");
+                params.put("keyword", "");
+                params.put("featured_event", "");
+                params.put("fev_list", "");
+                params.put("highlight_event ", "");
+                params.put("featured_event ", "");
+                params.put("top_events", "");
+                params.put("latitude", 0.0);
+                params.put("longitude", 0.0);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.GetEvent, params, response -> {
+
+                Log.i("Response-->", String.valueOf(response));
+
+                try {
+                    JSONObject result = new JSONObject(String.valueOf(response));
+                    String msg = result.getString("message");
+                    Log.d(TAG, "msg-->" + msg);
+                    String stat = result.getString("stat");
+                    if (stat.equals("succ")) {
+
+                        homeEventsModelArrayList = new ArrayList<>();
+                        JSONArray response_data = result.getJSONArray("data");
+                        for (int i = 0; i < response_data.length(); i++) {
+
+                            GeteventModel geteventModel = new GeteventModel();
+                            JSONObject responseobj = response_data.getJSONObject(i);
+                            geteventModel.setId(responseobj.getString("id"));
+                            geteventModel.setEvent_name(responseobj.getString("event_name"));
+                            if (!responseobj.isNull("event_image")) {
+                                geteventModel.setEvent_image(responseobj.getString("event_image"));
+                            } else {
+                                geteventModel.setEvent_image("");
+                            }
+                            geteventModel.setFree_stat(responseobj.getString("free_stat"));
+                            geteventModel.setCurrency_id(responseobj.getString("currency_id"));
+                            geteventModel.setEvent_date(responseobj.getString("event_date"));
+                            geteventModel.setMax_price(responseobj.getString("max_price"));
+                            geteventModel.setMin_price(responseobj.getString("min_price"));
+                            geteventModel.setEvent_commission(responseobj.getString("event_commission"));
+                            geteventModel.setEvent_address(responseobj.getString("event_address"));
+                            geteventModel.setStatus(responseobj.getString("status"));
+                            geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
+                            geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
+                            geteventModel.setTicket_stat(responseobj.getString("top_events"));
+                            geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            homeEventsModelArrayList.add(geteventModel);
+
+                        }
+
+                        featuredAdapter = new FeaturedAdapter(this, homeEventsModelArrayList);
+                        rv_youmaylike.setAdapter(featuredAdapter);
+                        rv_youmaylike.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+                        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing3);
+                        rv_youmaylike.addItemDecoration(itemDecoration);
+
+                    } else {
+
+                        Log.d(TAG, "unsuccessfull - " + "Error");
+                        Toast.makeText(Eventdetails.this, "invalid", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                hideProgressDialog();
+
+                //TODO: handle success
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(Eventdetails.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                }
+            }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+            };
+
+            Volley.newRequestQueue(this).add(jsonRequest);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+
     private String getYouTubeId(String youTubeUrl) {
         String pattern = "(?<=youtu.be/|watch\\?v=|/videos/|embed\\/)[^#\\&\\?]*";
         Pattern compiledPattern = Pattern.compile(pattern);
@@ -489,13 +615,11 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void popupImage(GalleryModel galleryModel, View view, int pos){
+    public void popupImage(GalleryModel galleryModel, View view, int pos) {
 
         new PopupImageView(this, view, list, pos, "http://dev8.ivantechnology.in/tnevi/storage/app/");
 
     }
-
-
 
 
     public void addRemovefav() {

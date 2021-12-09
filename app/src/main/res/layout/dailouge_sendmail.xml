@@ -15,14 +15,15 @@
         <EditText
             android:id="@+id/details"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_80sdp"
+            android:layout_height="@dimen/_130sdp"
             android:layout_marginTop="20sp"
             android:fontFamily="@font/proxima_nova"
             android:hint="Enter Details"
-            android:inputType="text"
+            android:gravity="top|left"
+            android:padding="@dimen/_7sdp"
+            android:inputType="textMultiLine"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:padding="15dp"/>
+            android:layout_marginRight="@dimen/_10sdp"/>
         <Button
             android:id="@+id/submit"
             android:layout_width="@dimen/_80sdp"

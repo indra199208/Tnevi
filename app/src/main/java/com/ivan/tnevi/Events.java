@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,9 +62,11 @@ public class Events extends SwipeActivityClass {
     String useremail, username, token;
     private RecyclerView rvMyevents;
     private MyeventAdapter myeventAdapter;
-    ArrayList<MyeventModel> myeventModelArrayList;
+    ArrayList<MyeventModel> myeventModelArrayList = new ArrayList<>();
     View myTicketU, myEventU, myFavU, mySellingU, mySoldU;
     LinearLayout ll_event;
+    private NestedScrollView nestedSV;
+    int page = 1, limit = 10;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -71,17 +74,17 @@ public class Events extends SwipeActivityClass {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
-        btnMytickets = (LinearLayoutCompat) findViewById(R.id.btnMytickets);
-        btnSold = (LinearLayoutCompat) findViewById(R.id.btnSold);
-        btnFav = (LinearLayoutCompat) findViewById(R.id.btnFav);
-        btnSelling = (LinearLayoutCompat) findViewById(R.id.btnSelling);
-        btnMysearch = (LinearLayoutCompat) findViewById(R.id.btnMysearch);
-        btnSearch = (LinearLayoutCompat) findViewById(R.id.btnSearch);
-        btnWallet = (LinearLayoutCompat) findViewById(R.id.btnWallet);
-        btnProf = (LinearLayoutCompat) findViewById(R.id.btnProf);
-        btnSettings = (LinearLayoutCompat) findViewById(R.id.btnSettings);
-        btnEvent = (LinearLayoutCompat) findViewById(R.id.btnEvent);
-        btnHome = (LinearLayoutCompat) findViewById(R.id.btnHome);
+        btnMytickets = findViewById(R.id.btnMytickets);
+        btnSold =  findViewById(R.id.btnSold);
+        btnFav = findViewById(R.id.btnFav);
+        btnSelling =  findViewById(R.id.btnSelling);
+        btnMysearch =  findViewById(R.id.btnMysearch);
+        btnSearch =  findViewById(R.id.btnSearch);
+        btnWallet =  findViewById(R.id.btnWallet);
+        btnProf = findViewById(R.id.btnProf);
+        btnSettings = findViewById(R.id.btnSettings);
+        btnEvent = findViewById(R.id.btnEvent);
+        btnHome = findViewById(R.id.btnHome);
         myEvents = findViewById(R.id.myEvents);
         iconEvent = findViewById(R.id.iconEvent);
         relGenerate = findViewById(R.id.relGenerate);
@@ -93,6 +96,8 @@ public class Events extends SwipeActivityClass {
         myFavU = findViewById(R.id.myFavU);
         mySellingU = findViewById(R.id.mySellingU);
         mySoldU = findViewById(R.id.mySoldU);
+        nestedSV = findViewById(R.id.idNestedSV);
+
 
 
         myEvents.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
@@ -115,7 +120,7 @@ public class Events extends SwipeActivityClass {
 
 
         onclick();
-        myEvents();
+        myEvents(page, limit);
 
 
     }
@@ -137,6 +142,19 @@ public class Events extends SwipeActivityClass {
 
 
     public void onclick() {
+
+
+        nestedSV.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
+                    page++;
+                    showProgressDialog();
+                    myEvents(page, limit);
+                }
+            }
+        });
+
 
         btnMytickets.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,15 +252,18 @@ public class Events extends SwipeActivityClass {
         });
 
 
-
-
-
     }
 
 
-    public void myEvents() {
+    public void myEvents(int page, int limit) {
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+            if (page > limit) {
+                Toast.makeText(this, "That's all the data..", Toast.LENGTH_SHORT).show();
+                hideProgressDialog();
+                return;
+            }
 
 
             showProgressDialog();
@@ -250,7 +271,7 @@ public class Events extends SwipeActivityClass {
             JSONObject params = new JSONObject();
 
             try {
-                params.put("page_no", "3");
+                params.put("page_no", page);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -268,7 +289,6 @@ public class Events extends SwipeActivityClass {
                     String stat = result.getString("stat");
                     if (stat.equals("succ")) {
 
-                        myeventModelArrayList = new ArrayList<>();
                         JSONArray response_data = result.getJSONArray("data");
                         for (int i = 0; i < response_data.length(); i++) {
 
@@ -498,7 +518,7 @@ public class Events extends SwipeActivityClass {
                     if (stat.equals("succ")) {
 
                         Toast.makeText(Events.this, "Event Mark as Sold!", Toast.LENGTH_SHORT).show();
-                        myEvents();
+                        myEvents(page, limit);
 
                     } else {
 

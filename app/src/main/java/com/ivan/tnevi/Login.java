@@ -69,7 +69,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     Button btnSignin;
     EditText etUsername, etPassword;
     String username, password, msg, fbloginstatus;
-    String status, name, email, email_verification_code, phone_no, role, address, postalcode, register_email, token, countrycode;
+    String status, name, email, email_verification_code, phone_no, role, address, postalcode, register_email, token, countrycode, set_pref;
     int id, otp_time;
     private static final String SHARED_PREFS = "sharedPrefs";
     SessionManager sessionManager;
@@ -254,6 +254,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                                     phone_no = userdeatisObj.getString("phone_no");
                                     otp_time = userdeatisObj.getInt("otp_time");
                                     token = result.getString("token");
+                                    set_pref = userdeatisObj.getString("set_preference");
                                     Log.d(TAG, "Token-->" + token);
 
                                     //SharedPref
@@ -271,10 +272,20 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                                     editor.apply();
                                     locationOn();
 
-                                    sessionManager.createLoginSession(username, password);
-                                    Intent intent = new Intent(Login.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if (set_pref.equals("0")){
+                                        Intent intent = new Intent(Login.this, Chooseyoulike.class);
+                                        intent.putExtra("username", username);
+                                        intent.putExtra("password", password);
+                                        startActivity(intent);
+                                        finish();
+                                    }else {
+                                        sessionManager.createLoginSession(username, password);
+                                        Intent intent = new Intent(Login.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
 
 
                                 } else if (stat.equals("veri_err")) {

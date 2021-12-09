@@ -61,7 +61,7 @@ public class Search extends AppCompatActivity {
 
     LinearLayoutCompat btnHome, btnSearch, btnWallet, btnProf, btnSettings, btnEvent;
     RelativeLayout rl_bg;
-    ImageView iconSearch, btn_back;
+    ImageView iconSearch, btn_back, btn_backsearch;
     EditText etEventname, etEventdate, etLocation, etEventenddate;
     Spinner spComission, spCat;
     TextView tvTitle;
@@ -125,6 +125,7 @@ public class Search extends AppCompatActivity {
 //        etLocation = findViewById(R.id.etLocation);
         ll_nocat = findViewById(R.id.ll_nocat);
         rl_bg = findViewById(R.id.rl_bg);
+        btn_backsearch = findViewById(R.id.btn_backsearch);
 
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -358,6 +359,17 @@ public class Search extends AppCompatActivity {
 
             }
         });
+
+        btn_backsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ll_searchDetails.setVisibility(View.VISIBLE);
+                rvSearch.setVisibility(View.GONE);
+                btn_backsearch.setVisibility(View.GONE);
+                btn_back.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
 
@@ -504,6 +516,8 @@ public class Search extends AppCompatActivity {
 
         ll_searchDetails.setVisibility(View.GONE);
         rvSearch.setVisibility(View.VISIBLE);
+        btn_backsearch.setVisibility(View.VISIBLE);
+        btn_back.setVisibility(View.GONE);
 
         if (etEventname.getText().toString().length() == 0) {
             eventname = "";

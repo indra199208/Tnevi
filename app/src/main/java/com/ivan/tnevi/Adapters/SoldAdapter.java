@@ -1,6 +1,7 @@
 package com.ivan.tnevi.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.tnevi.R;
+import com.ivan.tnevi.Commissionsearned;
+import com.ivan.tnevi.Editevent;
 import com.ivan.tnevi.model.GeteventModel;
 
 import java.util.ArrayList;
@@ -117,6 +120,18 @@ public class SoldAdapter extends RecyclerView.Adapter<SoldAdapter.MyViewHolder> 
                 holder.ll_cancel.setVisibility(View.VISIBLE);
                 break;
         }
+
+
+        holder.btnViewreport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(ctx, Commissionsearned.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                ctx.startActivity(intent);
+            }
+        });
 
 
 

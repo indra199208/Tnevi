@@ -408,6 +408,19 @@
                 android:src="@drawable/ic_back"
                 android:textAllCaps="false"
                 app:tint="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/btn_backsearch"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:src="@drawable/ic_back"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:tint="@android:color/black" />
+
         </LinearLayout>
 
 

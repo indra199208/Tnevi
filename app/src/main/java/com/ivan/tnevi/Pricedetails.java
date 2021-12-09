@@ -53,7 +53,7 @@ public class Pricedetails extends AppCompatActivity {
     ArrayList<String> coupon = new ArrayList<>();
     String couponprice = "";
     String selectedCoupon = "";
-    String token, epoints;
+    String token, epoints, dis_amount;
     private static final String SHARED_PREFS = "sharedPrefs";
     Spinner spCoupon;
 
@@ -176,7 +176,7 @@ public class Pricedetails extends AppCompatActivity {
                 intent.putExtra("eventname", eventname);
                 intent.putExtra("date", date);
                 intent.putExtra("address", address);
-                intent.putExtra("total",GrandTotal);
+                intent.putExtra("total",total);
                 intent.putExtra("name",postedby);
                 intent.putExtra("rowid",rowid);
                 intent.putExtra("blockid",blockid);
@@ -186,6 +186,7 @@ public class Pricedetails extends AppCompatActivity {
                 intent.putExtra("currencyid",currencyid);
                 intent.putExtra("fees",fees);
                 intent.putExtra("seatnumber",seatnumber);
+                intent.putExtra("dis_amount", dis_amount);
                 startActivity(intent);
             }
         });
@@ -316,7 +317,7 @@ public class Pricedetails extends AppCompatActivity {
                     String msg = result.getString("message");
                     Log.d(TAG, "msg-->" + msg);
                     String stat = result.getString("stat");
-                    String dis_amount = result.getString("dis_amount");
+                    dis_amount = result.getString("dis_amount");
                     String dis_type = result.getString("dis_type");
                     if (stat.equals("succ")) {
 
