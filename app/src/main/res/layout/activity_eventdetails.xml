@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Eventdetails">
+    tools:context="com.example.tnevi.com.app.tnevi.Eventdetails">
 
 
         <RelativeLayout
@@ -218,89 +218,89 @@
                 </LinearLayout>
 
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:orientation="horizontal">
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                    android:layout_marginTop="@dimen/_25sdp"-->
+<!--                    android:layout_marginRight="@dimen/_15sdp"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="horizontal">
-
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/proxima_nova"
-                            android:text="Follow"
-                            android:textColor="#4E4A5B"
-                            android:textSize="@dimen/_12sdp" />
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:orientation="horizontal">-->
 
 
-                        <ImageView
-                            android:id="@+id/btnFacebook"
-                            android:layout_width="@dimen/_15sdp"
-                            android:layout_height="@dimen/_15sdp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/_10sdp"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:src="@drawable/ic_f2"
-                            app:tint="#8E859D" />
-
-                        <ImageView
-                            android:id="@+id/btnTwitter"
-                            android:layout_width="@dimen/_15sdp"
-                            android:layout_height="@dimen/_15sdp"
-                            android:layout_gravity="center"
-                            android:layout_marginRight="@dimen/_10sdp"
-                            android:src="@drawable/ic_t2"
-                            app:tint="#8E859D" />
-
-                        <ImageView
-                            android:id="@+id/btnGmail"
-                            android:layout_width="@dimen/_15sdp"
-                            android:layout_height="@dimen/_15sdp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_insta2"
-                            app:tint="#8E859D" />
-                    </LinearLayout>
+<!--                        <androidx.appcompat.widget.AppCompatTextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:fontFamily="@font/proxima_nova"-->
+<!--                            android:text="Follow"-->
+<!--                            android:textColor="#4E4A5B"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
 
 
-                    <!--                    <LinearLayout-->
-                    <!--                        android:layout_width="match_parent"-->
-                    <!--                        android:layout_height="@dimen/_35sdp"-->
-                    <!--                        android:background="@drawable/button2"-->
-                    <!--                        android:layout_marginLeft="@dimen/_195sdp"-->
-                    <!--                        android:gravity="center"-->
-                    <!--                        android:layout_alignParentRight="true"-->
-                    <!--                        android:orientation="horizontal">-->
+<!--                        <ImageView-->
+<!--                            android:id="@+id/btnFacebook"-->
+<!--                            android:layout_width="@dimen/_15sdp"-->
+<!--                            android:layout_height="@dimen/_15sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                            android:layout_marginRight="@dimen/_10sdp"-->
+<!--                            android:src="@drawable/ic_f2"-->
+<!--                            app:tint="#8E859D" />-->
 
-                    <!--                        <ImageView-->
-                    <!--                            android:layout_width="@dimen/_14sdp"-->
-                    <!--                            android:layout_height="@dimen/_14sdp"-->
-                    <!--                            app:tint="@android:color/white"-->
-                    <!--                            android:src="@drawable/ic_percentage" />-->
+<!--                        <ImageView-->
+<!--                            android:id="@+id/btnTwitter"-->
+<!--                            android:layout_width="@dimen/_15sdp"-->
+<!--                            android:layout_height="@dimen/_15sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_marginRight="@dimen/_10sdp"-->
+<!--                            android:src="@drawable/ic_t2"-->
+<!--                            app:tint="#8E859D" />-->
 
-                    <!--                        <TextView-->
-                    <!--                            android:layout_width="wrap_content"-->
-                    <!--                            android:layout_height="wrap_content"-->
-                    <!--                            android:layout_marginLeft="@dimen/_7sdp"-->
-                    <!--                            android:fontFamily="@font/proxima_nova"-->
-                    <!--                            android:text="Commission"-->
-                    <!--                            android:textColor="@android:color/white"-->
-                    <!--                            android:textSize="@dimen/_10sdp" />-->
+<!--                        <ImageView-->
+<!--                            android:id="@+id/btnGmail"-->
+<!--                            android:layout_width="@dimen/_15sdp"-->
+<!--                            android:layout_height="@dimen/_15sdp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:src="@drawable/ic_insta2"-->
+<!--                            app:tint="#8E859D" />-->
+<!--                    </LinearLayout>-->
 
 
-                    <!--                    </LinearLayout>-->
+<!--                    &lt;!&ndash;                    <LinearLayout&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:layout_width="match_parent"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:layout_height="@dimen/_35sdp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:background="@drawable/button2"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:layout_marginLeft="@dimen/_195sdp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:gravity="center"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:layout_alignParentRight="true"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        android:orientation="horizontal">&ndash;&gt;-->
+
+<!--                    &lt;!&ndash;                        <ImageView&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:layout_width="@dimen/_14sdp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:layout_height="@dimen/_14sdp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            app:tint="@android:color/white"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:src="@drawable/ic_percentage" />&ndash;&gt;-->
+
+<!--                    &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:layout_marginLeft="@dimen/_7sdp"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:fontFamily="@font/proxima_nova"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:text="Commission"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:textColor="@android:color/white"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            android:textSize="@dimen/_10sdp" />&ndash;&gt;-->
 
 
-                </RelativeLayout>
+<!--                    &lt;!&ndash;                    </LinearLayout>&ndash;&gt;-->
+
+
+<!--                </RelativeLayout>-->
 
 
                 <LinearLayout
@@ -460,6 +460,63 @@
 
 
                 </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginLeft="@dimen/_35sdp"
+                        android:layout_marginRight="@dimen/_25sdp"
+                        android:layout_weight="0.7"
+                        android:background="@drawable/ic_bg9"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/_14sdp"
+                            android:layout_height="@dimen/_14sdp"
+                            android:src="@drawable/ic_watch"
+                            app:tint="@color/colorAccent" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="Start and End Time"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/tvTiminig"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/proxima_nova"
+                            android:text="23 Jan 2020 - 7pm"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/_12sdp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
 
 
                 <LinearLayout

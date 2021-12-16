@@ -27,7 +27,7 @@
                 android:orientation="vertical">
 
 
-                <com.ivan.tnevi.Utils.AutoResizeTextView
+                <com.app.tnevi.Utils.AutoResizeTextView
                     android:id="@+id/myTickets"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:orientation="vertical">
 
 
-                <com.ivan.tnevi.Utils.AutoResizeTextView
+                <com.app.tnevi.Utils.AutoResizeTextView
                     android:id="@+id/myEvents"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 android:orientation="vertical">
 
 
-                <com.ivan.tnevi.Utils.AutoResizeTextView
+                <com.app.tnevi.Utils.AutoResizeTextView
                     android:id="@+id/Fav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 android:orientation="vertical">
 
 
-                <com.ivan.tnevi.Utils.AutoResizeTextView
+                <com.app.tnevi.Utils.AutoResizeTextView
                     android:id="@+id/tvSelling"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <com.ivan.tnevi.Utils.AutoResizeTextView
+                <com.app.tnevi.Utils.AutoResizeTextView
                     android:id="@+id/tvSold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

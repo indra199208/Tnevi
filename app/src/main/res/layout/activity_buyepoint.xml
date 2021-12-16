@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Buyepoint">
+    tools:context="com.example.tnevi.com.app.tnevi.Buyepoint">
 
 
     <ScrollView
@@ -21,12 +21,13 @@
 
 
             <TextView
+                android:id="@+id/tvSelectedEpoint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:fontFamily="@font/proxima_nova"
                 android:gravity="center_horizontal"
-                android:text="150"
+                android:text="0"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_28sdp"
                 android:textStyle="bold" />
@@ -50,12 +51,13 @@
 
 
             <TextView
+                android:id="@+id/tvSelectedAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
                 android:gravity="center_horizontal"
-                android:text="$2.00"
+                android:text="$0.00"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
@@ -216,9 +218,9 @@
                 android:id="@+id/btnBuynow"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
-                android:layout_marginLeft="@dimen/_30sdp"
+                android:layout_marginLeft="@dimen/_70sdp"
                 android:layout_marginTop="@dimen/_40sdp"
-                android:layout_marginRight="@dimen/_30sdp"
+                android:layout_marginRight="@dimen/_70sdp"
                 android:background="@drawable/button2"
                 android:fontFamily="@font/proxima_nova"
                 android:text="Buy Now"

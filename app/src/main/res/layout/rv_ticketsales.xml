@@ -73,15 +73,22 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-
-                <CheckBox
-                    android:id="@+id/checkBox"
+                <RadioButton
+                    android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginLeft="@dimen/_15sdp"
                     android:layout_weight="0.4"
-                    android:background="?android:attr/listChoiceIndicatorMultiple"
-                    android:button="@null" />
+                    android:backgroundTint="@color/colorAccent" />
+
+<!--                <CheckBox-->
+<!--                    android:id="@+id/checkBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="@dimen/_40sdp"-->
+<!--                    android:layout_marginLeft="@dimen/_15sdp"-->
+<!--                    android:layout_weight="0.4"-->
+<!--                    android:background="?android:attr/listChoiceIndicatorMultiple"-->
+<!--                    android:button="@null" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"

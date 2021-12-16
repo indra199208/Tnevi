@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FAF6FF"
     android:orientation="vertical"
-    tools:context="com.ivan.tnevi.Profile">
+    tools:context="com.example.tnevi.com.app.tnevi.Profile">
 
 
     <ScrollView
@@ -91,6 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -113,50 +114,50 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginRight="@dimen/_50sdp"
-        android:gravity="center"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="@dimen/_50sdp"-->
+<!--        android:layout_marginTop="@dimen/_15sdp"-->
+<!--        android:layout_marginRight="@dimen/_50sdp"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal">-->
 
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/proxima_nova"
-            android:text="Follow"
-            android:textColor="#4E4A5B"
-            android:textSize="@dimen/_12sdp" />
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:fontFamily="@font/proxima_nova"-->
+<!--            android:text="Follow"-->
+<!--            android:textColor="#4E4A5B"-->
+<!--            android:textSize="@dimen/_12sdp" />-->
 
 
-        <ImageView
-            android:id="@+id/btnFacebook"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:src="@drawable/ic_f2" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btnFacebook"-->
+<!--            android:layout_width="@dimen/_15sdp"-->
+<!--            android:layout_height="@dimen/_15sdp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginLeft="@dimen/_10sdp"-->
+<!--            android:layout_marginRight="@dimen/_10sdp"-->
+<!--            android:src="@drawable/ic_f2" />-->
 
-        <ImageView
-            android:id="@+id/btnTwitter"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:src="@drawable/ic_t2" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btnTwitter"-->
+<!--            android:layout_width="@dimen/_15sdp"-->
+<!--            android:layout_height="@dimen/_15sdp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginRight="@dimen/_10sdp"-->
+<!--            android:src="@drawable/ic_t2" />-->
 
-        <ImageView
-            android:id="@+id/btnGmail"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_insta2" />
-    </LinearLayout>
+<!--        <ImageView-->
+<!--            android:id="@+id/btnGmail"-->
+<!--            android:layout_width="@dimen/_15sdp"-->
+<!--            android:layout_height="@dimen/_15sdp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:src="@drawable/ic_insta2" />-->
+<!--    </LinearLayout>-->
 
 
 

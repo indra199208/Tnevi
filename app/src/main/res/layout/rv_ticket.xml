@@ -17,7 +17,7 @@
             android:id="@+id/tvEventName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/proxima_nova"
             android:gravity="center"
             android:text="Bright Music Festival"
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="horizontal">
 
@@ -211,6 +211,19 @@
 
 
         </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="Tap Here to view QR code"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_10sdp"/>
+
+
+
 
 
 

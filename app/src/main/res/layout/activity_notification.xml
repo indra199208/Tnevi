@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Notification">
+    android:background="@color/colorAccent"
+    tools:context="com.example.tnevi.com.app.tnevi.Notification">
 
 
 
@@ -19,6 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
+        android:background="@color/quantum_white_100"
         android:orientation="horizontal">
 
 

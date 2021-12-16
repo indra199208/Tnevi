@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2EEF8"
-    tools:context="com.ivan.tnevi.Ticketsales">
+    tools:context="com.example.tnevi.com.app.tnevi.Ticketsales">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                     android:src="@drawable/ic_ticket" />
 
                 <TextView
+                    android:id="@+id/tvTotalsales"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_8sdp"
@@ -64,6 +65,7 @@
 
 
                     <TextView
+                        android:id="@+id/tvavailablecashout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_15sdp"

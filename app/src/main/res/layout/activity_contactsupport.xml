@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Contactsupport">
+    tools:context="com.example.tnevi.com.app.tnevi.Contactsupport">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -170,14 +170,17 @@
                         android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/proxima_nova"
                         android:hint="Message"
+                        android:layout_marginTop="15sp"
+                        android:gravity="top|left"
+                        android:inputType="textMultiLine"
                         android:imeOptions="actionNext"
-                        android:inputType="textEmailAddress"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textColor="@android:color/black"
                         android:textColorHint="#888A8C"
                         android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
+
 
 
             </LinearLayout>

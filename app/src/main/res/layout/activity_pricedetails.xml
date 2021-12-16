@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Pricedetails">
+    tools:context="com.example.tnevi.com.app.tnevi.Pricedetails">
 
 
     <RelativeLayout
@@ -191,44 +191,34 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_15sdp"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:weightSum="3">
 
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
-                        android:orientation="horizontal">
-
-
-                        <Spinner
-                            android:id="@+id/spCoupon"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/lora_regular"
-                            android:textColor="@android:color/black"
-                            android:textSize="@dimen/_12sdp" />
-
-
-                    </LinearLayout>
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Apply Cash" />
 
                     <TextView
-                        android:id="@+id/tvCash"
+                        android:id="@+id/tvAvailablecommission"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/proxima_nova"
                         android:gravity="center_horizontal"
-                        android:text=""
+                        android:text="0 ePoints"
                         android:textColor="@android:color/black"
                         android:textStyle="bold" />
 
                     <LinearLayout
-                        android:id="@+id/btnApply"
+                        android:id="@+id/btnCashApply"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
@@ -250,22 +240,88 @@
 
                     </LinearLayout>
 
-
-                    <TextView
-                        android:id="@+id/tvApplied"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:visibility="gone"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:text="Coupon Applied"
-                        android:textSize="@dimen/_10sdp"
-                        android:fontFamily="@font/proxima_nova"
-                        android:textColor="@color/colorAccent"/>
-
-
-
                 </LinearLayout>
+
+
+
+                <!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="@dimen/_15sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:weightSum="3">-->
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_30sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/border"-->
+<!--                        android:orientation="horizontal">-->
+
+
+<!--                        <Spinner-->
+<!--                            android:id="@+id/spCoupon"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:fontFamily="@font/lora_regular"-->
+<!--                            android:textColor="@android:color/black"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvCash"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:gravity="center_horizontal"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:textStyle="bold" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/btnApply"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="@dimen/_25sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:background="@drawable/button2"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:fontFamily="@font/proxima_nova"-->
+<!--                            android:gravity="center_horizontal"-->
+<!--                            android:text="Apply"-->
+<!--                            android:textColor="@android:color/white"-->
+<!--                            android:textSize="@dimen/_12sdp" />-->
+
+
+<!--                    </LinearLayout>-->
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvApplied"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:visibility="gone"-->
+<!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+<!--                        android:text="Coupon Applied"-->
+<!--                        android:textSize="@dimen/_10sdp"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:textColor="@color/colorAccent"/>-->
+
+
+
+<!--                </LinearLayout>-->
 
 
 
@@ -421,6 +477,36 @@
                         android:textStyle="bold" />
 
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Tax"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/proxima_nova"
+                        android:gravity="start"
+                        android:text="$0.00"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
 
 
 

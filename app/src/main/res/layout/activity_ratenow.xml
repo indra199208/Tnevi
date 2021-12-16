@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Ratenow">
+    tools:context="com.example.tnevi.com.app.tnevi.Ratenow">
 
 
     <LinearLayout
@@ -12,6 +12,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"
         android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center"
+            android:text="How much did you enjoy the Event"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textStyle="bold" />
 
         <com.willy.ratingbar.ScaleRatingBar
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -44,6 +56,10 @@
             android:orientation="vertical">
 
 
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
@@ -60,8 +76,10 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:hint="Message"
+                    android:layout_marginTop="15sp"
+                    android:gravity="top|left"
+                    android:inputType="textMultiLine"
                     android:imeOptions="actionNext"
-                    android:inputType="textEmailAddress"
                     android:textAppearance="?android:textAppearanceSmall"
                     android:textColor="@android:color/black"
                     android:textColorHint="#888A8C"

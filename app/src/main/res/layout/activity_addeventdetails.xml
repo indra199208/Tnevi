@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Addeventdetails">
+    tools:context="com.example.tnevi.com.app.tnevi.Addeventdetails">
 
 
     <ScrollView
@@ -94,9 +94,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="Event Start Date"
+                    android:textColor="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:background="@drawable/border"
                 android:orientation="horizontal">
@@ -109,15 +129,14 @@
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@null"
+                    android:clickable="false"
+                    android:cursorVisible="false"
                     android:drawableRight="@drawable/ic_calender"
                     android:drawablePadding="@dimen/_10sdp"
                     android:drawableTint="@color/colorAccent"
-                    android:fontFamily="@font/proxima_nova"
-                    android:hint="Event Start Date"
-                    android:clickable="false"
-                    android:cursorVisible="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
+                    android:fontFamily="@font/proxima_nova"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
@@ -131,9 +150,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="Event End Date"
+                    android:textColor="@color/colorAccent" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:background="@drawable/border"
                 android:orientation="horizontal">
@@ -150,7 +188,6 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:drawableTint="@color/colorAccent"
                     android:fontFamily="@font/proxima_nova"
-                    android:hint="Event End Date"
                     android:clickable="false"
                     android:cursorVisible="false"
                     android:focusable="false"

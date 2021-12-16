@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.ivan.tnevi.Allcategory">
+    tools:context="com.example.tnevi.com.app.tnevi.Allcategory">
 
 
     <ScrollView
@@ -1138,7 +1138,7 @@
             android:layout_weight="9"
             android:fontFamily="@font/proxima_nova"
             android:gravity="center"
-            android:text="Choose Category"
+            android:text="Choose Preferred Category"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />

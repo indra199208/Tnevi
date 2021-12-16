@@ -5,7 +5,7 @@
     android:id="@+id/rl_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Search">
+    tools:context="com.example.tnevi.com.app.tnevi.Search">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -366,7 +366,7 @@
                     android:fontFamily="@font/proxima_nova"
                     android:textStyle="bold"
                     android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/quantum_black_100"/>
+                    android:textColor="@color/quantum_white_100"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -375,7 +375,7 @@
                     android:fontFamily="@font/proxima_nova"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:text="Try in other categories"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/quantum_white_100"
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>

@@ -4,7 +4,8 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="@dimen/_100sdp"
+        android:id="@+id/rl_bg"
+        android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_80sdp"
         android:layout_margin="@dimen/_10sdp"
         android:background="@drawable/button10"
@@ -24,24 +25,24 @@
                 android:layout_marginRight="@dimen/_15sdp"
                 android:orientation="horizontal">
 
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorAccent" />
+
                 <TextView
                     android:id="@+id/tvEpoints"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:text="150"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="@font/proxima_nova"
-                    android:text="ePoints"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/_12sdp" />
 
             </RelativeLayout>
 

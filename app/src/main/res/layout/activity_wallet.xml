@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ivan.tnevi.Wallet">
+    tools:context="com.example.tnevi.com.app.tnevi.Wallet">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -463,6 +463,7 @@
                     android:layout_marginRight="@dimen/_55sdp"
                     android:background="@drawable/button4"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <ImageView

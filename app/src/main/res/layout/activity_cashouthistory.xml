@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2EEF8"
-    tools:context="com.ivan.tnevi.Cashouthistory">
+    tools:context="com.example.tnevi.com.app.tnevi.Cashouthistory">
 
     <ScrollView
         android:layout_width="match_parent"

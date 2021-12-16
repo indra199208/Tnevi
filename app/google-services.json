@@ -1,41 +1,70 @@
 {
   "project_info": {
-    "project_number": "1055532827686",
-    "project_id": "tnevi-ff65f",
-    "storage_bucket": "tnevi-ff65f.appspot.com"
+    "project_number": "410201555168",
+    "project_id": "tnevi-de48c",
+    "storage_bucket": "tnevi-de48c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1055532827686:android:cc40a1f20e5b0d8e8cd2e7",
+        "mobilesdk_app_id": "1:410201555168:android:4a69efaef0c95e5ffe9085",
         "android_client_info": {
-          "package_name": "com.ivan.tnevi"
+          "package_name": "com.app.tnevi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1055532827686-9lbvs7uj6qhhv1647eof1dp0cb0056mm.apps.googleusercontent.com",
+          "client_id": "410201555168-1j6v3bujtka7vheqp5gfto2a18o1ho30.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ivan.tnevi",
+            "package_name": "com.app.tnevi",
             "certificate_hash": "2672e4ae1a847f42f66295b98445851550004ae3"
           }
         },
         {
-          "client_id": "1055532827686-t6ogtnge8b1n69pct3g75rsjgn7l7ss7.apps.googleusercontent.com",
+          "client_id": "410201555168-3ocmrcrnemcc43r205av04u4oce2ukep.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIcKA6kJi3lBXFpC_41buPQYF4K_cb4HM"
+          "current_key": "AIzaSyDdbmHasg9mVVQPyV_FekgOZLXbgbzF0iE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1055532827686-t6ogtnge8b1n69pct3g75rsjgn7l7ss7.apps.googleusercontent.com",
+              "client_id": "410201555168-3ocmrcrnemcc43r205av04u4oce2ukep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410201555168:android:af073e23ac1ae6fafe9085",
+        "android_client_info": {
+          "package_name": "com.example.tnevi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410201555168-3ocmrcrnemcc43r205av04u4oce2ukep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdbmHasg9mVVQPyV_FekgOZLXbgbzF0iE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410201555168-3ocmrcrnemcc43r205av04u4oce2ukep.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
