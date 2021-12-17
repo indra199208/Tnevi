@@ -40,8 +40,9 @@ public class Pricedetails extends AppCompatActivity {
     ImageView btn_back;
     LinearLayout btnCheckout, btnCashApply, btnEpointsApply;
     TextView tvEventname, tvDate, tvAddress, tvSectionRow, tvSeats, tvSubtotal,
-            tvGrandtotal, tvDiscount, tvCash, tvEpoints, tvAvailablecommission;
-    String eventname, date, address, selectedrow, spSection, seatnumber, total, postedby, rowid, blockid, eventid, latvalue, lonvalue, currencyid, fees;
+            tvGrandtotal, tvDiscount, tvCash, tvEpoints, tvAvailablecommission, tvTax;
+    String eventname, date, address, selectedrow, spSection, seatnumber, total, postedby,
+            rowid, blockid, eventid, latvalue, lonvalue, currencyid, fees, tax;
     String GrandTotal = "";
     private ArrayList<CouponModel> couponModelArrayList = new ArrayList<>();
     ArrayList<String> coupon = new ArrayList<>();
@@ -50,6 +51,7 @@ public class Pricedetails extends AppCompatActivity {
     String token, epoints, dis_amount, commission, wallet_available_commission;
     private static final String SHARED_PREFS = "sharedPrefs";
     Spinner spCoupon;
+    int withtaxTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,7 @@ public class Pricedetails extends AppCompatActivity {
         lonvalue = intent.getStringExtra("lonvalue");
         currencyid = intent.getStringExtra("currencyid");
         fees = intent.getStringExtra("fees");
+        tax = intent.getStringExtra("tax");
 //        rvCoupon = findViewById(R.id.rvCoupon);
 //        spCoupon = findViewById(R.id.spCoupon);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -98,6 +101,7 @@ public class Pricedetails extends AppCompatActivity {
         btnCashApply = findViewById(R.id.btnCashApply);
         btnEpointsApply = findViewById(R.id.btnEpointsApply);
         tvEpoints = findViewById(R.id.tvEpoints);
+        tvTax = findViewById(R.id.tvTax);
         tvAvailablecommission = findViewById(R.id.tvAvailablecommission);
 
         tvEventname.setText(eventname);
@@ -106,8 +110,10 @@ public class Pricedetails extends AppCompatActivity {
         tvSeats.setText(seatnumber);
         tvSectionRow.setText(spSection + ", Row " + selectedrow);
         tvSubtotal.setText("$" + total);
-        tvGrandtotal.setText("$" + total);
-        GrandTotal = total;
+        withtaxTotal = Integer.parseInt(total) + Integer.parseInt(tax);
+        tvGrandtotal.setText("$" + withtaxTotal);
+        tvTax.setText("$"+tax);
+        GrandTotal = String.valueOf(withtaxTotal);
     }
 
     public void OnClick() {
@@ -143,7 +149,12 @@ public class Pricedetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                applyCash();
+                if (commission.equals("0.00")){
+                    Toast.makeText(Pricedetails.this, "Not Applicable", Toast.LENGTH_SHORT).show();
+                }else {
+                    applyCash();
+
+                }
             }
         });
 
@@ -173,8 +184,10 @@ public class Pricedetails extends AppCompatActivity {
                 intent.putExtra("lonvalue", lonvalue);
                 intent.putExtra("currencyid", currencyid);
                 intent.putExtra("fees", fees);
+                intent.putExtra("tax", tax);
                 intent.putExtra("seatnumber", seatnumber);
                 intent.putExtra("dis_amount", dis_amount);
+                intent.putExtra("maintotal", GrandTotal);
                 startActivity(intent);
             }
         });
@@ -534,7 +547,7 @@ public class Pricedetails extends AppCompatActivity {
                         dis_amount = result.getString("commission_discount");
                         wallet_available_commission = result.getString("wallet_available_commission");
                         tvDiscount.setText("$" + dis_amount);
-                        int final_ = Integer.parseInt(total) - Integer.parseInt(dis_amount);
+                        int final_ = (Integer.parseInt(total) + Integer.parseInt(tax))-Integer.parseInt(dis_amount);
                         GrandTotal = String.valueOf(final_);
                         tvGrandtotal.setText("$"+GrandTotal);
                         tvAvailablecommission.setText(wallet_available_commission);

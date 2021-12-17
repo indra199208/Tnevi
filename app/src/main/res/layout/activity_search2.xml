@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg14"
-    tools:context="com.example.tnevi.com.app.tnevi.Search">
+    tools:context=".Search2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -88,36 +88,36 @@
                     android:textSize="@dimen/_12sdp" />
 
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="@dimen/_13sdp"-->
-<!--                    android:layout_marginTop="@dimen/_15sdp"-->
-<!--                    android:fontFamily="@font/proxima_nova"-->
-<!--                    android:text="Select Location"-->
-<!--                    android:textColor="@android:color/black"-->
-<!--                    android:textSize="@dimen/_12sdp"-->
-<!--                    android:textStyle="bold" />-->
+                <!--                <TextView-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="@dimen/_13sdp"-->
+                <!--                    android:layout_marginTop="@dimen/_15sdp"-->
+                <!--                    android:fontFamily="@font/proxima_nova"-->
+                <!--                    android:text="Select Location"-->
+                <!--                    android:textColor="@android:color/black"-->
+                <!--                    android:textSize="@dimen/_12sdp"-->
+                <!--                    android:textStyle="bold" />-->
 
 
-<!--                <EditText-->
-<!--                    android:id="@+id/etLocation"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="@dimen/_40sdp"-->
-<!--                    android:layout_marginLeft="@dimen/_10sdp"-->
-<!--                    android:layout_marginRight="@dimen/_10sdp"-->
-<!--                    android:backgroundTint="@android:color/darker_gray"-->
-<!--                    android:clickable="false"-->
-<!--                    android:cursorVisible="false"-->
-<!--                    android:drawablePadding="@dimen/_10sdp"-->
-<!--                    android:focusable="false"-->
-<!--                    android:focusableInTouchMode="false"-->
-<!--                    android:fontFamily="@font/proxima_nova"-->
-<!--                    android:hint="Search Location"-->
-<!--                    android:inputType="text"-->
-<!--                    android:textColor="@android:color/black"-->
-<!--                    android:textColorHint="@android:color/darker_gray"-->
-<!--                    android:textSize="@dimen/_12sdp" />-->
+                <!--                <EditText-->
+                <!--                    android:id="@+id/etLocation"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="@dimen/_40sdp"-->
+                <!--                    android:layout_marginLeft="@dimen/_10sdp"-->
+                <!--                    android:layout_marginRight="@dimen/_10sdp"-->
+                <!--                    android:backgroundTint="@android:color/darker_gray"-->
+                <!--                    android:clickable="false"-->
+                <!--                    android:cursorVisible="false"-->
+                <!--                    android:drawablePadding="@dimen/_10sdp"-->
+                <!--                    android:focusable="false"-->
+                <!--                    android:focusableInTouchMode="false"-->
+                <!--                    android:fontFamily="@font/proxima_nova"-->
+                <!--                    android:hint="Search Location"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:textColor="@android:color/black"-->
+                <!--                    android:textColorHint="@android:color/darker_gray"-->
+                <!--                    android:textSize="@dimen/_12sdp" />-->
 
 
                 <!--            <TextView-->
@@ -304,12 +304,11 @@
 
             </LinearLayout>
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_54sdp"
+                android:layout_marginBottom="@dimen/_90sdp"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -406,6 +405,21 @@
 
 
     </LinearLayout>
+
+
+
+    <com.google.android.gms.ads.AdView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_65sdp"
+        android:id="@+id/viewall_ad"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>
+
+
+
 
 
     <include

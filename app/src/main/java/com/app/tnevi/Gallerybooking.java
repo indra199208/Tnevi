@@ -335,6 +335,8 @@ public class Gallerybooking extends AppCompatActivity {
                     String stat = result.getString("stat");
                     if (stat.equals("succ")) {
 
+                        JSONObject response_data = result.getJSONObject("data");
+                        String Tax = response_data.getString("tax_rate");
                         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Gallerybooking.this, Pricedetails.class);
                         intent.putExtra("eventname", eventname);
@@ -352,6 +354,7 @@ public class Gallerybooking extends AppCompatActivity {
                         intent.putExtra("lonvalue", longval);
                         intent.putExtra("currencyid", currencyid);
                         intent.putExtra("fees", fees);
+                        intent.putExtra("tax", Tax);
                         startActivity(intent);
 
                     } else {

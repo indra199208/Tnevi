@@ -5,7 +5,7 @@
     android:id="@+id/rl_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Search">
+    tools:context=".Search">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -344,7 +344,7 @@
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_54sdp"
+                android:layout_marginBottom="@dimen/_100sdp"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -455,6 +455,17 @@
 
     </LinearLayout>
 
+
+    <com.google.android.gms.ads.AdView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_65sdp"
+        android:visibility="gone"
+        android:id="@+id/viewall_ad2"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>
 
     <include
         layout="@layout/include_bottom_nav"

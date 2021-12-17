@@ -17,7 +17,8 @@ public class Checkoutaddress extends AppCompatActivity {
     ImageView btn_back;
     LinearLayout btnCheckout;
     TextView tvEventname, tvDate, tvAddress, tvTotal;
-    String eventname, date, address, total, postedby, rowid, blockid, eventid, latvalue, lonvalue, currencyid, fees, seatnumber, dis_amount;
+    String eventname, date, address, total, postedby, rowid, blockid,
+            eventid, latvalue, lonvalue, currencyid, fees, seatnumber, dis_amount, tax, maintotal;
 
     EditText etZip, etState, etAddress, etFullname, etNameonticket;
 
@@ -40,6 +41,8 @@ public class Checkoutaddress extends AppCompatActivity {
         fees = intent.getStringExtra("fees");
         seatnumber = intent.getStringExtra("seatnumber");
         dis_amount = intent.getStringExtra("dis_amount");
+        tax = intent.getStringExtra("tax");
+        maintotal = intent.getStringExtra("maintotal");
 
         btn_back = findViewById(R.id.btn_back);
         btnCheckout = findViewById(R.id.btnCheckout);
@@ -56,7 +59,7 @@ public class Checkoutaddress extends AppCompatActivity {
         tvEventname.setText(eventname);
         tvAddress.setText(address);
         tvDate.setText(date);
-        tvTotal.setText("$"+total);
+        tvTotal.setText("$"+maintotal);
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +98,7 @@ public class Checkoutaddress extends AppCompatActivity {
                     intent.putExtra("lonvalue", lonvalue);
                     intent.putExtra("currencyid", currencyid);
                     intent.putExtra("fees", fees);
+                    intent.putExtra("tax", tax);
                     intent.putExtra("seatnumber", seatnumber);
                     intent.putExtra("dis_amount", dis_amount);
                     startActivity(intent);

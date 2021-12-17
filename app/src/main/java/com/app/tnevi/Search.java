@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -42,6 +43,13 @@ import com.app.tnevi.model.GeteventModel;
 import com.app.tnevi.session.SessionManager;
 
 import com.app.tnevi.Utils.ItemOffsetDecoration;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
@@ -82,6 +90,7 @@ public class Search extends AppCompatActivity {
     String Lat = "";
     String Lon = "";
     private MyViewallAdapter myViewallAdapter;
+    private AdView viewall_ad2;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -122,10 +131,23 @@ public class Search extends AppCompatActivity {
         rvSearch = findViewById(R.id.rvSearch);
         spCat = findViewById(R.id.spCat);
         tvTitle = findViewById(R.id.tvTitle);
+        viewall_ad2 = findViewById(R.id.viewall_ad2);
 //        etLocation = findViewById(R.id.etLocation);
         ll_nocat = findViewById(R.id.ll_nocat);
         rl_bg = findViewById(R.id.rl_bg);
         btn_backsearch = findViewById(R.id.btn_backsearch);
+
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        viewall_ad2.loadAd(adRequest);
 
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -171,6 +193,42 @@ public class Search extends AppCompatActivity {
 //
 //            }
 //        });
+
+        viewall_ad2.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                Log.d("ad-test", "Banner ad closed");
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                Log.d("ad-test", "Banner Failed to load");
+
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+                Log.d("ad-test", "Banner ad Opened");
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Log.d("ad-test", "Banner ad loaded successfully");
+
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+                Log.d("ad-test", "Banner ad Clicked");
+
+            }
+        });
 
         spCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -663,6 +721,7 @@ public class Search extends AppCompatActivity {
 
         ll_searchDetails.setVisibility(View.GONE);
         rvSearch.setVisibility(View.VISIBLE);
+        viewall_ad2.setVisibility(View.VISIBLE);
 //        String categoryid = "[\\\"" + catid + "\\\"]";
         String categoryid = "[\"" + catid + "\"]";
 

@@ -25,16 +25,16 @@
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:layout_gravity="center"
-                android:backgroundTint="@android:color/darker_gray"
-                android:background="@drawable/ic_home" />
+                android:background="@drawable/ic_home"
+                android:backgroundTint="@android:color/darker_gray" />
 
-<!--            <androidx.appcompat.widget.AppCompatTextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:fontFamily="@font/lora_regular"-->
-<!--                android:text="Home"-->
-<!--                android:gravity="center_horizontal" />-->
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                android:fontFamily="@font/lora_regular"-->
+            <!--                android:text="Home"-->
+            <!--                android:gravity="center_horizontal" />-->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -50,16 +50,16 @@
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:layout_gravity="center"
-                android:backgroundTint="@android:color/darker_gray"
-                android:background="@drawable/ic_search" />
+                android:background="@drawable/ic_search"
+                android:backgroundTint="@android:color/darker_gray" />
 
-<!--            <androidx.appcompat.widget.AppCompatTextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:fontFamily="@font/lora_regular"-->
-<!--                android:text="Profile"-->
-<!--                android:gravity="center_horizontal" />-->
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                android:fontFamily="@font/lora_regular"-->
+            <!--                android:text="Profile"-->
+            <!--                android:gravity="center_horizontal" />-->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -74,17 +74,17 @@
                 android:id="@+id/iconWallet"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:backgroundTint="@android:color/darker_gray"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_wallet" />
+                android:background="@drawable/ic_wallet"
+                android:backgroundTint="@android:color/darker_gray" />
 
-<!--            <androidx.appcompat.widget.AppCompatTextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:fontFamily="@font/lora_regular"-->
-<!--                android:text="Profile"-->
-<!--                android:gravity="center_horizontal" />-->
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                android:fontFamily="@font/lora_regular"-->
+            <!--                android:text="Profile"-->
+            <!--                android:gravity="center_horizontal" />-->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -100,18 +100,18 @@
                 android:id="@+id/iconEvent"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:backgroundTint="@android:color/darker_gray"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_calender" />
+                android:background="@drawable/ic_calender"
+                android:backgroundTint="@android:color/darker_gray" />
 
-<!--            <androidx.appcompat.widget.AppCompatTextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:fontFamily="@font/lora_regular"-->
-<!--                android:text="Favourite"-->
-<!--                android:textAlignment="center"-->
-<!--                android:gravity="center_horizontal" />-->
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                android:fontFamily="@font/lora_regular"-->
+            <!--                android:text="Favourite"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:gravity="center_horizontal" />-->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -126,9 +126,9 @@
                 android:id="@+id/iconProf"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
-                android:backgroundTint="@android:color/darker_gray"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_prof" />
+                android:background="@drawable/ic_prof"
+                android:backgroundTint="@android:color/darker_gray" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -145,20 +145,19 @@
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:layout_gravity="center"
-                android:backgroundTint="@android:color/darker_gray"
-                android:background="@drawable/ic_settings" />
+                android:background="@drawable/ic_settings"
+                android:backgroundTint="@android:color/darker_gray" />
 
-<!--            <androidx.appcompat.widget.AppCompatTextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/_5sdp"-->
-<!--                android:fontFamily="@font/lora_regular"-->
-<!--                android:text="Favourite"-->
-<!--                android:textAlignment="center"-->
-<!--                android:gravity="center_horizontal" />-->
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="@dimen/_5sdp"-->
+            <!--                android:fontFamily="@font/lora_regular"-->
+            <!--                android:text="Favourite"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:gravity="center_horizontal" />-->
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

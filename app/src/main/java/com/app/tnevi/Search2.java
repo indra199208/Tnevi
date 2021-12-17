@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -36,6 +37,13 @@ import com.app.tnevi.model.GeteventModel;
 import com.app.tnevi.session.SessionManager;
 
 import com.app.tnevi.Utils.ItemOffsetDecoration;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,6 +74,7 @@ public class Search2 extends AppCompatActivity {
     ArrayList<String> category = new ArrayList<>();
     private MyViewallAdapter myViewallAdapter;
     final Calendar myCalendar = Calendar.getInstance();
+    private AdView viewall_ad;
 
 
     @Override
@@ -89,11 +98,22 @@ public class Search2 extends AppCompatActivity {
         iconSearch = findViewById(R.id.iconSearch);
         btn_back = findViewById(R.id.btn_back);
         tvTitle = findViewById(R.id.tvTitle);
+        viewall_ad = findViewById(R.id.viewall_ad);
         ll_searchDetails = findViewById(R.id.ll_searchDetails);
         rvSearch = findViewById(R.id.rvSearch);
         spCat = findViewById(R.id.spCat);
         tvTitle = findViewById(R.id.tvTitle);
 
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        viewall_ad.loadAd(adRequest);
 
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -136,6 +156,43 @@ public class Search2 extends AppCompatActivity {
     }
 
     public void onClick() {
+
+
+        viewall_ad.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                Log.d("ad-test", "Banner ad closed");
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                Log.d("ad-test", "Banner Failed to load");
+
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+                Log.d("ad-test", "Banner ad Opened");
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Log.d("ad-test", "Banner ad loaded successfully");
+
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+                Log.d("ad-test", "Banner ad Clicked");
+
+            }
+        });
 
 
         spCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -40,11 +40,12 @@ import java.util.Map;
 public class Checkoutpaymentinfo extends AppCompatActivity {
 
     ImageView btn_back;
-    TextView tvEventname, tvDate, tvAddress, tvSubtotal, tvGrandtotal, tvDiscount;
+    TextView tvEventname, tvDate, tvAddress, tvSubtotal, tvGrandtotal, tvDiscount, tvTax;
     LinearLayout btnDone;
     String eventname, date, address, total, postedby, rowid, blockid, eventid, latvalue,
-            lonvalue , currencyid, fees, seatnumber, token, dis_amount ;
+            lonvalue , currencyid, fees, seatnumber, token, dis_amount , tax;
     private static final String SHARED_PREFS = "sharedPrefs";
+    String ultimatePrice = "";
 
     public static final String clientKey = "AXtUmNzJQFSZ_SmHv0nBBQ7tcrRMRplPK0C1ozdrytJeDEImYlN5OBSOD0fXUUp2ce9_MtQFVreVQqPI";
     public static final int PAYPAL_REQUEST_CODE = 123;
@@ -72,6 +73,7 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
         fees = intent.getStringExtra("fees");
         seatnumber = intent.getStringExtra("seatnumber");
         dis_amount = intent.getStringExtra("dis_amount");
+        tax = intent.getStringExtra("tax");
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
         tvEventname = findViewById(R.id.tvEventname);
@@ -82,19 +84,20 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
         tvSubtotal = findViewById(R.id.tvSubtotal);
         tvGrandtotal = findViewById(R.id.tvGrandtotal);
         tvDiscount = findViewById(R.id.tvDiscount);
+        tvTax = findViewById(R.id.tvTax);
         tvEventname.setText(eventname);
         tvDate.setText(date);
         tvAddress.setText(address);
         tvSubtotal.setText("$"+total);
+        tvTax.setText("$"+tax);
         if (dis_amount==null){
+            ultimatePrice = String.valueOf(Integer.parseInt(total) + Integer.parseInt(tax));
             tvDiscount.setText("$0.00");
-            tvGrandtotal.setText("$"+total);
+            tvGrandtotal.setText("$"+ultimatePrice);
         }else {
+            ultimatePrice = String.valueOf((Integer.parseInt(total) + Integer.parseInt(tax)) - Integer.parseInt(dis_amount));
             tvDiscount.setText("$"+dis_amount);
-            int final_ = Integer.parseInt(total) - Integer.parseInt(dis_amount);
-            String GrandTotal = String.valueOf(final_);
-            tvGrandtotal.setText("$"+GrandTotal);
-
+            tvGrandtotal.setText("$"+ultimatePrice);
         }
 
 
@@ -123,7 +126,7 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
 
     private void getPayment() {
 
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(total)), "USD", "Ticket Amount",
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(ultimatePrice)), "USD", "Ticket Amount",
                 PayPalPayment.PAYMENT_INTENT_SALE);
         Intent intent = new Intent(this, PaymentActivity.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
