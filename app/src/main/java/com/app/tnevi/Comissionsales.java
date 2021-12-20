@@ -325,6 +325,8 @@ public class Comissionsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("past", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -445,6 +447,8 @@ public class Comissionsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("upcomming", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -563,6 +567,8 @@ public class Comissionsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("live", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
 
             } catch (JSONException e) {
                 e.printStackTrace();
