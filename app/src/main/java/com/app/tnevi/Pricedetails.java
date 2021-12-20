@@ -110,7 +110,9 @@ public class Pricedetails extends AppCompatActivity {
         tvSeats.setText(seatnumber);
         tvSectionRow.setText(spSection + ", Row " + selectedrow);
         tvSubtotal.setText("$" + total);
-        withtaxTotal = Integer.parseInt(total) + Integer.parseInt(tax);
+        double sum= Double.parseDouble(total);
+        double taxsum = Double.parseDouble(tax);
+        withtaxTotal = (int) (sum + taxsum);
         tvGrandtotal.setText("$" + withtaxTotal);
         tvTax.setText("$"+tax);
         GrandTotal = String.valueOf(withtaxTotal);

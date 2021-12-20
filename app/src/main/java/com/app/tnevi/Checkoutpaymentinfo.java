@@ -91,11 +91,16 @@ public class Checkoutpaymentinfo extends AppCompatActivity {
         tvSubtotal.setText("$"+total);
         tvTax.setText("$"+tax);
         if (dis_amount==null){
-            ultimatePrice = String.valueOf(Integer.parseInt(total) + Integer.parseInt(tax));
+            double sum= Double.parseDouble(total);
+            double taxsum = Double.parseDouble(tax);
+            ultimatePrice = String.valueOf(sum + taxsum);
             tvDiscount.setText("$0.00");
             tvGrandtotal.setText("$"+ultimatePrice);
         }else {
-            ultimatePrice = String.valueOf((Integer.parseInt(total) + Integer.parseInt(tax)) - Integer.parseInt(dis_amount));
+            double sum= Double.parseDouble(total);
+            double taxsum = Double.parseDouble(tax);
+            double discount = Double.parseDouble(dis_amount);
+            ultimatePrice = String.valueOf((sum + taxsum) - discount);
             tvDiscount.setText("$"+dis_amount);
             tvGrandtotal.setText("$"+ultimatePrice);
         }

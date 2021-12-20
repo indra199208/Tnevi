@@ -337,6 +337,8 @@ public class Gallerybooking extends AppCompatActivity {
 
                         JSONObject response_data = result.getJSONObject("data");
                         String Tax = response_data.getString("tax_rate");
+                        double price= Double.parseDouble(seatprice);
+                        double sum = count * price;
                         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Gallerybooking.this, Pricedetails.class);
                         intent.putExtra("eventname", eventname);
@@ -345,7 +347,7 @@ public class Gallerybooking extends AppCompatActivity {
                         intent.putExtra("selectedrow", spRow.getSelectedItem().toString());
                         intent.putExtra("spSection", spSection.getSelectedItem().toString());
                         intent.putExtra("seatnumber", "" + count);
-                        intent.putExtra("total", "" + Integer.parseInt("12") * count);
+                        intent.putExtra("total", "" + sum);
                         intent.putExtra("name", postedby);
                         intent.putExtra("rowid", rowid);
                         intent.putExtra("blockid", blockid);

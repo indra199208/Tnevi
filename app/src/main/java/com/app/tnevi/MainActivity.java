@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private static int AUTOCOMPLETE_REQUEST_CODE = 1;
     PlacesClient placesClient;
     Button Viewall;
+    String bankdetails = "";
 
 
     @Override
@@ -225,8 +226,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Allcategory.class);
-                startActivity(intent);
+                if (bankdetails.equals("1")){
+
+                    Intent intent = new Intent(MainActivity.this, Allcategory.class);
+                    startActivity(intent);
+                }else {
+
+                    Intent intent = new Intent(MainActivity.this, Checkoutaddbankacc.class);
+                    startActivity(intent);
+                }
+
+
             }
         });
 
@@ -423,6 +433,12 @@ public class MainActivity extends AppCompatActivity {
                                         lon = "";
                                         navBaraddress.setText("");
 
+                                    }
+
+                                    if (!userdeatisObj.isNull("bank_details")){
+                                        bankdetails = "1";
+                                    }else {
+                                        bankdetails="2";
                                     }
 
                                     tvBalance.setText("$" + ticketsell);

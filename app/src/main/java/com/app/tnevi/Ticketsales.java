@@ -12,8 +12,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Ticketsales extends AppCompatActivity {
@@ -51,6 +55,10 @@ public class Ticketsales extends AppCompatActivity {
     TicketsalesAdapter ticketsalesAdapter;
     private ArrayList<TicketReportModel> ticketReportModelArrayList;
     String cashoutid = "";
+    Spinner spSortsales;
+    String bydate = "";
+    String byname = "";
+    String events = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +81,94 @@ public class Ticketsales extends AppCompatActivity {
         rv_past = findViewById(R.id.rv_past);
         tvTotalsales = findViewById(R.id.tvTotalsales);
         tvavailablecashout = findViewById(R.id.tvavailablecashout);
+        spSortsales = findViewById(R.id.spSortsales);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
+
+
+        onClick();
+        pastEvent();
+        spSort();
+    }
+
+    public void onClick() {
+
+        spSortsales.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (i > 0) {
+
+                    switch (events) {
+                        case "past":
+                            switch (spSortsales.getSelectedItem().toString()) {
+                                case "All":
+                                    pastEvent();
+                                    break;
+                                case "By Date":
+                                    bydate = "ASC";
+                                    pastEvent();
+                                    break;
+                                case "By Name":
+                                    byname = "ASC";
+                                    pastEvent();
+                                    break;
+                                default:
+                                    pastEvent();
+                                    break;
+                            }
+                            break;
+                        case "live":
+
+                            switch (spSortsales.getSelectedItem().toString()) {
+                                case "All":
+                                    liveEvent();
+                                    break;
+                                case "By Date":
+                                    bydate = "ASC";
+                                    liveEvent();
+                                    break;
+                                case "By Name":
+                                    byname = "ASC";
+                                    liveEvent();
+                                    break;
+                                default:
+                                    liveEvent();
+                                    break;
+                            }
+
+                            break;
+                        default:
+
+                            switch (spSortsales.getSelectedItem().toString()) {
+                                case "All":
+                                    upcomingEvents();
+                                    break;
+                                case "By Date":
+                                    bydate = "ASC";
+                                    upcomingEvents();
+                                    break;
+                                case "By Name":
+                                    byname = "ASC";
+                                    upcomingEvents();
+                                    break;
+                                default:
+                                    upcomingEvents();
+                                    break;
+                            }
+
+                            break;
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         btnCashout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,17 +186,8 @@ public class Ticketsales extends AppCompatActivity {
         btnpastEvents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
-                tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                pasteventsU.setVisibility(View.VISIBLE);
-                liveU.setVisibility(View.INVISIBLE);
-                upcomingU.setVisibility(View.INVISIBLE);
+                events = "past";
                 pastEvent();
-                rv_live.setVisibility(View.GONE);
-                rv_past.setVisibility(View.VISIBLE);
-                rv_upcoming.setVisibility(View.GONE);
-
             }
         });
 
@@ -110,17 +195,8 @@ public class Ticketsales extends AppCompatActivity {
         btnLive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
-                tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                pasteventsU.setVisibility(View.INVISIBLE);
-                liveU.setVisibility(View.VISIBLE);
-                upcomingU.setVisibility(View.INVISIBLE);
+                events = "live";
                 liveEvent();
-                rv_live.setVisibility(View.VISIBLE);
-                rv_past.setVisibility(View.GONE);
-                rv_upcoming.setVisibility(View.GONE);
-
             }
         });
 
@@ -128,17 +204,8 @@ public class Ticketsales extends AppCompatActivity {
         btnUpcomingevents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
-                tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
-                pasteventsU.setVisibility(View.INVISIBLE);
-                liveU.setVisibility(View.INVISIBLE);
-                upcomingU.setVisibility(View.VISIBLE);
+                events = "coming";
                 upcomingEvents();
-                rv_live.setVisibility(View.GONE);
-                rv_past.setVisibility(View.GONE);
-                rv_upcoming.setVisibility(View.VISIBLE);
-
             }
         });
 
@@ -160,11 +227,9 @@ public class Ticketsales extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-        pastEvent();
     }
 
-    public void cashoutselectedevent(String id){
+    public void cashoutselectedevent(String id) {
         cashoutid = id;
     }
 
@@ -238,6 +303,15 @@ public class Ticketsales extends AppCompatActivity {
     public void pastEvent() {
 
         cashoutid = "";
+        tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
+        tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        pasteventsU.setVisibility(View.VISIBLE);
+        liveU.setVisibility(View.INVISIBLE);
+        upcomingU.setVisibility(View.INVISIBLE);
+        rv_live.setVisibility(View.GONE);
+        rv_past.setVisibility(View.VISIBLE);
+        rv_upcoming.setVisibility(View.GONE);
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
 
@@ -249,6 +323,9 @@ public class Ticketsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("past", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -344,6 +421,15 @@ public class Ticketsales extends AppCompatActivity {
     public void upcomingEvents() {
 
         cashoutid = "";
+        tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
+        tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        pasteventsU.setVisibility(View.INVISIBLE);
+        liveU.setVisibility(View.INVISIBLE);
+        upcomingU.setVisibility(View.VISIBLE);
+        rv_live.setVisibility(View.GONE);
+        rv_past.setVisibility(View.GONE);
+        rv_upcoming.setVisibility(View.VISIBLE);
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
 
@@ -355,6 +441,8 @@ public class Ticketsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("upcomming", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -450,6 +538,15 @@ public class Ticketsales extends AppCompatActivity {
     public void liveEvent() {
 
         cashoutid = "";
+        tvLive.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.colorAccent));
+        tvEvents.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        tvUpcoming.setTextColor(ContextCompat.getColor(Ticketsales.this, R.color.quantum_grey));
+        pasteventsU.setVisibility(View.INVISIBLE);
+        liveU.setVisibility(View.VISIBLE);
+        upcomingU.setVisibility(View.INVISIBLE);
+        rv_live.setVisibility(View.VISIBLE);
+        rv_past.setVisibility(View.GONE);
+        rv_upcoming.setVisibility(View.GONE);
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
 
@@ -461,6 +558,8 @@ public class Ticketsales extends AppCompatActivity {
             try {
                 params.put("page_no", "1");
                 params.put("live", "1");
+                params.put("sort_by_date", bydate);
+                params.put("sort_by_name", byname);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -549,6 +648,23 @@ public class Ticketsales extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+
+    private void spSort() {
+
+        List<String> sort = new ArrayList<String>();
+
+        sort.add("Select");
+        sort.add("All");
+        sort.add("By Date");
+        sort.add("By Name");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sort);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spSortsales.setAdapter(arrayAdapter);
+
+
     }
 
 
