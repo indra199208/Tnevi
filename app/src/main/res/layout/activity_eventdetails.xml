@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Eventdetails">
+    tools:context=".Eventdetails">
 
 
         <RelativeLayout
@@ -849,6 +849,17 @@
 
 
                 </LinearLayout>
+
+
+                <com.google.android.gms.ads.AdView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/viewall_ad"
+                    app:adSize="BANNER"
+                    app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>
 
 
                 <TextView

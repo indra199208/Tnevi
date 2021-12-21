@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String SHARED_PREFS = "sharedPrefs";
     SessionManager sessionManager;
     private static final String TAG = "Myapp";
-    String username, useremail, token, msg, address, postalcode,countrycode, address2 ;
+    String username, useremail, token, msg, address, postalcode, countrycode, address2;
     Geocoder geocoder;
     List<Address> addresses;
     FloatingActionButton fab;
@@ -226,11 +226,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (bankdetails.equals("1")){
+                if (bankdetails.equals("1")) {
 
                     Intent intent = new Intent(MainActivity.this, Allcategory.class);
                     startActivity(intent);
-                }else {
+                } else {
 
                     Intent intent = new Intent(MainActivity.this, Checkoutaddbankacc.class);
                     startActivity(intent);
@@ -361,8 +361,8 @@ public class MainActivity extends AppCompatActivity {
                     countrycode = addresses.get(0).getCountryCode();
                     updateLocation();
                     navBaraddress.setText(address2);
-                }else{
-                    Toast.makeText(MainActivity.this,"Unable to get the location please try again",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Unable to get the location please try again", Toast.LENGTH_LONG).show();
                     hideProgressDialog();
                 }
 
@@ -420,13 +420,18 @@ public class MainActivity extends AppCompatActivity {
                                         lon = profileObj.getString("long_val");
                                         double lati = Double.parseDouble(lat);
                                         double loni = Double.parseDouble(lon);
-                                        geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
-                                        addresses = geocoder. getFromLocation(lati, loni, 1);
-                                        String fulladdress = addresses.get(0).getAddressLine(0);
-                                        String city = addresses.get(0).getLocality();
-                                        String state = addresses.get(0).getAdminArea();
-                                        String country = addresses.get(0).getCountryName();
-                                        navBaraddress.setText(city + ", " + state + ", " + country);
+                                        if (lati == 0.0 && loni == 0.0) {
+                                            navBaraddress.setText("Unable to Fetch location");
+                                        } else {
+                                            geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+                                            addresses = geocoder.getFromLocation(lati, loni, 1);
+                                            String fulladdress = addresses.get(0).getAddressLine(0);
+                                            String city = addresses.get(0).getLocality();
+                                            String state = addresses.get(0).getAdminArea();
+                                            String country = addresses.get(0).getCountryName();
+                                            navBaraddress.setText(city + ", " + state + ", " + country);
+                                        }
+
 
                                     } else {
                                         lat = "";
@@ -435,10 +440,10 @@ public class MainActivity extends AppCompatActivity {
 
                                     }
 
-                                    if (!userdeatisObj.isNull("bank_details")){
+                                    if (!userdeatisObj.isNull("bank_details")) {
                                         bankdetails = "1";
-                                    }else {
-                                        bankdetails="2";
+                                    } else {
+                                        bankdetails = "2";
                                     }
 
                                     tvBalance.setText("$" + ticketsell);
@@ -995,7 +1000,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 
     private void setupRecycler() {

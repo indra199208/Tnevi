@@ -414,6 +414,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_65sdp"
+        android:visibility="gone"
         android:id="@+id/viewall_ad"
         app:adSize="BANNER"
         app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>

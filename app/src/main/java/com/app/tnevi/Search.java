@@ -788,27 +788,32 @@ public class Search extends AppCompatActivity {
                             geteventModel.setStatus(responseobj.getString("status"));
                             geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            if (i > 0 && i % 4 == 0) {
+                                geteventModelArrayList.add(null);
+                            }
                             geteventModelArrayList.add(geteventModel);
 
                         }
                         if (response_data.length() == 0) {
-
                             ll_nocat.setVisibility(View.VISIBLE);
                             ll_searchDetails.setVisibility(View.GONE);
                             rvSearch.setVisibility(View.GONE);
-
                         } else {
-
                             ll_searchDetails.setVisibility(View.GONE);
                             rvSearch.setVisibility(View.VISIBLE);
                             ll_nocat.setVisibility(View.GONE);
+                        }
 
+                        if (geteventModelArrayList.size() <= 4) {
+                            viewall_ad2.setVisibility(View.VISIBLE);
+                        } else {
+                            viewall_ad2.setVisibility(View.GONE);
                         }
 
 
                         if (catid != null) {
                             setupRecycler();
-                        }else {
+                        } else {
                             setupSearch();
                         }
 
@@ -858,14 +863,28 @@ public class Search extends AppCompatActivity {
 
         myViewallAdapter = new MyViewallAdapter(this, geteventModelArrayList);
         rvSearch.setAdapter(myViewallAdapter);
-        rvSearch.setLayoutManager(new GridLayoutManager(Search.this, 2));
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+              /*  int spancount = position > 0 && (position % 4) == 0 ? 1 : 2;
+                Log.v("spancount", spancount + "");
+                return (spancount);*/
+                if (geteventModelArrayList.get(position) == null) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        rvSearch.setLayoutManager(manager);
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing);
         rvSearch.addItemDecoration(itemDecoration);
 
     }
 
 
-    private void setupSearch(){
+    private void setupSearch() {
         mySearchtAdapter = new MySearchtAdapter(this, geteventModelArrayList);
         rvSearch.setAdapter(mySearchtAdapter);
         rvSearch.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));

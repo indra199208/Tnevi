@@ -126,11 +126,10 @@ public class Search2 extends AppCompatActivity {
         onClick();
 
 
-
-        if (viewall==null){
+        if (viewall == null) {
             ll_searchDetails.setVisibility(View.GONE);
             rvSearch.setVisibility(View.GONE);
-        }else if (viewall.equals("featured")) {
+        } else if (viewall.equals("featured")) {
             viewallFeatured();
             tvTitle.setText("Featured Events");
             ll_searchDetails.setVisibility(View.GONE);
@@ -150,7 +149,6 @@ public class Search2 extends AppCompatActivity {
             ll_searchDetails.setVisibility(View.GONE);
             rvSearch.setVisibility(View.GONE);
         }
-
 
 
     }
@@ -459,8 +457,17 @@ public class Search2 extends AppCompatActivity {
                             geteventModel.setStatus(responseobj.getString("status"));
                             geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            if (i > 0 && i % 4 == 0) {
+                                geteventModelArrayList.add(null);
+                            }
                             geteventModelArrayList.add(geteventModel);
 
+                        }
+
+                        if (geteventModelArrayList.size()<=4){
+                            viewall_ad.setVisibility(View.VISIBLE);
+                        }else{
+                            viewall_ad.setVisibility(View.GONE);
                         }
 
                         setupRecycler();
@@ -566,8 +573,16 @@ public class Search2 extends AppCompatActivity {
                             geteventModel.setStatus(responseobj.getString("status"));
                             geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            if (i > 0 && i % 4 == 0) {
+                                geteventModelArrayList.add(null);
+                            }
                             geteventModelArrayList.add(geteventModel);
+                        }
 
+                        if (geteventModelArrayList.size()<4){
+                            viewall_ad.setVisibility(View.VISIBLE);
+                        }else{
+                            viewall_ad.setVisibility(View.GONE);
                         }
 
                         setupRecycler();
@@ -674,8 +689,16 @@ public class Search2 extends AppCompatActivity {
                             geteventModel.setStatus(responseobj.getString("status"));
                             geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            if (i > 0 && i % 4 == 0) {
+                                geteventModelArrayList.add(null);
+                            }
                             geteventModelArrayList.add(geteventModel);
+                        }
 
+                        if (geteventModelArrayList.size()<4){
+                            viewall_ad.setVisibility(View.VISIBLE);
+                        }else{
+                            viewall_ad.setVisibility(View.GONE);
                         }
 
                         setupRecycler();
@@ -722,17 +745,28 @@ public class Search2 extends AppCompatActivity {
 
         myViewallAdapter = new MyViewallAdapter(this, geteventModelArrayList);
         rvSearch.setAdapter(myViewallAdapter);
-        rvSearch.setLayoutManager(new GridLayoutManager(Search2.this, 2));
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+              /*  int spancount = position > 0 && (position % 4) == 0 ? 1 : 2;
+                Log.v("spancount", spancount + "");
+                return (spancount);*/
+                if (geteventModelArrayList.get(position) == null) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        rvSearch.setLayoutManager(manager);
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing);
         rvSearch.addItemDecoration(itemDecoration);
-
 
     }
 
 
-
-
-    public void addRemovefav(GeteventModel geteventModel){
+    public void addRemovefav(GeteventModel geteventModel) {
 
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
@@ -799,7 +833,6 @@ public class Search2 extends AppCompatActivity {
 
 
     }
-
 
 
     public ProgressDialog mProgressDialog;

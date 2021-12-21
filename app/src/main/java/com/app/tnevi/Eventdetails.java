@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -46,6 +47,13 @@ import com.app.tnevi.model.GeteventModel;
 import com.app.tnevi.session.SessionManager;
 import com.bumptech.glide.Glide;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -108,6 +116,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     ArrayList<String> list = new ArrayList<>();
     private ArrayList<GeteventModel> homeEventsModelArrayList;
     private FeaturedAdapter featuredAdapter;
+    private AdView viewall_ad;
 
 
 
@@ -139,8 +148,19 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         btnSpam = findViewById(R.id.btnSpam);
         rv_youmaylike = findViewById(R.id.rv_youmaylike);
         tvTiminig = findViewById(R.id.tvTiminig);
-
+        viewall_ad = findViewById(R.id.viewall_ad);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        viewall_ad.loadAd(adRequest);
 
         sessionManager = new SessionManager(getApplicationContext());
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -175,6 +195,41 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
     public void onClick() {
 
+        viewall_ad.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                Log.d("ad-test", "Banner ad closed");
+            }
+
+            @Override
+            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
+                Log.d("ad-test", "Banner Failed to load");
+
+            }
+
+            @Override
+            public void onAdOpened() {
+                super.onAdOpened();
+                Log.d("ad-test", "Banner ad Opened");
+
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                Log.d("ad-test", "Banner ad loaded successfully");
+
+            }
+
+            @Override
+            public void onAdClicked() {
+                super.onAdClicked();
+                Log.d("ad-test", "Banner ad Clicked");
+
+            }
+        });
 
         btnSpam.setOnClickListener(new View.OnClickListener() {
             @Override

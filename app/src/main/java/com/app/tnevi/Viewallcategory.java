@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,10 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.CategoryAdapter;
 import com.app.tnevi.Allurl.Allurl;
@@ -33,8 +37,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Viewallcategory extends AppCompatActivity {
@@ -55,6 +61,7 @@ public class Viewallcategory extends AppCompatActivity {
     RecyclerView rv_allcategory;
     private ArrayList<CategoryModel> categoryModelArrayList;
     private CategoryAdapter categoryAdapter;
+    String bankdetails="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +77,7 @@ public class Viewallcategory extends AppCompatActivity {
         useremail = sharedPreferences.getString("email", "");
         token = sharedPreferences.getString("token", "");
 
-        getAllcategories();
+        getAccount();
         onClick();
     }
 
@@ -89,14 +96,17 @@ public class Viewallcategory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                if (bankdetails.equals("1")) {
 
                     Intent intent = new Intent(Viewallcategory.this, Allcategory.class);
                     intent.putExtra("category", category);
                     startActivity(intent);
 
+                } else {
 
-
+                    Intent intent = new Intent(Viewallcategory.this, Checkoutaddbankacc.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -206,6 +216,90 @@ public class Viewallcategory extends AppCompatActivity {
         intent.putExtra("long", "88.637451");
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+
+    public void getAccount() {
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+            showProgressDialog();
+
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Allurl.GetAccount,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Log.i("Response3-->", String.valueOf(response));
+
+                            //Parse Here
+
+                            try {
+                                JSONObject result = new JSONObject(String.valueOf(response));
+                                msg = result.getString("message");
+                                Log.d(TAG, "msg-->" + msg);
+                                String stat = result.getString("stat");
+                                if (stat.equals("succ")) {
+
+                                    JSONObject userdeatisObj = result.getJSONObject("data");
+                                    JSONObject profileObj = userdeatisObj.getJSONObject("profile");
+                                    JSONObject walletObj = userdeatisObj.getJSONObject("wallet");
+                                    if (!userdeatisObj.isNull("bank_details")) {
+                                        bankdetails = "1";
+                                    } else {
+                                        bankdetails = "2";
+                                    }
+                                    getAllcategories();
+
+                                } else {
+
+                                    hideProgressDialog();
+                                    Log.d(TAG, "unsuccessfull - " + "Error");
+                                    Toast.makeText(Viewallcategory.this, msg, Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+//                            hideProgressDialog();
+
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                            hideProgressDialog();
+                            Toast.makeText(Viewallcategory.this, error.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+
+            };
+
+
+            RequestQueue requestQueue = Volley.newRequestQueue(Viewallcategory.this);
+            requestQueue.add(stringRequest);
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    9000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        } else {
+
+            Toast.makeText(getApplicationContext(), "OOPS! No Internet Connection", Toast.LENGTH_SHORT).show();
+
+        }
+
+
     }
 
 
