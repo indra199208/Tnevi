@@ -36,6 +36,7 @@ import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.CategoryAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.HighlighteventAdapter;
+import com.app.tnevi.Adapters.MyViewallAdapter;
 import com.app.tnevi.Adapters.TopeventAdapter;
 import com.app.tnevi.Allurl.Allurl;
 import com.app.tnevi.internet.CheckConnectivity;
@@ -83,11 +84,13 @@ public class MainActivity extends AppCompatActivity {
     String lat = "";
     String lon = "";
     private ArrayList<CategoryModel> categoryModelArrayList;
-    private ArrayList<GeteventModel> homeEventsModelArrayList;
+    private ArrayList<GeteventModel> homeEventsModelArrayList = new ArrayList<>();
+    ;
     private CategoryAdapter categoryAdapter;
     private TopeventAdapter topeventAdapter;
     private HighlighteventAdapter highlighteventAdapter;
     private FeaturedAdapter featuredAdapter;
+    private MyViewallAdapter myViewallAdapter;
     private static int AUTOCOMPLETE_REQUEST_CODE = 1;
     PlacesClient placesClient;
     Button Viewall;
@@ -226,15 +229,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (bankdetails.equals("1")) {
+//                if (bankdetails.equals("1")) {
 
                     Intent intent = new Intent(MainActivity.this, Allcategory.class);
                     startActivity(intent);
-                } else {
-
-                    Intent intent = new Intent(MainActivity.this, Checkoutaddbankacc.class);
-                    startActivity(intent);
-                }
+//                } else {
+//
+//                    Intent intent = new Intent(MainActivity.this, Checkoutaddbankacc.class);
+//                    startActivity(intent);
+//                }
 
 
             }
@@ -653,7 +656,7 @@ public class MainActivity extends AppCompatActivity {
                     String stat = result.getString("stat");
                     if (stat.equals("succ")) {
 
-                        homeEventsModelArrayList = new ArrayList<>();
+
                         JSONArray response_data = result.getJSONArray("data");
                         for (int i = 0; i < response_data.length(); i++) {
 
@@ -765,7 +768,6 @@ public class MainActivity extends AppCompatActivity {
                     String stat = result.getString("stat");
                     if (stat.equals("succ")) {
 
-                        homeEventsModelArrayList = new ArrayList<>();
                         JSONArray response_data = result.getJSONArray("data");
                         for (int i = 0; i < response_data.length(); i++) {
 
@@ -876,7 +878,6 @@ public class MainActivity extends AppCompatActivity {
                     String stat = result.getString("stat");
                     if (stat.equals("succ")) {
 
-                        homeEventsModelArrayList = new ArrayList<>();
                         JSONArray response_data = result.getJSONArray("data");
                         for (int i = 0; i < response_data.length(); i++) {
 
@@ -901,6 +902,9 @@ public class MainActivity extends AppCompatActivity {
                             geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
                             geteventModel.setTicket_stat(responseobj.getString("top_events"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
+                            if (i > 0 && i % 6 == 0) {
+                                homeEventsModelArrayList.add(null);
+                            }
                             homeEventsModelArrayList.add(geteventModel);
 
                         }
@@ -1030,9 +1034,25 @@ public class MainActivity extends AppCompatActivity {
 
         featuredAdapter = new FeaturedAdapter(this, homeEventsModelArrayList);
         rv_featured.setAdapter(featuredAdapter);
-        rv_featured.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing2);
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+              /*  int spancount = position > 0 && (position % 4) == 0 ? 1 : 2;
+                Log.v("spancount", spancount + "");
+                return (spancount);*/
+
+                if (homeEventsModelArrayList.get(position) == null) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
+        });
+        rv_featured.setLayoutManager(manager);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing7);
         rv_featured.addItemDecoration(itemDecoration);
+
 
     }
 

@@ -6,13 +6,10 @@
     android:layout_height="match_parent"
     android:background="#FAF6FF"
     android:orientation="vertical"
-    tools:context="com.example.tnevi.com.app.tnevi.Profile">
+    tools:context=".Profile">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_62sdp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -160,6 +157,10 @@
 <!--    </LinearLayout>-->
 
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_65sdp">
 
 
         <LinearLayout
@@ -230,12 +231,12 @@
         </LinearLayout>
 
 
+        </androidx.core.widget.NestedScrollView>
 
 
     </LinearLayout>
 
 
-    </ScrollView>
 
 
     <include

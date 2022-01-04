@@ -20,8 +20,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +42,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.app.tnevi.Adapters.ChoosemayAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.GalleryAdapter;
 import com.app.tnevi.internet.CheckConnectivity;
@@ -48,12 +51,17 @@ import com.app.tnevi.session.SessionManager;
 import com.bumptech.glide.Glide;
 
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.nativead.MediaView;
+import com.google.android.gms.ads.nativead.NativeAd;
+import com.google.android.gms.ads.nativead.NativeAdOptions;
+import com.google.android.gms.ads.nativead.NativeAdView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -82,6 +90,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -93,7 +102,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     private static final String SHARED_PREFS2 = "chooselike";
     SessionManager sessionManager;
     String useremail, username, token, eventId, response2;
-    ImageView btn_back, imgBanner, btnSend;
+    ImageView btn_back, imgBanner, btnSend, imgPrfpic;
     String msg, eventname, postedby, eventimage, freestat, social, comission,
             eventdate, stime, etime, minprice, maxprice, phonenumber,
             address, longval, latval, description, venuename, venueaddress, currencyid,
@@ -116,8 +125,8 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     ArrayList<String> list = new ArrayList<>();
     private ArrayList<GeteventModel> homeEventsModelArrayList;
     private FeaturedAdapter featuredAdapter;
-    private AdView viewall_ad;
-
+    private ChoosemayAdapter choosemayAdapter;
+    NativeAd nativeAd;
 
 
     @Override
@@ -148,19 +157,10 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         btnSpam = findViewById(R.id.btnSpam);
         rv_youmaylike = findViewById(R.id.rv_youmaylike);
         tvTiminig = findViewById(R.id.tvTiminig);
-        viewall_ad = findViewById(R.id.viewall_ad);
+        imgPrfpic = findViewById(R.id.imgPrfpic);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
 
-
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        viewall_ad.loadAd(adRequest);
 
         sessionManager = new SessionManager(getApplicationContext());
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -171,6 +171,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         choosecategoryid = sharedPreferences2.getString("chosen_categories", "");
 
         getEventDetails();
+        refreshAd();
 
 
         scrollview.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -195,39 +196,12 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
     public void onClick() {
 
-        viewall_ad.setAdListener(new AdListener() {
+        tvPostedby.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                Log.d("ad-test", "Banner ad closed");
-            }
+            public void onClick(View view) {
 
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
-                Log.d("ad-test", "Banner Failed to load");
-
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-                Log.d("ad-test", "Banner ad Opened");
-
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                Log.d("ad-test", "Banner ad loaded successfully");
-
-            }
-
-            @Override
-            public void onAdClicked() {
-                super.onAdClicked();
-                Log.d("ad-test", "Banner ad Clicked");
-
+                Intent intent = new Intent(Eventdetails.this, Profile.class);
+                startActivity(intent);
             }
         });
 
@@ -490,8 +464,8 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                         tvPostedby.setText(postedby);
                         tvEventdate.setText("$" + minprice + "-" + "$" + maxprice);
                         tvTicketprice.setText("$" + comission + "/Price");
-                        tvEventdate2.setText(eventdate+" - "+event_edate);
-                        tvTiminig.setText(stime+" - "+etime);
+                        tvEventdate2.setText(eventdate+" and "+event_edate);
+                        tvTiminig.setText(stime+" and "+etime);
                         tvAddress.setText(address);
                         tvEventdetails.setText(description);
                         btnHeart.setLiked(favstatus.equals("1"));
@@ -628,8 +602,8 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
                         }
 
-                        featuredAdapter = new FeaturedAdapter(this, homeEventsModelArrayList);
-                        rv_youmaylike.setAdapter(featuredAdapter);
+                        choosemayAdapter = new ChoosemayAdapter(this, homeEventsModelArrayList);
+                        rv_youmaylike.setAdapter(choosemayAdapter);
                         rv_youmaylike.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
                         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing3);
                         rv_youmaylike.addItemDecoration(itemDecoration);
@@ -951,6 +925,112 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         }
 
     }
+
+
+    private void populateUnifiedNativeAdView(NativeAd nativeAd, NativeAdView adView) {
+        adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
+        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+        adView.setBodyView(adView.findViewById(R.id.ad_body));
+        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+        adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+        adView.setPriceView(adView.findViewById(R.id.ad_price));
+        adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
+        adView.setStoreView(adView.findViewById(R.id.ad_store));
+        adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
+
+
+        ((TextView) Objects.requireNonNull(adView.getHeadlineView())).setText(nativeAd.getHeadline());
+        Objects.requireNonNull(adView.getMediaView()).setMediaContent(Objects.requireNonNull(nativeAd.getMediaContent()));
+
+
+        if (nativeAd.getBody() == null) {
+            Objects.requireNonNull(adView.getBodyView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            adView.getBodyView().setVisibility(View.VISIBLE);
+            ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
+        }
+        if (nativeAd.getCallToAction() == null) {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.VISIBLE);
+            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+        }
+        if (nativeAd.getIcon() == null) {
+            Objects.requireNonNull(adView.getIconView()).setVisibility(View.GONE);
+        } else {
+            ((ImageView) Objects.requireNonNull(adView.getIconView())).setImageDrawable(nativeAd.getIcon().getDrawable());
+            adView.getIconView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getPrice() == null) {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
+        }
+        if (nativeAd.getStore() == null) {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
+        }
+        if (nativeAd.getStarRating() == null) {
+            Objects.requireNonNull(adView.getStarRatingView()).setVisibility(View.INVISIBLE);
+        } else {
+            ((RatingBar) Objects.requireNonNull(adView.getStarRatingView())).setRating(nativeAd.getStarRating().floatValue());
+            adView.getStarRatingView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getAdvertiser() == null) {
+            Objects.requireNonNull(adView.getAdvertiserView()).setVisibility(View.INVISIBLE);
+        } else
+            ((TextView) Objects.requireNonNull(adView.getAdvertiserView())).setText(nativeAd.getAdvertiser());
+        adView.getAdvertiserView().setVisibility(View.VISIBLE);
+
+
+        adView.setNativeAd(nativeAd);
+
+
+    }
+
+
+    private void refreshAd() {
+        AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.ADMOB_ADS_UNIT_ID));
+        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(NativeAd unifiedNativeAd) {
+
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+                nativeAd = unifiedNativeAd;
+                FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+                NativeAdView adView = (NativeAdView) getLayoutInflater().inflate(R.layout.ad_helper, null);
+
+                populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                frameLayout.removeAllViews();
+                frameLayout.addView(adView);
+            }
+        }).build();
+        NativeAdOptions adOptions = new NativeAdOptions.Builder().build();
+        builder.withNativeAdOptions(adOptions);
+        AdLoader adLoader = builder.withAdListener(new AdListener() {
+            public void onAdFailedToLoad(int i) {
+
+            }
+        }).build();
+        adLoader.loadAd(new AdRequest.Builder().build());
+
+    }
+
+
+
+
+
+
+
 
 
     public ProgressDialog mProgressDialog;

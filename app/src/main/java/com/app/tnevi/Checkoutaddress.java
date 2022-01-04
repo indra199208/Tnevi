@@ -101,6 +101,8 @@ public class Checkoutaddress extends AppCompatActivity {
                     intent.putExtra("tax", tax);
                     intent.putExtra("seatnumber", seatnumber);
                     intent.putExtra("dis_amount", dis_amount);
+                    intent.putExtra("state", etState.getText().toString());
+                    intent.putExtra("zip", etZip.getText().toString());
                     startActivity(intent);
 
                 }

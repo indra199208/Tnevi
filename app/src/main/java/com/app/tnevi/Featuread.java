@@ -1,9 +1,12 @@
 package com.app.tnevi;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,18 +40,25 @@ public class Featuread extends AppCompatActivity {
     private static final String TAG = "myapp";
     private static final String SHARED_PREFS = "sharedPrefs";
     SessionManager sessionManager;
-    String useremail, username, token;
+    String useremail, username, token, eventId;
     ArrayList<PlanModel> planModelArrayList;
     private PlanAdapter planAdapter;
     private RecyclerView rv_plans;
     private TextView tv_price;
+    LinearLayout btnBuy;
+    String amount = "";
+    String selectedplanid = "";
+    String selectedplantype="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_featuread);
+        Intent intent = getIntent();
+        eventId = intent.getStringExtra("eventId");
         rv_plans = findViewById(R.id.rv_plans);
         tv_price = findViewById(R.id.tv_price);
+        btnBuy = findViewById(R.id.btnBuy);
 
         sessionManager = new SessionManager(getApplicationContext());
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -57,6 +67,26 @@ public class Featuread extends AppCompatActivity {
         useremail = sharedPreferences.getString("email", "");
 
         getPlans();
+
+        btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (amount.length()==0){
+                    Toast.makeText(Featuread.this,"Select any option",Toast.LENGTH_SHORT).show();
+                }else {
+
+                    Intent intent = new Intent(Featuread.this, Plancheckout.class);
+                    intent.putExtra("amount", amount);
+                    intent.putExtra("selectedplanid", selectedplanid);
+                    intent.putExtra("selectedplantype", selectedplantype);
+                    intent.putExtra("eventId", eventId);
+                    startActivity(intent);
+
+
+                }
+            }
+        });
 
 
     }
@@ -96,10 +126,13 @@ public class Featuread extends AppCompatActivity {
 
                             PlanModel planModel = new PlanModel();
                             JSONObject responseobj = response_data.getJSONObject(i);
+                            planModel.setId(responseobj.getString("id"));
                             planModel.setPlan_name(responseobj.getString("plan_name"));
-                            planModel.setDescription(responseobj.getString("tagline"));
+                            planModel.setType(responseobj.getString("type"));
+                            planModel.setTagline(responseobj.getString("tagline"));
+                            planModel.setDescription(responseobj.getString("description"));
                             planModel.setPlan_price(responseobj.getString("plan_price"));
-
+                            planModel.setPlan_length(responseobj.getString("plan_length"));
                             planModelArrayList.add(planModel);
 
                         }
@@ -155,8 +188,11 @@ public class Featuread extends AppCompatActivity {
 
     }
 
-    public void updatePriceText(String price) {
+    public void updatePriceText(String price, String id, String type) {
         tv_price.setText("Pay $" + price);
+        amount = price;
+        selectedplanid = id;
+        selectedplantype = type;
         planAdapter.notifyDataSetChanged();
     }
 

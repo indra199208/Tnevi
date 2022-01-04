@@ -31,35 +31,44 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
-            android:name="com.app.tnevi.Chooseyoulike"
+            android:name=".Plancheckout"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.Notification"
+            android:name=".Epointcheckout"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.Editseat"
+            android:name=".activity_checkout"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.Aboutus"
+            android:name=".Chooseyoulike"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.QRcode"
+            android:name=".Notification"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.FAQ"
+            android:name=".Editseat"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.Contactsupport"
+            android:name=".Aboutus"
             android:exported="true" />
         <activity
-            android:name="com.app.tnevi.Ratenow"
+            android:name=".QRcode"
             android:exported="true" />
-        <activity android:name="com.app.tnevi.Viewallcategory" />
-        <activity android:name="com.app.tnevi.Cashouthistory" />
-        <activity android:name="com.app.tnevi.Ticketsales" />
-        <activity android:name="com.app.tnevi.Ticketdetails" />
-        <activity android:name="com.app.tnevi.Editevent2" />
-        <activity android:name="com.app.tnevi.Editevent" />
+        <activity
+            android:name=".FAQ"
+            android:exported="true" />
+        <activity
+            android:name=".Contactsupport"
+            android:exported="true" />
+        <activity
+            android:name=".Ratenow"
+            android:exported="true" />
+        <activity android:name=".Viewallcategory" />
+        <activity android:name=".Cashouthistory" />
+        <activity android:name=".Ticketsales" />
+        <activity android:name=".Ticketdetails" />
+        <activity android:name=".Editevent2" />
+        <activity android:name=".Editevent" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -90,53 +99,51 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name="com.app.tnevi.Arrangeseats" />
-        <activity android:name="com.app.tnevi.Updatepassword" />
-        <activity android:name="com.app.tnevi.Passwordchange" />
-        <activity android:name="com.app.tnevi.Emailverification2" />
-        <activity android:name="com.app.tnevi.Forgetpassword" />
-        <activity android:name="com.app.tnevi.Emailverification" />
-        <activity android:name="com.app.tnevi.Checkoutpaymentmethod" />
-        <activity android:name="com.app.tnevi.Checkoutpaymentoption" />
-        <activity android:name="com.app.tnevi.Checkoutaddbankacc" />
-        <activity android:name="com.app.tnevi.Checkoutbankinfo" />
-        <activity android:name="com.app.tnevi.Checkoutpaymentinfo" />
-        <activity android:name="com.app.tnevi.Checkoutaddress" />
-        <activity android:name="com.app.tnevi.Pricedetails" />
-        <activity android:name="com.app.tnevi.Gallerybooking" />
-        <activity android:name="com.app.tnevi.Comissiondetails" />
-        <activity android:name="com.app.tnevi.Eventgeneraldetails" />
-        <activity android:name="com.app.tnevi.Featuread" />
-        <activity android:name="com.app.tnevi.Ticketsalesreport" />
-        <activity android:name="com.app.tnevi.Commissionsearned" />
-        <activity android:name="com.app.tnevi.Eventdetails" />
-        <activity android:name="com.app.tnevi.Adcongrats" />
-        <activity android:name="com.app.tnevi.EventimageuploadActivity" />
-        <activity android:name="com.app.tnevi.Eventbaneerad" />
-        <activity android:name="com.app.tnevi.Eventcost" />
-        <activity android:name="com.app.tnevi.Eventdescription" />
-        <activity android:name="com.app.tnevi.Addeventdetails" />
-        <activity android:name="com.app.tnevi.Selectevent" />
-        <activity android:name="com.app.tnevi.Allcategory" />
-        <activity android:name="com.app.tnevi.Viewrewards" />
-        <activity android:name="com.app.tnevi.Buyepoint" />
-        <activity android:name="com.app.tnevi.Epointhistory" />
-        <activity android:name="com.app.tnevi.Sellingticket" />
-        <activity android:name="com.app.tnevi.Favticket" />
-        <activity android:name="com.app.tnevi.Soldticket" />
-        <activity android:name="com.app.tnevi.Mytickets" />
-        <activity android:name="com.app.tnevi.Events" />
-        <activity android:name="com.app.tnevi.Settings" />
-        <activity android:name="com.app.tnevi.Profile" />
-        <activity android:name="com.app.tnevi.Wallet" />
-        <activity android:name="com.app.tnevi.Search" />
-        <activity android:name="com.app.tnevi.Search2" />
-        <activity android:name="com.app.tnevi.Registration" />
-        <activity android:name="com.app.tnevi.Login" />
-        <activity android:name="com.app.tnevi.Comissionsales" />
-        <activity android:name="com.app.tnevi.Splash" />
-
-
+        <activity android:name=".Arrangeseats" />
+        <activity android:name=".Updatepassword" />
+        <activity android:name=".Passwordchange" />
+        <activity android:name=".Emailverification2" />
+        <activity android:name=".Forgetpassword" />
+        <activity android:name=".Emailverification" />
+        <activity android:name=".Checkoutpaymentmethod" />
+        <activity android:name=".Checkoutpaymentoption" />
+        <activity android:name=".Checkoutaddbankacc" />
+        <activity android:name=".Checkoutbankinfo" />
+        <activity android:name=".Checkoutpaymentinfo" />
+        <activity android:name=".Checkoutaddress" />
+        <activity android:name=".Pricedetails" />
+        <activity android:name=".Gallerybooking" />
+        <activity android:name=".Comissiondetails" />
+        <activity android:name=".Eventgeneraldetails" />
+        <activity android:name=".Featuread" />
+        <activity android:name=".Ticketsalesreport" />
+        <activity android:name=".Commissionsearned" />
+        <activity android:name=".Eventdetails" />
+        <activity android:name=".Adcongrats" />
+        <activity android:name=".EventimageuploadActivity" />
+        <activity android:name=".Eventbaneerad" />
+        <activity android:name=".Eventcost" />
+        <activity android:name=".Eventdescription" />
+        <activity android:name=".Addeventdetails" />
+        <activity android:name=".Selectevent" />
+        <activity android:name=".Allcategory" />
+        <activity android:name=".Viewrewards" />
+        <activity android:name=".Buyepoint" />
+        <activity android:name=".Epointhistory" />
+        <activity android:name=".Sellingticket" />
+        <activity android:name=".Favticket" />
+        <activity android:name=".Soldticket" />
+        <activity android:name=".Mytickets" />
+        <activity android:name=".Events" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Wallet" />
+        <activity android:name=".Search" />
+        <activity android:name=".Search2" />
+        <activity android:name=".Registration" />
+        <activity android:name=".Login" />
+        <activity android:name=".Comissionsales" />
+        <activity android:name=".Splash" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -153,7 +160,7 @@
             android:configChanges="keyboardHidden|orientation" />
         <activity android:name="io.card.payment.DataEntryActivity" /> <!-- end -->
         <activity
-            android:name="com.app.tnevi.Welcome"
+            android:name=".Welcome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -161,10 +168,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.app.tnevi.MainActivity" />
+        <activity android:name=".MainActivity" />
 
-
-        <service android:name=".fcm.FirebaseMessageReceiver"
+        <service
+            android:name=".fcm.FirebaseMessageReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -172,9 +179,11 @@
         </service>
 
         <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+        <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9238447102279900~9532667711"/>
-
+            android:value="ca-app-pub-9238447102279900~9532667711" />
     </application>
 
 </manifest>

@@ -10,25 +10,19 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import com.app.tnevi.R;
-
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.app.tnevi.Eventdetails;
 import com.app.tnevi.MainActivity;
-
+import com.app.tnevi.R;
 import com.app.tnevi.model.GeteventModel;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
@@ -41,18 +35,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class FeaturedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ChoosemayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private LayoutInflater inflater;
     private ArrayList<GeteventModel> homeEventsModelArrayList;
     Context ctx;
-    private final int limit = 11;
+//    private final int limit = 11;
     private static final String TAG = "myapp";
     private static final int CONTENT_TYPE = 0;
     private static final int AD_TYPE = 1;
 
 
-    public FeaturedAdapter(Context ctx, ArrayList<GeteventModel> homeEventsModelArrayList) {
+    public ChoosemayAdapter(Context ctx, ArrayList<GeteventModel> homeEventsModelArrayList) {
         inflater = LayoutInflater.from(ctx);
         this.homeEventsModelArrayList = homeEventsModelArrayList;
         this.ctx = ctx;
@@ -61,7 +55,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         if (viewType == CONTENT_TYPE) {
-            View view = inflater.inflate(R.layout.rv_featuredevent, viewGroup, false);
+            View view = inflater.inflate(R.layout.rv_featuredevent2, viewGroup, false);
             return new MyViewHolder(view);
         } else {
             View view = inflater.inflate(R.layout.list_item_ad1, viewGroup, false);
@@ -77,7 +71,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
         }else {
-            FeaturedAdapter.MyViewHolder holder = (MyViewHolder) viewHolder;
+            ChoosemayAdapter.MyViewHolder holder = (MyViewHolder) viewHolder;
             holder.tvEventname.setText(homeEventsModelArrayList.get(i).getEvent_name());
             holder.tvEpointsvalue.setText("$" + homeEventsModelArrayList.get(i).getEvent_commission() + "/Ticket");
             Glide.with(ctx)
@@ -126,11 +120,11 @@ public class FeaturedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        if (homeEventsModelArrayList.size() > limit) {
-            return limit;
-        } else {
-        return homeEventsModelArrayList.size();
-    }
+//        if (homeEventsModelArrayList.size() > limit) {
+//            return limit;
+//        } else {
+            return homeEventsModelArrayList.size();
+//        }
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

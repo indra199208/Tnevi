@@ -2,7 +2,16 @@ package com.app.tnevi.model;
 
 public class PlanModel {
 
-    private String id, plan_name, tagline, description,plan_price, plan_length;
+    private String id, plan_name, type, tagline, description,plan_price, plan_length;
+
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getId() {
         return id;

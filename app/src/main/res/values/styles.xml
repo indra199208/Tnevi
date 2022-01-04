@@ -22,4 +22,17 @@
         <item name="colorControlActivated">#FFC107</item>
     </style>
 
+
+    <style name="AppTheme.NativeAd">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:text">@string/ad_attribution</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:background">#FFCC66</item>
+        <item name="android:width">15dp</item>
+        <item name="android:height">15dp</item>
+    </style>
+
 </resources>

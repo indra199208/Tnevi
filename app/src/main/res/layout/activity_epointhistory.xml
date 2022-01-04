@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Epointhistory">
+    tools:context=".Epointhistory">
 
 
     <ScrollView
@@ -146,6 +146,7 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/_14sdp"
                 android:layout_margin="@dimen/_10sdp"
+                android:textAlignment="center"
                 android:visibility="gone"
                 android:textColor="@color/quantum_black_100"/>
 

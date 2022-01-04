@@ -63,12 +63,12 @@ public class Buyepoint extends AppCompatActivity {
     String selectedamount = "";
     String selectedepoints = "";
     String payID, useremail;
-    public static final String clientKey = "AXtUmNzJQFSZ_SmHv0nBBQ7tcrRMRplPK0C1ozdrytJeDEImYlN5OBSOD0fXUUp2ce9_MtQFVreVQqPI";
-    public static final int PAYPAL_REQUEST_CODE = 123;
-
-    // Paypal Configuration Object
-    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
-            .clientId(clientKey);
+//    public static final String clientKey = "AXtUmNzJQFSZ_SmHv0nBBQ7tcrRMRplPK0C1ozdrytJeDEImYlN5OBSOD0fXUUp2ce9_MtQFVreVQqPI";
+//    public static final int PAYPAL_REQUEST_CODE = 123;
+//
+//    // Paypal Configuration Object
+//    private static PayPalConfiguration config = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+//            .clientId(clientKey);
 
 
     @Override
@@ -164,7 +164,7 @@ public class Buyepoint extends AppCompatActivity {
 
                             EpointListModel epointListModel = new EpointListModel();
                             JSONObject responseobj = response_data.getJSONObject(i);
-                            epointListModel.setId(responseobj.getString("id"));
+                            epointListModel.setId(responseobj.getString("epoint_plan_id"));
                             epointListModel.setEpoint(responseobj.getString("epoint"));
                             epointListModel.setAmount(responseobj.getString("amount"));
                             epointListModelArrayList.add(epointListModel);
@@ -226,123 +226,129 @@ public class Buyepoint extends AppCompatActivity {
 
     private void getPayment() {
 
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(selectedamount)), "USD", "Ticket Amount",
-                PayPalPayment.PAYMENT_INTENT_SALE);
-        Intent intent = new Intent(this, PaymentActivity.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+        Intent intent = new Intent(Buyepoint.this, Epointcheckout.class);
+        intent.putExtra("useremail", useremail);
+        intent.putExtra("selectedamount", selectedamount);
+        intent.putExtra("epointid", epointid);
+        startActivity(intent);
+
+//        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(selectedamount)), "USD", "Ticket Amount",
+//                PayPalPayment.PAYMENT_INTENT_SALE);
+//        Intent intent = new Intent(this, PaymentActivity.class);
+//        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+//        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+//        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == PAYPAL_REQUEST_CODE) {
+//
+//            if (resultCode == Activity.RESULT_OK) {
+//                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+//                if (confirm != null) {
+//                    try {
+//                        String paymentDetails = confirm.toJSONObject().toString(4);
+//                        JSONObject payObj = new JSONObject(paymentDetails);
+//                        payID = payObj.getJSONObject("response").getString("id");
+//                        String state = payObj.getJSONObject("response").getString("state");
+//                        Toast.makeText(Buyepoint.this, "Payment " + state + "\n with payment id is " + payID, Toast.LENGTH_SHORT).show();
+//
+//                        buyEpoints();
+//
+//
+//                    } catch (JSONException e) {
+//                        Log.e("Error", "an extremely unlikely failure occurred: ", e);
+//                    }
+//                }
+//            } else if (resultCode == Activity.RESULT_CANCELED) {
+//                Log.i("paymentExample", "The user canceled.");
+//            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+//                Log.i("paymentExample", "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void onDestroy() {
+//        stopService(new Intent(this, PayPalService.class));
+//        super.onDestroy();
+//    }
 
-        if (requestCode == PAYPAL_REQUEST_CODE) {
-
-            if (resultCode == Activity.RESULT_OK) {
-                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
-                if (confirm != null) {
-                    try {
-                        String paymentDetails = confirm.toJSONObject().toString(4);
-                        JSONObject payObj = new JSONObject(paymentDetails);
-                        payID = payObj.getJSONObject("response").getString("id");
-                        String state = payObj.getJSONObject("response").getString("state");
-                        Toast.makeText(Buyepoint.this, "Payment " + state + "\n with payment id is " + payID, Toast.LENGTH_SHORT).show();
-
-                        buyEpoints();
-
-
-                    } catch (JSONException e) {
-                        Log.e("Error", "an extremely unlikely failure occurred: ", e);
-                    }
-                }
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                Log.i("paymentExample", "The user canceled.");
-            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
-                Log.i("paymentExample", "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
-            }
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        stopService(new Intent(this, PayPalService.class));
-        super.onDestroy();
-    }
-
-    public void buyEpoints(){
-
-        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
-            showProgressDialog();
-            JSONObject params = new JSONObject();
-
-            try {
-                params.put("tran_id", payID);
-                params.put("inv_id", "qwe123");
-                params.put("payer_email", useremail);
-                params.put("payment_amount", selectedamount);
-                params.put("epoint_plan_id", epointid);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.Buyepoints, params, response -> {
-
-                Log.i("Response-->", String.valueOf(response));
-
-                try {
-                    JSONObject result = new JSONObject(String.valueOf(response));
-                    String msg = result.getString("message");
-                    String stat = result.getString("stat");
-                    if (stat.equals("succ")) {
-
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Buyepoint.this, MainActivity.class);
-                        startActivity(intent);
-
-                    } else {
-
-                        hideProgressDialog();
-                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                    }
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                hideProgressDialog();
-
-                //TODO: handle success
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    hideProgressDialog();
-                    Toast.makeText(Buyepoint.this, error.toString(), Toast.LENGTH_SHORT).show();
-
-                }
-            }) {
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("Authorization", token);
-                    return params;
-                }
-            };
-
-            Volley.newRequestQueue(this).add(jsonRequest);
-
-        } else {
-
-            Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
-
-        }
-
-    }
+//    public void buyEpoints(){
+//
+//        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+//            showProgressDialog();
+//            JSONObject params = new JSONObject();
+//
+//            try {
+//                params.put("tran_id", payID);
+//                params.put("inv_id", "qwe123");
+//                params.put("payer_email", useremail);
+//                params.put("payment_amount", selectedamount);
+//                params.put("epoint_plan_id", epointid);
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.Buyepoints, params, response -> {
+//
+//                Log.i("Response-->", String.valueOf(response));
+//
+//                try {
+//                    JSONObject result = new JSONObject(String.valueOf(response));
+//                    String msg = result.getString("message");
+//                    String stat = result.getString("stat");
+//                    if (stat.equals("succ")) {
+//
+//                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(Buyepoint.this, MainActivity.class);
+//                        startActivity(intent);
+//
+//                    } else {
+//
+//                        hideProgressDialog();
+//                        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+//                    }
+//
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//
+//
+//                hideProgressDialog();
+//
+//                //TODO: handle success
+//            }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    hideProgressDialog();
+//                    Toast.makeText(Buyepoint.this, error.toString(), Toast.LENGTH_SHORT).show();
+//
+//                }
+//            }) {
+//                @Override
+//                public Map<String, String> getHeaders() throws AuthFailureError {
+//                    Map<String, String> params = new HashMap<String, String>();
+//                    params.put("Authorization", token);
+//                    return params;
+//                }
+//            };
+//
+//            Volley.newRequestQueue(this).add(jsonRequest);
+//
+//        } else {
+//
+//            Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
+//
+//        }
+//
+//    }
 
 
     public ProgressDialog mProgressDialog;

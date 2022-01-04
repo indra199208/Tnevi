@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Wallet">
+    tools:context=".Wallet">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -556,7 +556,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/btn_back"
+                android:id="@+id/imgPrf"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_gravity="center"

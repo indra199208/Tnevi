@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/ad_bg.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/b12.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/b123.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/bg1.xml" value="0.25416666666666665" />
@@ -13,8 +14,16 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button11.xml" value="0.26614583333333336" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button12.xml" value="0.26614583333333336" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button14.xml" value="0.26614583333333336" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button15.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button16.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button17.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button18.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button2.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button3.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button4.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button5.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button6.xml" value="0.25416666666666665" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button7.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/button9.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/buttonadevent.xml" value="0.25416666666666665" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/drawable/ic_religious.xml" value="0.25416666666666665" />
@@ -26,6 +35,7 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_arrangeseats.xml" value="0.176" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_buyepoint.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_cashouthistory.xml" value="0.23802083333333332" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_checkout.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_checkoutaddbankacc.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_checkoutaddress.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_checkoutbankinfo.xml" value="0.4" />
@@ -40,27 +50,29 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_editevent2.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_editseat.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_emailverification.xml" value="0.23802083333333332" />
-        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_epointhistory.xml" value="0.268" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_epointcheckout.xml" value="0.23802083333333332" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_epointhistory.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventbaneerad.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventcost.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventdescription.xml" value="0.2421875" />
-        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventdetails.xml" value="0.268" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventdetails.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventgeneraldetails.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_eventimageupload.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_events.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_faq.xml" value="0.2421875" />
-        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_featuread.xml" value="0.2421875" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_featuread.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_gallerybooking.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_login.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_mytickets.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_notification.xml" value="0.23802083333333332" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_plancheckout.xml" value="0.22395833333333334" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_pricedetails.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_qrcode.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_ratenow.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_search.xml" value="0.2421875" />
-        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_search2.xml" value="0.176" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_search2.xml" value="0.264" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_selectevent.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_sellingticket.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_settings.xml" value="0.2421875" />
@@ -72,6 +84,7 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_viewallcategory.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_viewrewards.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/activity_wallet.xml" value="0.2421875" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/ad_helper.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/custom_fullimage_dialoge.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/dailouge.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/dailouge_sendmail.xml" value="0.2421875" />
@@ -82,6 +95,7 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/include_event_nav.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/layout_bg.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/list_item_ad.xml" value="0.23802083333333332" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/list_item_ad1.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/my_dialog.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/notification.xml" value="0.25" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_allcategory.xml" value="0.23802083333333332" />
@@ -95,6 +109,7 @@
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_favlist.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_featuredevent.xml" value="0.2421875" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_featuredevent1.xml" value="0.2" />
+        <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_featuredevent2.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_gallery.xml" value="0.23802083333333332" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_getplans.xml" value="0.4" />
         <entry key="..\:/HP-Backup/RecentOfficeProjects/Tnevi/app/src/main/res/layout/rv_highlights.xml" value="0.23802083333333332" />

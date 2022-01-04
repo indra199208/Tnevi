@@ -10,10 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,12 +47,17 @@ import com.app.tnevi.session.SessionManager;
 
 import com.app.tnevi.Utils.ItemOffsetDecoration;
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.nativead.MediaView;
+import com.google.android.gms.ads.nativead.NativeAd;
+import com.google.android.gms.ads.nativead.NativeAdOptions;
+import com.google.android.gms.ads.nativead.NativeAdView;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
@@ -64,6 +72,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class Search extends AppCompatActivity {
 
@@ -90,7 +99,9 @@ public class Search extends AppCompatActivity {
     String Lat = "";
     String Lon = "";
     private MyViewallAdapter myViewallAdapter;
-    private AdView viewall_ad2;
+    LinearLayout ll_nativeAd2;
+    NativeAd nativeAd;
+//    private AdView viewall_ad2;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -131,23 +142,24 @@ public class Search extends AppCompatActivity {
         rvSearch = findViewById(R.id.rvSearch);
         spCat = findViewById(R.id.spCat);
         tvTitle = findViewById(R.id.tvTitle);
-        viewall_ad2 = findViewById(R.id.viewall_ad2);
+//        viewall_ad2 = findViewById(R.id.viewall_ad2);
 //        etLocation = findViewById(R.id.etLocation);
         ll_nocat = findViewById(R.id.ll_nocat);
         rl_bg = findViewById(R.id.rl_bg);
         btn_backsearch = findViewById(R.id.btn_backsearch);
+        ll_nativeAd2 = findViewById(R.id.ll_nativeAd2);
 
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        viewall_ad2.loadAd(adRequest);
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//
+//
+//            }
+//        });
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        viewall_ad2.loadAd(adRequest);
 
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -160,6 +172,7 @@ public class Search extends AppCompatActivity {
         spcat();
         onClick();
         spcomission();
+        refreshAd();
 
         if (catid != null) {
             iconSearch.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.darkgray));
@@ -194,41 +207,41 @@ public class Search extends AppCompatActivity {
 //            }
 //        });
 
-        viewall_ad2.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                Log.d("ad-test", "Banner ad closed");
-            }
-
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                super.onAdFailedToLoad(loadAdError);
-                Log.d("ad-test", "Banner Failed to load");
-
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-                Log.d("ad-test", "Banner ad Opened");
-
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                Log.d("ad-test", "Banner ad loaded successfully");
-
-            }
-
-            @Override
-            public void onAdClicked() {
-                super.onAdClicked();
-                Log.d("ad-test", "Banner ad Clicked");
-
-            }
-        });
+//        viewall_ad2.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdClosed() {
+//                super.onAdClosed();
+//                Log.d("ad-test", "Banner ad closed");
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+//                super.onAdFailedToLoad(loadAdError);
+//                Log.d("ad-test", "Banner Failed to load");
+//
+//            }
+//
+//            @Override
+//            public void onAdOpened() {
+//                super.onAdOpened();
+//                Log.d("ad-test", "Banner ad Opened");
+//
+//            }
+//
+//            @Override
+//            public void onAdLoaded() {
+//                super.onAdLoaded();
+//                Log.d("ad-test", "Banner ad loaded successfully");
+//
+//            }
+//
+//            @Override
+//            public void onAdClicked() {
+//                super.onAdClicked();
+//                Log.d("ad-test", "Banner ad Clicked");
+//
+//            }
+//        });
 
         spCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -721,7 +734,7 @@ public class Search extends AppCompatActivity {
 
         ll_searchDetails.setVisibility(View.GONE);
         rvSearch.setVisibility(View.VISIBLE);
-        viewall_ad2.setVisibility(View.VISIBLE);
+        ll_nativeAd2.setVisibility(View.VISIBLE);
 //        String categoryid = "[\\\"" + catid + "\\\"]";
         String categoryid = "[\"" + catid + "\"]";
 
@@ -788,7 +801,7 @@ public class Search extends AppCompatActivity {
                             geteventModel.setStatus(responseobj.getString("status"));
                             geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
-                            if (i > 0 && i % 4 == 0) {
+                            if (i > 0 && i % 8 == 0) {
                                 geteventModelArrayList.add(null);
                             }
                             geteventModelArrayList.add(geteventModel);
@@ -804,10 +817,10 @@ public class Search extends AppCompatActivity {
                             ll_nocat.setVisibility(View.GONE);
                         }
 
-                        if (geteventModelArrayList.size() <= 4) {
-                            viewall_ad2.setVisibility(View.VISIBLE);
+                        if (geteventModelArrayList.size() <= 8) {
+                            ll_nativeAd2.setVisibility(View.VISIBLE);
                         } else {
-                            viewall_ad2.setVisibility(View.GONE);
+                            ll_nativeAd2.setVisibility(View.GONE);
                         }
 
 
@@ -956,6 +969,104 @@ public class Search extends AppCompatActivity {
 
         }
 
+
+    }
+
+    private void populateUnifiedNativeAdView(NativeAd nativeAd, NativeAdView adView) {
+        adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
+        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+        adView.setBodyView(adView.findViewById(R.id.ad_body));
+        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+        adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+        adView.setPriceView(adView.findViewById(R.id.ad_price));
+        adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
+        adView.setStoreView(adView.findViewById(R.id.ad_store));
+        adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
+
+
+        ((TextView) Objects.requireNonNull(adView.getHeadlineView())).setText(nativeAd.getHeadline());
+        Objects.requireNonNull(adView.getMediaView()).setMediaContent(Objects.requireNonNull(nativeAd.getMediaContent()));
+
+
+        if (nativeAd.getBody() == null) {
+            Objects.requireNonNull(adView.getBodyView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            adView.getBodyView().setVisibility(View.VISIBLE);
+            ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
+        }
+        if (nativeAd.getCallToAction() == null) {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.VISIBLE);
+            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+        }
+        if (nativeAd.getIcon() == null) {
+            Objects.requireNonNull(adView.getIconView()).setVisibility(View.GONE);
+        } else {
+            ((ImageView) Objects.requireNonNull(adView.getIconView())).setImageDrawable(nativeAd.getIcon().getDrawable());
+            adView.getIconView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getPrice() == null) {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
+        }
+        if (nativeAd.getStore() == null) {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
+        }
+        if (nativeAd.getStarRating() == null) {
+            Objects.requireNonNull(adView.getStarRatingView()).setVisibility(View.INVISIBLE);
+        } else {
+            ((RatingBar) Objects.requireNonNull(adView.getStarRatingView())).setRating(nativeAd.getStarRating().floatValue());
+            adView.getStarRatingView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getAdvertiser() == null) {
+            Objects.requireNonNull(adView.getAdvertiserView()).setVisibility(View.INVISIBLE);
+        } else
+            ((TextView) Objects.requireNonNull(adView.getAdvertiserView())).setText(nativeAd.getAdvertiser());
+        adView.getAdvertiserView().setVisibility(View.VISIBLE);
+
+
+        adView.setNativeAd(nativeAd);
+
+
+    }
+
+
+    private void refreshAd() {
+        AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.ADMOB_ADS_UNIT_ID));
+        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(NativeAd unifiedNativeAd) {
+
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+                nativeAd = unifiedNativeAd;
+                FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+                NativeAdView adView = (NativeAdView) getLayoutInflater().inflate(R.layout.ad_helper, null);
+
+                populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                frameLayout.removeAllViews();
+                frameLayout.addView(adView);
+            }
+        }).build();
+        NativeAdOptions adOptions = new NativeAdOptions.Builder().build();
+        builder.withNativeAdOptions(adOptions);
+        AdLoader adLoader = builder.withAdListener(new AdListener() {
+            public void onAdFailedToLoad(int i) {
+
+            }
+        }).build();
+        adLoader.loadAd(new AdRequest.Builder().build());
 
     }
 

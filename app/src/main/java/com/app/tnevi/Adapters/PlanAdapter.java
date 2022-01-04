@@ -47,7 +47,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
         holder.tvPlantitle.setText(planModelArrayList.get(position).getPlan_name());
         holder.tvPlanprice.setText("$" + planModelArrayList.get(position).getPlan_price());
-        holder.tvPlandetails.setText(planModelArrayList.get(position).getDescription());
+        holder.tvPlandetails.setText(planModelArrayList.get(position).getTagline());
+        holder.tvDays.setText("For "+planModelArrayList.get(position).getPlan_length()+" Days Validation");
         if (lastSelectedPosition == position) {
             holder.radioButton.setChecked(true);
         } else {
@@ -58,7 +59,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
             public void onClick(View view) {
                 lastSelectedPosition = holder.getAdapterPosition();
                 if (ctx instanceof Featuread) {
-                    ((Featuread) ctx).updatePriceText(planModelArrayList.get(lastSelectedPosition).getPlan_price());
+                    ((Featuread) ctx).updatePriceText(planModelArrayList.get(lastSelectedPosition).getPlan_price(),
+                            planModelArrayList.get(lastSelectedPosition).getId(), planModelArrayList.get(lastSelectedPosition).getType());
                 }
             }
         });
@@ -75,7 +77,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvPlantitle, tvPlandetails, tvPlanprice;
+        TextView tvPlantitle, tvPlandetails, tvPlanprice, tvDays;
         RadioButton radioButton;
 
 
@@ -85,6 +87,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.MyViewHolder> 
             tvPlandetails = itemView.findViewById(R.id.tvPlandetails);
             tvPlanprice = itemView.findViewById(R.id.tvPlanprice);
             radioButton = itemView.findViewById(R.id.radioButton);
+            tvDays = itemView.findViewById(R.id.tvDays);
 
 
         }

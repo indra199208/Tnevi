@@ -10,13 +10,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40sdp">
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_62sdp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_54sdp"
             android:orientation="vertical">
 
 
@@ -308,7 +308,7 @@
                 android:id="@+id/rvSearch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/_90sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:visibility="gone" />
 
             <LinearLayout
@@ -342,6 +342,23 @@
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/_12sdp" />
 
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_nativeAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fl_adplaceholder"/>
             </LinearLayout>
 
 
@@ -408,16 +425,16 @@
 
 
 
-    <com.google.android.gms.ads.AdView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/_65sdp"
-        android:visibility="gone"
-        android:id="@+id/viewall_ad"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>
+<!--    <com.google.android.gms.ads.AdView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="@dimen/_65sdp"-->
+<!--        android:visibility="gone"-->
+<!--        android:id="@+id/viewall_ad"-->
+<!--        app:adSize="BANNER"-->
+<!--        app:adUnitId="ca-app-pub-9238447102279900/2506232543"/>-->
 
 
 

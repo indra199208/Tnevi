@@ -66,6 +66,8 @@ public class Allurl {
     public static String EpointsList;
     public static String Buyepoints;
     public static String Applycash;
+    public static String FeaturedNow;
+    public static String StripePayment;
 
 
 
@@ -136,6 +138,8 @@ public class Allurl {
         EpointsList = baseUrl+"/get-epoint-plans";
         Buyepoints = baseUrl+"/buy-epoints";
         Applycash = baseUrl+"/apply-cash";
+        FeaturedNow = baseUrl+"/featured-now";
+        StripePayment = baseUrl+"/charge_amount";
 
 
 

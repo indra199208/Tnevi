@@ -28,6 +28,7 @@ import com.app.tnevi.session.SessionManager;
 import com.app.tnevi.Allurl.Allurl;
 
 import com.app.tnevi.internet.CheckConnectivity;
+import com.bumptech.glide.Glide;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +39,7 @@ import java.util.Map;
 public class Wallet extends AppCompatActivity {
 
     LinearLayoutCompat btnHome, btnSearch, btnWallet, btnProf, btnSettings, btnEvent;
-    ImageView iconWallet, tsArrow, ticketImg, comissionImg, carrow, Imgstar, rewardsImg;
+    ImageView iconWallet, tsArrow, ticketImg, comissionImg, carrow, Imgstar, rewardsImg, imgPrf;
     Button btnViewreport, btnBuynow, btnTicketreport, btnComissionreport;
     LinearLayout btnViewrewards, btnShare, btnTicketsell, btncashoutHistory, btnEditbankinfo;
     private static final String SHARED_PREFS = "sharedPrefs";
@@ -73,6 +74,7 @@ public class Wallet extends AppCompatActivity {
         btnTicketreport = findViewById(R.id.btnTicketreport);
         btnComissionreport = findViewById(R.id.btnComissionreport);
         btnEditbankinfo = findViewById(R.id.btnEditbankinfo);
+        imgPrf = findViewById(R.id.imgPrf);
 
 
         rl_epoints = findViewById(R.id.rl_epoints);
@@ -404,6 +406,13 @@ public class Wallet extends AppCompatActivity {
                                     String ticketsell = walletObj.getString("ticket_sell");
                                     String commission = walletObj.getString("commission");
                                     String epoints = walletObj.getString("epoints");
+                                    JSONObject profileObj = userdeatisObj.getJSONObject("profile");
+                                    String pro_pic = profileObj.getString("pro_pic");
+                                    Glide.with(Wallet.this)
+                                            .load("http://dev8.ivantechnology.in/tnevi/storage/app/" + pro_pic)
+                                            .circleCrop()
+                                            .placeholder(R.drawable.dp)
+                                            .into(imgPrf);
                                     tvTicketsale.setText("$" + ticketsell);
                                     tvCommission.setText("$" + commission);
                                     tvEpoints.setText("$" + epoints);

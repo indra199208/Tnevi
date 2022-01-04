@@ -187,6 +187,7 @@ public class MyeventAdapter extends RecyclerView.Adapter<MyeventAdapter.MyViewHo
             public void onClick(View view) {
 
                 Intent intent = new Intent(ctx, Featuread.class);
+                intent.putExtra("eventId", myeventModelArrayList.get(position).getId());
                 ctx.startActivity(intent);
 
             }

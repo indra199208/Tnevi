@@ -3,6 +3,7 @@ package com.app.tnevi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,10 +22,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.CommissionsalesAdapter;
 import com.app.tnevi.Allurl.Allurl;
@@ -36,9 +40,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class Comissionsales extends AppCompatActivity {
@@ -59,6 +65,8 @@ public class Comissionsales extends AppCompatActivity {
     String bydate = "";
     String byname = "";
     String events = "";
+    String bankdetails = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +95,8 @@ public class Comissionsales extends AppCompatActivity {
 
 
         onClick();
-        pastEvent();
-        spSort();
+        getAccount();
+
     }
 
 
@@ -175,10 +183,17 @@ public class Comissionsales extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (cashoutid.equals("")) {
-                    Toast.makeText(Comissionsales.this, "Select any event for cashout", Toast.LENGTH_SHORT).show();
-                } else {
-                    cashout();
+                if (bankdetails.equals("1")) {
+
+                    if (cashoutid.equals("")) {
+                        Toast.makeText(Comissionsales.this, "Select any event for cashout", Toast.LENGTH_SHORT).show();
+                    } else {
+                        cashout();
+                    }
+                }else {
+
+                    Intent intent = new Intent(Comissionsales.this, Checkoutaddbankacc.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -229,6 +244,95 @@ public class Comissionsales extends AppCompatActivity {
             }
         });
     }
+
+
+    public void getAccount() {
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+            showProgressDialog();
+
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Allurl.GetAccount,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Log.i("Response3-->", String.valueOf(response));
+
+                            //Parse Here
+
+                            try {
+                                JSONObject result = new JSONObject(String.valueOf(response));
+                                String msg = result.getString("message");
+                                Log.d(TAG, "msg-->" + msg);
+                                String stat = result.getString("stat");
+                                if (stat.equals("succ")) {
+
+                                    JSONObject userdeatisObj = result.getJSONObject("data");
+                                    JSONObject profileObj = userdeatisObj.getJSONObject("profile");
+                                    JSONObject walletObj = userdeatisObj.getJSONObject("wallet");
+                                    String ticketsell = walletObj.getString("ticket_sell");
+                                    String commission = walletObj.getString("commission");
+                                    String epoints = walletObj.getString("epoints");
+                                    String address = profileObj.getString("address");
+                                    String country_code = profileObj.getString("country_code");
+                                    if (!userdeatisObj.isNull("bank_details")) {
+                                        bankdetails = "1";
+                                    } else {
+                                        bankdetails = "2";
+                                    }
+                                    pastEvent();
+                                    spSort();
+
+                                } else {
+
+                                    hideProgressDialog();
+                                    Log.d(TAG, "unsuccessfull - " + "Error");
+                                    Toast.makeText(Comissionsales.this, msg, Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                            hideProgressDialog();
+                            Toast.makeText(Comissionsales.this, error.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+
+            };
+
+
+            RequestQueue requestQueue = Volley.newRequestQueue(Comissionsales.this);
+            requestQueue.add(stringRequest);
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    9000,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        } else {
+
+            Toast.makeText(getApplicationContext(), "OOPS! No Internet Connection", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
+
 
     public void cashoutselectedevent(String id) {
         cashoutid = id;
