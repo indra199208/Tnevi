@@ -68,6 +68,7 @@ public class Allurl {
     public static String Applycash;
     public static String FeaturedNow;
     public static String StripePayment;
+    public static String SaveCards;
 
 
 
@@ -140,6 +141,7 @@ public class Allurl {
         Applycash = baseUrl+"/apply-cash";
         FeaturedNow = baseUrl+"/featured-now";
         StripePayment = baseUrl+"/charge_amount";
+        SaveCards = baseUrl+"/find_customer";
 
 
 

@@ -37,6 +37,7 @@ import com.app.tnevi.Adapters.CategoryAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.HighlighteventAdapter;
 import com.app.tnevi.Adapters.MyViewallAdapter;
+import com.app.tnevi.Adapters.MyViewallAdapter2;
 import com.app.tnevi.Adapters.TopeventAdapter;
 import com.app.tnevi.Allurl.Allurl;
 import com.app.tnevi.internet.CheckConnectivity;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private TopeventAdapter topeventAdapter;
     private HighlighteventAdapter highlighteventAdapter;
     private FeaturedAdapter featuredAdapter;
-    private MyViewallAdapter myViewallAdapter;
+    private MyViewallAdapter2 myViewallAdapter2;
     private static int AUTOCOMPLETE_REQUEST_CODE = 1;
     PlacesClient placesClient;
     Button Viewall;
@@ -902,10 +903,11 @@ public class MainActivity extends AppCompatActivity {
                             geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
                             geteventModel.setTicket_stat(responseobj.getString("top_events"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
-                            if (i > 0 && i % 6 == 0) {
+                            if (i > 0 && i % 4 == 0) {
                                 homeEventsModelArrayList.add(null);
+                            }else {
+                                homeEventsModelArrayList.add(geteventModel);
                             }
-                            homeEventsModelArrayList.add(geteventModel);
 
                         }
 
@@ -1032,8 +1034,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupRecyclerFeaturedevents() {
 
-        featuredAdapter = new FeaturedAdapter(this, homeEventsModelArrayList);
-        rv_featured.setAdapter(featuredAdapter);
+        myViewallAdapter2 = new MyViewallAdapter2(this, homeEventsModelArrayList);
+        rv_featured.setAdapter(myViewallAdapter2);
         GridLayoutManager manager = new GridLayoutManager(this, 2);
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override

@@ -60,6 +60,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import static com.example.easywaylocation.EasyWayLocation.LOCATION_SETTING_REQUEST_CODE;
 
@@ -85,6 +88,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     List<Address> addresses;
     double Lat = 0.0, Long = 0.0;
     EasyWayLocation easyWayLocation;
+    String fcmtoken = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +130,19 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+                        fcmtoken = task.getResult();
+                        Log.d(TAG, "FCM-->"+fcmtoken);
+                    }
+                });
 
 
         onClick();
@@ -322,6 +339,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     Map<String, String> params = new HashMap<String, String>();
                     params.put("emailid", username);
                     params.put("password", password);
+                    params.put("fcm_token", fcmtoken);
 
                     return params;
                 }
@@ -486,7 +504,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 params.put("google_id", "");
                 params.put("emailid", fb_email);
                 params.put("uname", fb_first_name);
-
+                params.put("fcm_token", fcmtoken);
                 return params;
             }
 
@@ -696,7 +714,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     params.put("google_id", g_id);
                     params.put("emailid", g_email);
                     params.put("uname", g_username);
-
+                    params.put("fcm_token", fcmtoken);
                     return params;
                 }
 

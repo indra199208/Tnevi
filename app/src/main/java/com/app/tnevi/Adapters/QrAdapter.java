@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.app.tnevi.R;
 
 import androidx.annotation.NonNull;
@@ -60,20 +61,32 @@ public class QrAdapter extends RecyclerView.Adapter<QrAdapter.MyViewHolder> {
         holder.tvRow.setText(qrModelArrayList.get(position).getRow_name());
         holder.tvSeat.setText(qrModelArrayList.get(position).getSeat_no());
         holder.tvSection.setText(qrModelArrayList.get(position).getBlock_name());
-        if (status.equals("0")){
+        if (status.equals("0")) {
             holder.tvButtonStatus.setText("CHECK IN NOW");
-        }else {
+        } else {
             holder.tvButtonStatus.setText("ALREADY REDDEMED");
         }
         holder.btnReedem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (status.equals("0")){
+                if (status.equals("0")) {
                     ((QRcode) ctx).checkin(qrModelArrayList.get(position));
 
-                }else {
+                } else {
                     Toast.makeText(ctx, "ALREADY REDDEMED", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        holder.img_show_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (status.equals("0")) {
+                    Toast.makeText(ctx, "Need to Checkin for getting the code!", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    ((QRcode) ctx).showcodeid(qrModelArrayList.get(position));
                 }
             }
         });

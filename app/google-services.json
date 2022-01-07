@@ -1,45 +1,37 @@
 {
   "project_info": {
-    "project_number": "236452546158",
-    "project_id": "tnevi-68e63",
-    "storage_bucket": "tnevi-68e63.appspot.com"
+    "project_number": "778604322197",
+    "project_id": "tnevi-444bd",
+    "storage_bucket": "tnevi-444bd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:236452546158:android:aae0b3001b602d7674487f",
+        "mobilesdk_app_id": "1:778604322197:android:d6f7810ba52d00f533aa9c",
         "android_client_info": {
           "package_name": "com.app.tnevi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "236452546158-l2d3murtpbv1bjeef30s8ke1ni8uccim.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.app.tnevi",
-            "certificate_hash": "2672e4ae1a847f42f66295b98445851550004ae3"
-          }
-        },
-        {
-          "client_id": "236452546158-7lmc62930de6k99isu6n0squhr4sucog.apps.googleusercontent.com",
+          "client_id": "778604322197-tv0fspch7ealqe5p77ho6uuo23uc8ou4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDhhaTzU6wigvmg9_AWJfD-Kg0KZeFpmhM"
+          "current_key": "AIzaSyDfpkZsDP4K5nJOoIBAn7TWxavRblkFLHM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "236452546158-7lmc62930de6k99isu6n0squhr4sucog.apps.googleusercontent.com",
+              "client_id": "778604322197-lri8m5vvk2h40caf3sk7r64meqipplmg.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "236452546158-l9vi1mpq7o3c29hrbdaeob86s43s1186.apps.googleusercontent.com",
+              "client_id": "778604322197-hbt8i1mf3mifg88eosnlrrl8fn3oufvn.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.tnevi.tnevi"

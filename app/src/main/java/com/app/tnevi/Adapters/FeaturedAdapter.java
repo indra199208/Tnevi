@@ -124,6 +124,14 @@ public class FeaturedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return CONTENT_TYPE;
     }
 
+
+//    @Override
+//    public int getItemCount() {
+//
+//            return homeEventsModelArrayList.size();
+//
+//    }
+
     @Override
     public int getItemCount() {
         if (homeEventsModelArrayList.size() > limit) {

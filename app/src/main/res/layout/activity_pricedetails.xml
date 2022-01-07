@@ -72,84 +72,111 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/proxima_nova"
-                        android:text="Selected Seat:"
-                        android:textSize="@dimen/_12sdp" />
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="Selected Seat:"
+                    android:textSize="@dimen/_12sdp" />
 
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:fontFamily="@font/proxima_nova"
-                        android:text="No of Tickets:"
-                        android:textSize="@dimen/_12sdp" />
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:orientation="horizontal">
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="No of Tickets:"
+                    android:textSize="@dimen/_12sdp" />
+
+            </RelativeLayout>
 
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSectionRow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/proxima_nova"
-                        android:text="P1, Row 12"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSeats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="0dp"
-                        android:fontFamily="@font/proxima_nova"
-                        android:text="0"
-                        android:textColor="@android:color/black"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
 
-                </RelativeLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSectionRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="P1, Row 12"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSeats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="0dp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="0"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_40sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/border"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
-
-                    <TextView
+                    <EditText
+                        android:id="@+id/etEpoints"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:drawablePadding="@dimen/_10sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="Apply ePoints" />
+                        android:hint="Enter ePoints"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#888A8C"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_weight="1"-->
+                    <!--                        android:fontFamily="@font/proxima_nova"-->
+                    <!--                        android:text="Apply ePoints" />-->
 
                     <TextView
                         android:id="@+id/tvEpoints"
@@ -199,12 +226,42 @@
                     android:weightSum="3">
 
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="@drawable/border"
                         android:layout_weight="1"
-                        android:fontFamily="@font/proxima_nova"
-                        android:text="Apply Cash" />
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/etCash"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:background="@null"
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_marginRight="@dimen/_10sdp"
+                            android:drawablePadding="@dimen/_10sdp"
+                            android:fontFamily="@font/proxima_nova"
+                            android:hint="Enter Cash"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:textAppearance="?android:textAppearanceSmall"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#888A8C"
+                            android:textSize="@dimen/_10sdp" />
+
+                    </LinearLayout>
+
+
+
+                    <!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:fontFamily="@font/proxima_nova"-->
+<!--                        android:text="Apply Cash" />-->
 
                     <TextView
                         android:id="@+id/tvAvailablecommission"
@@ -213,7 +270,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/proxima_nova"
                         android:gravity="center_horizontal"
-                        android:text="0 ePoints"
+                        android:text="0 Cash"
                         android:textColor="@android:color/black"
                         android:textStyle="bold" />
 
@@ -243,145 +300,142 @@
                 </LinearLayout>
 
 
-
                 <!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_margin="@dimen/_15sdp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="3">-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_margin="@dimen/_15sdp"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="3">-->
 
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="@dimen/_30sdp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/border"-->
-<!--                        android:orientation="horizontal">-->
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="@dimen/_30sdp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:background="@drawable/border"-->
+                <!--                        android:orientation="horizontal">-->
 
 
-<!--                        <Spinner-->
-<!--                            android:id="@+id/spCoupon"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            android:fontFamily="@font/lora_regular"-->
-<!--                            android:textColor="@android:color/black"-->
-<!--                            android:textSize="@dimen/_12sdp" />-->
+                <!--                        <Spinner-->
+                <!--                            android:id="@+id/spCoupon"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:fontFamily="@font/lora_regular"-->
+                <!--                            android:textColor="@android:color/black"-->
+                <!--                            android:textSize="@dimen/_12sdp" />-->
 
 
-<!--                    </LinearLayout>-->
+                <!--                    </LinearLayout>-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tvCash"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:gravity="center_horizontal"-->
-<!--                        android:text=""-->
-<!--                        android:textColor="@android:color/black"-->
-<!--                        android:textStyle="bold" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tvCash"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:fontFamily="@font/proxima_nova"-->
+                <!--                        android:gravity="center_horizontal"-->
+                <!--                        android:text=""-->
+                <!--                        android:textColor="@android:color/black"-->
+                <!--                        android:textStyle="bold" />-->
 
-<!--                    <LinearLayout-->
-<!--                        android:id="@+id/btnApply"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="@dimen/_25sdp"-->
-<!--                        android:layout_marginLeft="@dimen/_20sdp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/button2"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="horizontal">-->
-
-
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:fontFamily="@font/proxima_nova"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:text="Apply"-->
-<!--                            android:textColor="@android:color/white"-->
-<!--                            android:textSize="@dimen/_12sdp" />-->
+                <!--                    <LinearLayout-->
+                <!--                        android:id="@+id/btnApply"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="@dimen/_25sdp"-->
+                <!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:background="@drawable/button2"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:orientation="horizontal">-->
 
 
-<!--                    </LinearLayout>-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:fontFamily="@font/proxima_nova"-->
+                <!--                            android:gravity="center_horizontal"-->
+                <!--                            android:text="Apply"-->
+                <!--                            android:textColor="@android:color/white"-->
+                <!--                            android:textSize="@dimen/_12sdp" />-->
 
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tvApplied"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:visibility="gone"-->
-<!--                        android:layout_marginLeft="@dimen/_20sdp"-->
-<!--                        android:text="Coupon Applied"-->
-<!--                        android:textSize="@dimen/_10sdp"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:textColor="@color/colorAccent"/>-->
+                <!--                    </LinearLayout>-->
 
 
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tvApplied"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:visibility="gone"-->
+                <!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+                <!--                        android:text="Coupon Applied"-->
+                <!--                        android:textSize="@dimen/_10sdp"-->
+                <!--                        android:fontFamily="@font/proxima_nova"-->
+                <!--                        android:textColor="@color/colorAccent"/>-->
 
-<!--                </LinearLayout>-->
 
+                <!--                </LinearLayout>-->
 
 
                 <!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/rvCoupon"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"/>-->
+                <!--                    android:id="@+id/rvCoupon"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"/>-->
 
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="@dimen/_15sdp"-->
-<!--                    android:layout_marginTop="@dimen/_20sdp"-->
-<!--                    android:layout_marginRight="@dimen/_15sdp"-->
-<!--                    android:gravity="center"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="3">-->
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="@dimen/_15sdp"-->
+                <!--                    android:layout_marginTop="@dimen/_20sdp"-->
+                <!--                    android:layout_marginRight="@dimen/_15sdp"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="3">-->
 
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:text="Apply Cash" />-->
+                <!--                    <TextView-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:fontFamily="@font/proxima_nova"-->
+                <!--                        android:text="Apply Cash" />-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:gravity="center_horizontal"-->
-<!--                        android:text="$0.00"-->
-<!--                        android:textColor="@android:color/black"-->
-<!--                        android:textStyle="bold" />-->
+                <!--                    <TextView-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:fontFamily="@font/proxima_nova"-->
+                <!--                        android:gravity="center_horizontal"-->
+                <!--                        android:text="$0.00"-->
+                <!--                        android:textColor="@android:color/black"-->
+                <!--                        android:textStyle="bold" />-->
 
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="@dimen/_25sdp"-->
-<!--                        android:layout_marginLeft="@dimen/_20sdp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:background="@drawable/button2"-->
-<!--                        android:gravity="center"-->
-<!--                        android:orientation="horizontal">-->
-
-
-<!--                        <TextView-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:fontFamily="@font/proxima_nova"-->
-<!--                            android:gravity="center_horizontal"-->
-<!--                            android:text="Apply"-->
-<!--                            android:textColor="@android:color/white"-->
-<!--                            android:textSize="@dimen/_12sdp" />-->
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="@dimen/_25sdp"-->
+                <!--                        android:layout_marginLeft="@dimen/_20sdp"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:background="@drawable/button2"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:orientation="horizontal">-->
 
 
-<!--                    </LinearLayout>-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:fontFamily="@font/proxima_nova"-->
+                <!--                            android:gravity="center_horizontal"-->
+                <!--                            android:text="Apply"-->
+                <!--                            android:textColor="@android:color/white"-->
+                <!--                            android:textSize="@dimen/_12sdp" />-->
 
-<!--                </LinearLayout>-->
+
+                <!--                    </LinearLayout>-->
+
+                <!--                </LinearLayout>-->
 
 
                 <View
@@ -424,8 +478,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -453,8 +507,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -482,8 +536,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -508,8 +562,6 @@
                 </RelativeLayout>
 
 
-
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5sp"
@@ -522,17 +574,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    android:gravity="center"
-                    android:layout_marginBottom="@dimen/_30sdp"
                     android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="0.5">
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -540,7 +592,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/proxima_nova"
                             android:text="Grand Total"
-                            android:textSize="@dimen/_12sdp"/>
+                            android:textSize="@dimen/_12sdp" />
 
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -558,15 +610,13 @@
                     </LinearLayout>
 
 
-
-
                     <LinearLayout
                         android:id="@+id/btnCheckout"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_40sdp"
-                        android:background="@drawable/button2"
                         android:layout_marginLeft="@dimen/_30sdp"
                         android:layout_weight="0.5"
+                        android:background="@drawable/button2"
                         android:gravity="center"
                         android:orientation="horizontal">
 
@@ -583,20 +633,7 @@
                     </LinearLayout>
 
 
-
-
-
                 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
 
 
             </LinearLayout>

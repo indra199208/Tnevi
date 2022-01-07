@@ -18,6 +18,7 @@
     <string name="facebook_app_id">293916555768285</string>
     <string name="ad_attribution">Ad</string>
     <string name="ADMOB_ADS_UNIT_ID">ca-app-pub-9238447102279900/3793201971</string>
+    <string name="msg_token_fmt">FCM Token</string>
 
 
 </resources>

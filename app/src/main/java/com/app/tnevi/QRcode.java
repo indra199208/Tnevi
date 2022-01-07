@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ import com.app.tnevi.Allurl.Allurl;
 
 import com.app.tnevi.internet.CheckConnectivity;
 import com.app.tnevi.model.QrModel;
+import com.facebook.login.LoginManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -277,6 +281,25 @@ public class QRcode extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
 
         }
+
+    }
+
+    public void showcodeid (QrModel qrModel){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(QRcode.this);
+        builder.setMessage("tnevi_"+qrModel.getQr_id());
+        builder.setCancelable(false);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
 

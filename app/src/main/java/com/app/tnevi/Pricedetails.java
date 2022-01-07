@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -52,6 +53,9 @@ public class Pricedetails extends AppCompatActivity {
     private static final String SHARED_PREFS = "sharedPrefs";
     Spinner spCoupon;
     int withtaxTotal;
+    EditText etCash, etEpoints;
+    String totaldiscount="";
+    String epoints_discount="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +107,8 @@ public class Pricedetails extends AppCompatActivity {
         tvEpoints = findViewById(R.id.tvEpoints);
         tvTax = findViewById(R.id.tvTax);
         tvAvailablecommission = findViewById(R.id.tvAvailablecommission);
+        etEpoints = findViewById(R.id.etEpoints);
+        etCash = findViewById(R.id.etCash);
 
         tvEventname.setText(eventname);
         tvDate.setText(date);
@@ -110,11 +116,11 @@ public class Pricedetails extends AppCompatActivity {
         tvSeats.setText(seatnumber);
         tvSectionRow.setText(spSection + ", Row " + selectedrow);
         tvSubtotal.setText("$" + total);
-        double sum= Double.parseDouble(total);
+        double sum = Double.parseDouble(total);
         double taxsum = Double.parseDouble(tax);
         withtaxTotal = (int) (sum + taxsum);
         tvGrandtotal.setText("$" + withtaxTotal);
-        tvTax.setText("$"+tax);
+        tvTax.setText("$" + tax);
         GrandTotal = String.valueOf(withtaxTotal);
     }
 
@@ -151,10 +157,14 @@ public class Pricedetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (commission.equals("0.00")){
+                if (commission.equals("0.00")) {
                     Toast.makeText(Pricedetails.this, "Not Applicable", Toast.LENGTH_SHORT).show();
-                }else {
-                    applyCash();
+                } else {
+                    if (etCash.getText().toString().length() == 0) {
+                        Toast.makeText(Pricedetails.this, "Enter Amount to apply cash!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        applyCash();
+                    }
 
                 }
             }
@@ -163,8 +173,12 @@ public class Pricedetails extends AppCompatActivity {
         btnEpointsApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (etEpoints.getText().toString().length() == 0) {
+                    Toast.makeText(Pricedetails.this, "Enter ePoints to apply!", Toast.LENGTH_SHORT).show();
+                } else {
+                    applyEpoints();
+                }
 
-                applyEpoints();
 
             }
         });
@@ -172,6 +186,12 @@ public class Pricedetails extends AppCompatActivity {
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (epoints_discount.length()==0){
+                     totaldiscount = dis_amount;
+                }else {
+                     totaldiscount = String.valueOf(Integer.parseInt(epoints_discount) + Integer.parseInt(dis_amount));
+                }
 
                 Intent intent = new Intent(Pricedetails.this, Checkoutaddress.class);
                 intent.putExtra("eventname", eventname);
@@ -188,7 +208,7 @@ public class Pricedetails extends AppCompatActivity {
                 intent.putExtra("fees", fees);
                 intent.putExtra("tax", tax);
                 intent.putExtra("seatnumber", seatnumber);
-                intent.putExtra("dis_amount", dis_amount);
+                intent.putExtra("dis_amount", totaldiscount);
                 intent.putExtra("maintotal", GrandTotal);
                 startActivity(intent);
             }
@@ -461,7 +481,7 @@ public class Pricedetails extends AppCompatActivity {
             JSONObject params = new JSONObject();
 
             try {
-                params.put("apply_epoints", epoints);
+                params.put("apply_epoints", etEpoints.getText().toString());
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -475,13 +495,15 @@ public class Pricedetails extends AppCompatActivity {
                     String msg = result.getString("message");
                     Log.d(TAG, "msg-->" + msg);
                     String stat = result.getString("stat");
-                    String epoints_discount = result.getString("epoints_discount");
+                    epoints_discount = result.getString("epoints_discount");
                     String wallet_epoints = result.getString("wallet_epoints");
                     if (stat.equals("succ")) {
 
                         Toast.makeText(Pricedetails.this, msg, Toast.LENGTH_SHORT).show();
+                        tvEpoints.setText(wallet_epoints);
+                        tvDiscount.setText("$ "+epoints_discount);
 
-                    } else {
+                    } else if (stat.equals("err")){
 
                         Log.d(TAG, "unsuccessfull - " + "Error");
                         Toast.makeText(Pricedetails.this, msg, Toast.LENGTH_SHORT).show();
@@ -529,7 +551,7 @@ public class Pricedetails extends AppCompatActivity {
             JSONObject params = new JSONObject();
 
             try {
-                params.put("apply_cash", commission);
+                params.put("apply_cash", etCash.getText().toString());
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -548,15 +570,20 @@ public class Pricedetails extends AppCompatActivity {
                         Toast.makeText(Pricedetails.this, msg, Toast.LENGTH_SHORT).show();
                         dis_amount = result.getString("commission_discount");
                         wallet_available_commission = result.getString("wallet_available_commission");
+                        if (epoints_discount.length()==0){
+                            tvDiscount.setText("$" + dis_amount);
+                        }else {
+                            tvDiscount.setText("$" + Integer.parseInt(epoints_discount) + Integer.parseInt(dis_amount));
+                        }
                         tvDiscount.setText("$" + dis_amount);
-                        int final_ = (Integer.parseInt(total) + Integer.parseInt(tax))-Integer.parseInt(dis_amount);
+                        int final_ = (Integer.parseInt(total) + Integer.parseInt(tax)) - Integer.parseInt(dis_amount);
                         GrandTotal = String.valueOf(final_);
-                        tvGrandtotal.setText("$"+GrandTotal);
+                        tvGrandtotal.setText("$" + GrandTotal);
                         tvAvailablecommission.setText(wallet_available_commission);
 
                     } else {
 
-                        Log.d(TAG, "msg-->" +msg);
+                        Log.d(TAG, "msg-->" + msg);
                         Toast.makeText(Pricedetails.this, msg, Toast.LENGTH_SHORT).show();
                     }
 

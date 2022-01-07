@@ -87,6 +87,7 @@ public class Notification extends AppCompatActivity {
                             notificationModel.setId(responseobj.getString("id"));
                             notificationModel.setMsg(responseobj.getString("msg"));
                             notificationModel.setNotify_date(responseobj.getString("notify_date"));
+                            notificationModel.setTitle(responseobj.getString("title"));
                             notificationModel.setType(responseobj.getString("type"));
                             notificationModelArrayList.add(notificationModel);
 

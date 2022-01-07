@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context="com.example.tnevi.com.app.tnevi.Notification">
-
+    android:background="#FAF6FF"
+    tools:context=".Notification">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -20,7 +19,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="@color/quantum_white_100"
+        android:background="#FAF6FF"
         android:orientation="horizontal">
 
 

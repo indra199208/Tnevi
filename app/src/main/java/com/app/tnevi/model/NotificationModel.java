@@ -2,7 +2,15 @@ package com.app.tnevi.model;
 
 public class NotificationModel {
 
-    private String id, msg, type, notify_date;
+    private String id, msg, type, notify_date, title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getId() {
         return id;

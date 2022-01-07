@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".activity_checkout"
-    tools:showIn="@layout/activity_checkout">
+    android:background="#FAF6FF"
+    android:padding="20dp">
 
     <!--  ...  -->
 
@@ -17,13 +16,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:text="Pay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+
+
+<!--    <Button-->
+<!--        android:text="Pay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/payButton"-->
+<!--        android:textColor="@color/quantum_white_100"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="@color/colorAccent"/>-->
+
+    <LinearLayout
         android:id="@+id/payButton"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@android:color/holo_green_light"/>
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_50sdp"
+        android:background="@drawable/button2"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova"
+            android:gravity="center_horizontal"
+            android:text="Pay"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14sdp" />
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cards"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <!--  ...  -->
 
