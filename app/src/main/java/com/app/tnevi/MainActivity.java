@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "token-->" + token);
         tvUsername.setText(username);
 
+
         getAccount();
         onClick();
 
@@ -903,7 +904,7 @@ public class MainActivity extends AppCompatActivity {
                             geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
                             geteventModel.setTicket_stat(responseobj.getString("top_events"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
-                            if (i > 0 && i % 4 == 0) {
+                            if (i > 0 && i % 6 == 0) {
                                 homeEventsModelArrayList.add(null);
                             }else {
                                 homeEventsModelArrayList.add(geteventModel);

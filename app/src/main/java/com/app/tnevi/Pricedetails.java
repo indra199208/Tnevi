@@ -49,13 +49,14 @@ public class Pricedetails extends AppCompatActivity {
     ArrayList<String> coupon = new ArrayList<>();
     String couponprice = "";
     String selectedCoupon = "";
-    String token, epoints, dis_amount, commission, wallet_available_commission;
+    String token, epoints, commission, wallet_available_commission;
     private static final String SHARED_PREFS = "sharedPrefs";
     Spinner spCoupon;
     int withtaxTotal;
     EditText etCash, etEpoints;
     String totaldiscount="";
     String epoints_discount="";
+    String dis_amount = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +191,10 @@ public class Pricedetails extends AppCompatActivity {
                 if (epoints_discount.length()==0){
                      totaldiscount = dis_amount;
                 }else {
-                     totaldiscount = String.valueOf(Integer.parseInt(epoints_discount) + Integer.parseInt(dis_amount));
+                    double epointdiscount = Double.parseDouble(epoints_discount);
+                    double discountamount = Double.parseDouble(dis_amount);
+                    int totaldis = (int) (epointdiscount + discountamount);
+                     totaldiscount = String.valueOf(totaldis);
                 }
 
                 Intent intent = new Intent(Pricedetails.this, Checkoutaddress.class);

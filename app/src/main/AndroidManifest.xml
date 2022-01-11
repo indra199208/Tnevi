@@ -137,6 +137,7 @@
         <activity android:name=".Events" />
         <activity android:name=".Settings" />
         <activity android:name=".Profile" />
+        <activity android:name=".Profile2" />
         <activity android:name=".Wallet" />
         <activity android:name=".Search" />
         <activity android:name=".Search2" />

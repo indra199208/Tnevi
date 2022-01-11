@@ -41,6 +41,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.ChoosemayAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
@@ -200,7 +201,8 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Eventdetails.this, Profile.class);
+                Intent intent = new Intent(Eventdetails.this, Profile2.class);
+                intent.putExtra("userid", userid);
                 startActivity(intent);
             }
         });
@@ -486,6 +488,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
                         fetchLocation();
                         choosemaylike();
+                        getAccount();
 
 
                     } else {
@@ -642,6 +645,91 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         } else {
 
             Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
+    public void getAccount(){
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+            showProgressDialog();
+
+
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Allurl.GetAccount,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Log.i("Response3-->", String.valueOf(response));
+
+                            try {
+                                JSONObject result = new JSONObject(String.valueOf(response));
+                                msg = result.getString("message");
+                                Log.d(TAG, "msg-->" + msg);
+                                String stat = result.getString("stat");
+                                if (stat.equals("succ")) {
+                                    JSONObject userdeatisObj = result.getJSONObject("data");
+                                    String fname = userdeatisObj.getString("name");
+                                    JSONObject profileObj = userdeatisObj.getJSONObject("profile");
+                                    String pro_pic = profileObj.getString("pro_pic");
+                                    Log.d(TAG, "profileurl-->" + pro_pic);
+                                    Glide.with(Eventdetails.this)
+                                            .load("http://dev8.ivantechnology.in/tnevi/storage/app/" + pro_pic)
+                                            .circleCrop()
+                                            .placeholder(R.drawable.dp2)
+                                            .into(imgPrfpic);
+
+                                } else {
+
+                                    hideProgressDialog();
+                                    Log.d(TAG, "unsuccessfull - " + "Error");
+                                    Toast.makeText(Eventdetails.this, msg, Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            hideProgressDialog();
+
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+
+                            hideProgressDialog();
+                            Toast.makeText(Eventdetails.this, error.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }) {
+
+
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("user_id", userid);
+                    return params;
+                }
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+
+            };
+
+            Volley.newRequestQueue(this).add(stringRequest);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "OOPS! No Internet Connection", Toast.LENGTH_SHORT).show();
 
         }
 
