@@ -86,7 +86,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
     LinearLayoutCompat btnHome, btnSearch, btnWallet, btnProf, btnSettings, btnEvent, btnUpdatepassword, btnLogout;
     ImageView iconSetting, imgPrf, btneditName;
-    TextView tvName, tvEmail, btnSupport, tvFaq, btnAboutus, btnPaymentOptions, btnBankInfo;
+    TextView tvName, tvEmail, btnSupport, tvFaq, btnAboutus, btnPaymentOptions, btnBankInfo, tvFeedback;
     private static final String SHARED_PREFS = "sharedPrefs";
 
     SessionManager sessionManager;
@@ -145,6 +145,7 @@ public class Settings extends AppCompatActivity implements Listener {
         btnAboutus = findViewById(R.id.btnAboutus);
         btnPaymentOptions = findViewById(R.id.btnPaymentOptions);
         btnBankInfo = findViewById(R.id.btnBankInfo);
+        tvFeedback = findViewById(R.id.tvFeedback);
 
 
         easyWayLocation = new EasyWayLocation(this, false, false, this);
@@ -198,6 +199,17 @@ public class Settings extends AppCompatActivity implements Listener {
 
 
     public void onclick() {
+
+
+        tvFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.app.tnevi"));
+                startActivity(i);
+            }
+        });
 
 
         btnPaymentOptions.setOnClickListener(new View.OnClickListener() {

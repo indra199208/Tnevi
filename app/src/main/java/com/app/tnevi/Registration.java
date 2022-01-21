@@ -3,7 +3,9 @@ package com.app.tnevi;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -34,7 +36,7 @@ import org.json.JSONObject;
 
 public class Registration extends AppCompatActivity {
 
-    TextView btnSignin;
+    TextView btnSignin, tvTC;
     Button btnSignup;
     ImageView btn_back, btnInfo;
 
@@ -60,7 +62,27 @@ public class Registration extends AppCompatActivity {
         switchButton = findViewById(R.id.switchButton);
         etBusinessname = findViewById(R.id.etBusinessname);
         btnInfo = findViewById(R.id.btnInfo);
+        tvTC = findViewById(R.id.tvTC);
         sessionManager = new SessionManager(getApplicationContext());
+
+        String text = "<font color=#4E4A5B>By signing up, you agree to our</font> <font color=#5F01D0> Security, Privacy Policy, Cookies \n" +
+                "Policy, Member Agreement, Cash-Out Terms, Points and Rewards \n" +
+                "Agreement</font> <font color=#4E4A5B> and that we have the right to verify your personal \n" +
+                "information with our</font> <font color=#5F01D0> Partners</font> <font color=#4E4A5B> to confirm your account.</font>";
+
+        tvTC.setText(Html.fromHtml(text));
+
+        tvTC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = "http://www.tnevi.com/privacypolicy";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
 
 
         btnSignin.setOnClickListener(new View.OnClickListener() {

@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -35,6 +38,7 @@ public class Contactsupport extends AppCompatActivity {
     Button btnSubmit;
     ImageView btn_back;
     String token;
+    TextView tvemail;
     private static final String SHARED_PREFS = "sharedPrefs";
 
 
@@ -49,8 +53,26 @@ public class Contactsupport extends AppCompatActivity {
         etMessage = findViewById(R.id.etMessage);
         btnSubmit = findViewById(R.id.btnSubmit);
         btn_back = findViewById(R.id.btn_back);
+        tvemail = findViewById(R.id.tvemail);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
+
+        String text = "<font color=#4E4A5B>Have a question or concern. Fill out the form below or contact us via email at \n</font> <font color=#5F01D0> support@tnevi.com</font> <font color=#4E4A5B> and one of our representative will be happy to help you.</font>";
+        tvemail.setText(Html.fromHtml(text));
+
+
+        tvemail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto","support@tnevi.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Body");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+            }
+        });
 
 
         btn_back.setOnClickListener(new View.OnClickListener() {

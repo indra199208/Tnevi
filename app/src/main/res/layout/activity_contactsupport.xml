@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Contactsupport">
+    tools:context=".Contactsupport">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,11 +17,25 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/proxima_nova"
+                android:layout_margin="@dimen/_15sdp"
+                android:text="Have a question or concern. Fill out the form below or contact us via email at
+support@tnevi.com and one of our representative will be happy to help you"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold" />
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:background="@drawable/border"
                 android:orientation="horizontal">

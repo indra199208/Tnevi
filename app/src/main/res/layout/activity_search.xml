@@ -381,6 +381,34 @@
             </LinearLayout>
 
 
+
+            <LinearLayout
+                android:id="@+id/ll_nosearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Events Found, Try Another Search"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/proxima_nova"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_16sdp"
+                    android:textColor="@color/colorAccent"/>
+
+
+
+            </LinearLayout>
+
+
+
             <LinearLayout
                 android:id="@+id/ll_nativeAd2"
                 android:layout_width="match_parent"

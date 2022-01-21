@@ -82,7 +82,7 @@ public class Search extends AppCompatActivity {
     EditText etEventname, etEventdate, etLocation, etEventenddate;
     Spinner spComission, spCat;
     TextView tvTitle;
-    LinearLayout btnSearchevent, ll_searchDetails, ll_nocat;
+    LinearLayout btnSearchevent, ll_searchDetails, ll_nocat, ll_nosearch;
     RecyclerView rvSearch;
     private static final String TAG = "myapp";
     private static final String SHARED_PREFS = "sharedPrefs";
@@ -148,6 +148,7 @@ public class Search extends AppCompatActivity {
         rl_bg = findViewById(R.id.rl_bg);
         btn_backsearch = findViewById(R.id.btn_backsearch);
         ll_nativeAd2 = findViewById(R.id.ll_nativeAd2);
+        ll_nosearch = findViewById(R.id.ll_nosearch);
 
 
 //        MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -685,6 +686,16 @@ public class Search extends AppCompatActivity {
                             geteventModel.setEvent_commission(responseobj.getString("event_commission"));
                             geteventModelArrayList.add(geteventModel);
 
+                        }
+
+                        if (response_data.length() == 0) {
+                            ll_nosearch.setVisibility(View.VISIBLE);
+                            ll_searchDetails.setVisibility(View.GONE);
+                            rvSearch.setVisibility(View.GONE);
+                        } else {
+                            ll_searchDetails.setVisibility(View.GONE);
+                            rvSearch.setVisibility(View.VISIBLE);
+                            ll_nosearch.setVisibility(View.GONE);
                         }
 
                         setupSearch();

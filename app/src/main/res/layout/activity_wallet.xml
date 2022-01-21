@@ -519,7 +519,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:gravity="center_horizontal"
-                    android:text="Earn 50 points per accepted invites"
+                    android:text="Earn 10 ePoint per accepted invites"
                     android:textColor="#4E4A5B"
                     android:textSize="@dimen/_12sdp" />
 

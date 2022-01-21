@@ -127,6 +127,7 @@ public class Buyepoint extends AppCompatActivity {
         });
 
         epointsList();
+
     }
 
 

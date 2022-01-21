@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.tnevi.com.app.tnevi.Registration">
+    tools:context=".Registration">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -218,6 +218,28 @@
                     android:textSize="@dimen/_14sdp" />
 
             </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_9sdp"
+                    android:fontFamily="@font/proxima_nova"
+                    android:text="By signing up, you agree to our Security, Privacy Policy, Cookies
+Policy, Member Agreement, Cash-Out Terms, Points and Rewards
+Agreement and that we have the right to verify your personal
+information with our Partners to confirm your account."/>
+
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

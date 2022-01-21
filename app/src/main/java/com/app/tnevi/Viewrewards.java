@@ -66,7 +66,7 @@ public class Viewrewards extends AppCompatActivity {
 
 
         btnShare = findViewById(R.id.btnShare);
-        tvTicketvalue = findViewById(R.id.tvTicketvalue);
+//        tvTicketvalue = findViewById(R.id.tvTicketvalue);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
 

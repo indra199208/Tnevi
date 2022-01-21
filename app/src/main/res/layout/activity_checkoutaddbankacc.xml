@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Checkoutaddbankacc">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +38,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etIfsc"
+                android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -44,9 +47,9 @@
                 android:background="@null"
                 android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
-                android:hint="IFCS"
+                android:hint="Account Holder Full Name"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="@android:color/black"
@@ -67,7 +70,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etAccount"
+                android:id="@+id/etAddress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -76,9 +79,9 @@
                 android:background="@null"
                 android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
-                android:hint="Bank Account Number"
+                android:hint="Account Holder Full Address"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="@android:color/black"
@@ -99,7 +102,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etBank"
+                android:id="@+id/etBranchno"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -108,9 +111,9 @@
                 android:background="@null"
                 android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
-                android:hint="Bank Name"
+                android:hint="Branch Number"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:singleLine="true"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="@android:color/black"
@@ -131,7 +134,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/etBranch"
+                android:id="@+id/etTransitno"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -140,7 +143,7 @@
                 android:background="@null"
                 android:drawablePadding="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
-                android:hint="Branch Name"
+                android:hint="Transit Number"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
@@ -152,32 +155,148 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etAccno"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Account Number"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_30sdp"
-        android:background="@drawable/loginbutton2"
-        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etSwiftcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Swift Code"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etBankAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:drawablePadding="@dimen/_10sdp"
+                android:fontFamily="@font/proxima_nova"
+                android:hint="Bank Address"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="@drawable/loginbutton2"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/proxima_nova"
+                android:gravity="center_horizontal"
+                android:text="Save"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+
+
 
         <TextView
+            android:id="@+id/tvTandC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/proxima_nova"
             android:gravity="center_horizontal"
-            android:text="Save"
+            android:layout_marginBottom="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="See our Security and Terms Of Use Agreement"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_12sdp" />
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_11sdp" />
+
+
+
 
     </LinearLayout>
+
+
+    </ScrollView>
+
+
 
 
 
@@ -186,6 +305,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/whitebg"
         android:orientation="horizontal">
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tnevi.com.app.tnevi.Viewrewards">
+    tools:context=".Viewrewards">
 
 
     <ScrollView
@@ -18,7 +18,6 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="#F2EEF8"
             android:orientation="vertical">
-
 
 
             <ImageView
@@ -48,8 +47,8 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
                     android:src="@drawable/ic_add_circle"
+                    android:visibility="gone"
                     app:tint="@color/colorAccent" />
 
 
@@ -73,9 +72,9 @@
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:text="Ticket Purchase"
-                    android:visibility="gone"
                     android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_14sdp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -89,7 +88,7 @@
                 <LinearLayout
                     android:id="@+id/ll_TicketLine"
                     android:layout_width="@dimen/_1sdp"
-                    android:layout_height="@dimen/_70sdp"
+                    android:layout_height="820dp"
                     android:layout_marginLeft="@dimen/_25sdp"
                     android:background="@color/colorAccent"
                     android:orientation="vertical" />
@@ -99,7 +98,7 @@
                     android:id="@+id/ll_ticketdetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_25sdp"
                     android:orientation="vertical">
 
@@ -108,45 +107,159 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_62sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="20 ePoints"
+                        android:text="10 ePoints"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold" />
 
 
                     <TextView
-                        android:id="@+id/tvTicketvalue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_62sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="Receive 20 ePoints for every ticket purchased from the App."
+                        android:text="Receive 10 ePoints for every event ticket that is purchase between $5.00 to $20.00
+before taxes and fees"
                         android:textColor="@android:color/darker_gray"
                         android:textSize="@dimen/_14sdp" />
 
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="@dimen/_62sdp"-->
-<!--                        android:layout_marginTop="@dimen/_50sdp"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:text="750 ePoints"-->
-<!--                        android:textColor="@android:color/black"-->
-<!--                        android:textSize="@dimen/_14sdp"-->
-<!--                        android:textStyle="bold" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="100 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
 
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="@dimen/_62sdp"-->
-<!--                        android:layout_marginTop="@dimen/_5sdp"-->
-<!--                        android:fontFamily="@font/proxima_nova"-->
-<!--                        android:text="The cash value is equivalent to $5.00 in the country's currency."-->
-<!--                        android:textColor="@android:color/darker_gray"-->
-<!--                        android:textSize="@dimen/_12sdp" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 100 ePoints for every event ticket that is purchase between $21.00 to
+$40.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
 
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="200 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 200 ePoints for every event ticket that is purchase between $41.00 to
+$60.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="300 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 300 ePoints for every event ticket that is purchase between $61.00 to
+$80.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="400 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 400 ePoints for every event ticket that is purchase between $81.00 to
+$100.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="500 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 500 ePoints for every event ticket that is purchase between $101.00 to
+$200.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="600 ePoints"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_62sdp"
+                        android:fontFamily="@font/proxima_nova"
+                        android:text="Receive 600 ePoints for every event ticket that is purchase between $201.00 to
+$400.00 before taxes and fees"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/_14sdp" />
 
                 </LinearLayout>
 
@@ -174,8 +287,8 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
                     android:src="@drawable/ic_add_circle"
+                    android:visibility="gone"
                     app:tint="@color/colorAccent" />
 
 
@@ -199,9 +312,9 @@
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:text="Friend Invite"
-                    android:visibility="gone"
                     android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_14sdp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -214,7 +327,7 @@
                 <LinearLayout
                     android:id="@+id/ll_inviteLine"
                     android:layout_width="@dimen/_1sdp"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_120sdp"
                     android:layout_marginLeft="@dimen/_25sdp"
                     android:background="@color/colorAccent"
                     android:orientation="vertical" />
@@ -233,7 +346,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_62sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="5 ePoints"
+                        android:text="10 ePoints"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/_14sdp"
                         android:textStyle="bold" />
@@ -245,7 +358,8 @@
                         android:layout_marginLeft="@dimen/_62sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="Receive 5 ePoints for every friend you’ve shared link to download the App."
+                        android:text="Both you and your friend will receive 10 ePoints for every successfully app download
+using your personal link."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="@dimen/_14sdp" />
 
@@ -275,8 +389,8 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center"
-                    android:visibility="gone"
                     android:src="@drawable/ic_add_circle"
+                    android:visibility="gone"
                     app:tint="@color/colorAccent" />
 
 
@@ -300,9 +414,9 @@
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:fontFamily="@font/proxima_nova"
                     android:text="App Download"
-                    android:visibility="gone"
                     android:textColor="@color/colorAccent"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_14sdp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
@@ -316,7 +430,7 @@
                 <LinearLayout
                     android:id="@+id/ll_appdownloadLine"
                     android:layout_width="@dimen/_1sdp"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_marginLeft="@dimen/_25sdp"
                     android:background="@color/colorAccent"
                     android:orientation="vertical" />
@@ -347,7 +461,7 @@
                         android:layout_marginLeft="@dimen/_62sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/proxima_nova"
-                        android:text="Receive 10 ePoints when each friend downloads App using the link you have shared. The friend who downloads the App will also receive 10 ePoints in his Wallet."
+                        android:text="Receive 10 ePoints for successfully downloading the app."
                         android:textColor="@android:color/darker_gray"
                         android:textSize="@dimen/_14sdp" />
 
@@ -358,34 +472,33 @@
             </LinearLayout>
 
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="@dimen/_15sdp"-->
-<!--                android:layout_marginBottom="@dimen/_40sdp"-->
-<!--                android:orientation="horizontal">-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginLeft="@dimen/_15sdp"-->
+            <!--                android:layout_marginBottom="@dimen/_40sdp"-->
+            <!--                android:orientation="horizontal">-->
 
-<!--                <ImageView-->
-<!--                    android:layout_width="@dimen/_20sdp"-->
-<!--                    android:layout_height="@dimen/_20sdp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:src="@drawable/ic_add_circle"-->
-<!--                    app:tint="@color/colorAccent" />-->
-
-
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginLeft="@dimen/_20sdp"-->
-<!--                    android:fontFamily="@font/proxima_nova"-->
-<!--                    android:text="Ticket Purchase Rewards"-->
-<!--                    android:textColor="@color/colorAccent"-->
-<!--                    android:textSize="@dimen/_14sdp" />-->
+            <!--                <ImageView-->
+            <!--                    android:layout_width="@dimen/_20sdp"-->
+            <!--                    android:layout_height="@dimen/_20sdp"-->
+            <!--                    android:layout_gravity="center"-->
+            <!--                    android:src="@drawable/ic_add_circle"-->
+            <!--                    app:tint="@color/colorAccent" />-->
 
 
-<!--            </LinearLayout>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="center"-->
+            <!--                    android:layout_marginLeft="@dimen/_20sdp"-->
+            <!--                    android:fontFamily="@font/proxima_nova"-->
+            <!--                    android:text="Ticket Purchase Rewards"-->
+            <!--                    android:textColor="@color/colorAccent"-->
+            <!--                    android:textSize="@dimen/_14sdp" />-->
+
+
+            <!--            </LinearLayout>-->
 
 
             <LinearLayout
@@ -423,7 +536,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/proxima_nova"
                 android:gravity="center_horizontal"
-                android:text="Earn 50 points per accepted invites"
+                android:text="Earn 10 ePoint per accepted invites"
                 android:textColor="#4E4A5B"
                 android:textSize="@dimen/_12sdp" />
 

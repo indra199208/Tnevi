@@ -3,12 +3,14 @@ package com.app.tnevi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +23,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Allurl.Allurl;
-
 import com.app.tnevi.internet.CheckConnectivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,10 +34,11 @@ import java.util.Map;
 
 public class Checkoutaddbankacc extends AppCompatActivity {
 
-    ImageView  btn_back;
-    EditText etIfsc, etAccount, etBank, etBranch;
+    ImageView btn_back;
+    EditText etName, etAddress, etBranchno, etTransitno, etAccno, etSwiftcode, etBankAddress;
     LinearLayout btnSave;
-    String username, useremail, token, msg, about ;
+    String username, useremail, token, msg, about;
+    TextView tvTandC;
     private static final String TAG = "Myapp";
     private static final String SHARED_PREFS = "sharedPrefs";
 
@@ -44,11 +47,15 @@ public class Checkoutaddbankacc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkoutaddbankacc);
         btn_back = findViewById(R.id.btn_back);
-        etIfsc = findViewById(R.id.etIfsc);
-        etAccount = findViewById(R.id.etAccount);
-        etBank = findViewById(R.id.etBank);
-        etBranch = findViewById(R.id.etBranch);
+        etName = findViewById(R.id.etName);
+        etAddress = findViewById(R.id.etAddress);
+        etBranchno = findViewById(R.id.etBranchno);
+        etTransitno = findViewById(R.id.etTransitno);
+        etAccno = findViewById(R.id.etAccno);
+        etSwiftcode = findViewById(R.id.etSwiftcode);
+        etBankAddress = findViewById(R.id.etBankAddress);
         btnSave = findViewById(R.id.btnSave);
+        tvTandC = findViewById(R.id.tvTandC);
         SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         username = sharedPreferences.getString("name", "");
         useremail = sharedPreferences.getString("email", "");
@@ -62,19 +69,36 @@ public class Checkoutaddbankacc extends AppCompatActivity {
             }
         });
 
+        tvTandC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String url = "http://www.tnevi.com/privacypolicy";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (etIfsc.getText().toString().length()==0){
-                    Toast.makeText(getApplicationContext(), "Enter IFSC", Toast.LENGTH_LONG).show();
-                }else if(etBranch.getText().toString().length()==0){
-                    Toast.makeText(getApplicationContext(), "Enter Branch Name", Toast.LENGTH_LONG).show();
-                }else if (etAccount.getText().toString().length()==0){
-                    Toast.makeText(getApplicationContext(), "Enter Account", Toast.LENGTH_LONG).show();
-                }else if (etBank.getText().toString().length()==0){
-                    Toast.makeText(getApplicationContext(), "Enter Bank", Toast.LENGTH_LONG).show();
-                }else {
+                if (etName.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Full Name", Toast.LENGTH_LONG).show();
+                } else if (etAddress.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Address", Toast.LENGTH_LONG).show();
+                } else if (etBranchno.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Branch No.", Toast.LENGTH_LONG).show();
+                } else if (etTransitno.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Transit No.", Toast.LENGTH_LONG).show();
+                } else if (etAccno.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Account No.", Toast.LENGTH_LONG).show();
+                } else if (etSwiftcode.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Swift Code", Toast.LENGTH_LONG).show();
+                } else if (etBankAddress.getText().toString().length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Enter Bank Address", Toast.LENGTH_LONG).show();
+                } else {
                     submitAccount();
                 }
 
@@ -85,7 +109,7 @@ public class Checkoutaddbankacc extends AppCompatActivity {
 
     }
 
-    public void submitAccount(){
+    public void submitAccount() {
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
 
@@ -96,10 +120,15 @@ public class Checkoutaddbankacc extends AppCompatActivity {
 
             try {
                 params.put("updateBankInformation", "1");
-                params.put("ifsc", etIfsc.getText().toString());
-                params.put("acct_no", etAccount.getText().toString());
-                params.put("bank_name", etBank.getText().toString());
-                params.put("branch_name", etBranch.getText().toString());
+                params.put("type", "2");
+                params.put("full_name", etName.getText().toString());
+                params.put("account_no", etAccno.getText().toString());
+                params.put("address", etAddress.getText().toString());
+                params.put("branch_no", etBranchno.getText().toString());
+                params.put("transit_no", etTransitno.getText().toString());
+                params.put("swift_code", etSwiftcode.getText().toString());
+                params.put("bank_address", etBankAddress.getText().toString());
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -164,15 +193,65 @@ public class Checkoutaddbankacc extends AppCompatActivity {
                                 if (stat.equals("succ")) {
                                     JSONObject userdeatisObj = result.getJSONObject("data");
                                     String fname = userdeatisObj.getString("name");
-                                    JSONObject bankObj = userdeatisObj.getJSONObject("bank_details");
-                                    String acc_no = bankObj.getString("acct_no");
-                                    String ifsc = bankObj.getString("ifsc");
-                                    String bank_name = bankObj.getString("bank_name");
-                                    String branch_name = bankObj.getString("branch_name");
-                                    etAccount.setText(acc_no);
-                                    etBank.setText(bank_name);
-                                    etBranch.setText(branch_name);
-                                    etIfsc.setText(ifsc);
+                                    String full_name = "", branch_no = "", transit_no = "", account_no = "", swift_code = "",
+                                            bank_address = "", address = "";
+                                    JSONArray bankarray = userdeatisObj.getJSONArray("bank_details");
+                                    for (int i = 0; i < bankarray.length(); i++) {
+                                        JSONObject bankObj = bankarray.getJSONObject(0);
+                                        if (bankObj.getString("type").equals("2")) {
+                                            full_name = !bankObj.isNull("full_name") ? bankObj.getString("full_name") : "";
+                                            branch_no = !bankObj.isNull("branch_no") ? bankObj.getString("branch_no") : "";
+                                            transit_no = !bankObj.isNull("transit_no") ? bankObj.getString("transit_no") : "";
+                                            account_no = !bankObj.isNull("account_no") ? bankObj.getString("account_no") : "";
+                                            swift_code = !bankObj.isNull("swift_code") ? bankObj.getString("swift_code") : "";
+                                            bank_address = !bankObj.isNull("bank_address") ? bankObj.getString("bank_address") : "";
+                                            address = !bankObj.isNull("address") ? bankObj.getString("address") : "";
+
+                                            if (bankarray.length() > 1) {
+                                                JSONObject bankObj2 = bankarray.getJSONObject(1);
+                                                full_name = !bankObj2.isNull("full_name") ? bankObj2.getString("full_name") : "";
+                                                branch_no = !bankObj2.isNull("branch_no") ? bankObj2.getString("branch_no") : "";
+                                                transit_no = !bankObj2.isNull("transit_no") ? bankObj2.getString("transit_no") : "";
+                                                account_no = !bankObj2.isNull("account_no") ? bankObj2.getString("account_no") : "";
+                                                swift_code = !bankObj2.isNull("swift_code") ? bankObj2.getString("swift_code") : "";
+                                                bank_address = !bankObj2.isNull("bank_address") ? bankObj2.getString("bank_address") : "";
+                                                address = !bankObj2.isNull("address") ? bankObj2.getString("address") : "";
+
+                                            }
+
+                                            etAccno.setText(account_no);
+                                            etAddress.setText(address);
+                                            etName.setText(full_name);
+                                            etBranchno.setText(branch_no);
+                                            etSwiftcode.setText(swift_code);
+                                            etBankAddress.setText(bank_address);
+                                            etTransitno.setText(transit_no);
+
+                                        } else {
+
+                                            if (bankarray.length() > 1) {
+                                                JSONObject bankObj2 = bankarray.getJSONObject(1);
+                                                full_name = !bankObj2.isNull("full_name") ? bankObj2.getString("full_name") : "";
+                                                branch_no = !bankObj2.isNull("branch_no") ? bankObj2.getString("branch_no") : "";
+                                                transit_no = !bankObj2.isNull("transit_no") ? bankObj2.getString("transit_no") : "";
+                                                account_no = !bankObj2.isNull("account_no") ? bankObj2.getString("account_no") : "";
+                                                swift_code = !bankObj2.isNull("swift_code") ? bankObj2.getString("swift_code") : "";
+                                                bank_address = !bankObj2.isNull("bank_address") ? bankObj2.getString("bank_address") : "";
+                                                address = !bankObj2.isNull("address") ? bankObj2.getString("address") : "";
+
+                                            }
+
+                                            etAccno.setText(account_no);
+                                            etAddress.setText(address);
+                                            etName.setText(full_name);
+                                            etBranchno.setText(branch_no);
+                                            etSwiftcode.setText(swift_code);
+                                            etBankAddress.setText(bank_address);
+                                            etTransitno.setText(transit_no);
+                                        }
+
+
+                                    }
 
                                 } else {
 

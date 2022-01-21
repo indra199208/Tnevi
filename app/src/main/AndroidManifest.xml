@@ -31,6 +31,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".Editpaypal"
+            android:exported="true" />
+        <activity
             android:name=".Plancheckout"
             android:exported="true" />
         <activity
