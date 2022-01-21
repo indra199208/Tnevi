@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             Places.initialize(getApplicationContext(), getString(R.string.api_key));
         }
         placesClient = Places.createClient(this);
-
+        geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
         btnSearch = findViewById(R.id.btnSearch);
         btnWallet = findViewById(R.id.btnWallet);
         btnProf = findViewById(R.id.btnProf);
@@ -428,7 +428,6 @@ public class MainActivity extends AppCompatActivity {
                                         if (lati == 0.0 && loni == 0.0) {
                                             navBaraddress.setText("Unable to Fetch location");
                                         } else {
-                                            geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
                                             addresses = geocoder.getFromLocation(lati, loni, 1);
                                             String fulladdress = addresses.get(0).getAddressLine(0);
                                             String city = addresses.get(0).getLocality();

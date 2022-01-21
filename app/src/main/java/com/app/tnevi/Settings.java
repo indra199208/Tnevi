@@ -120,7 +120,6 @@ public class Settings extends AppCompatActivity implements Listener {
     private GoogleApiClient mGoogleApi;
     EasyWayLocation easyWayLocation;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -148,8 +147,8 @@ public class Settings extends AppCompatActivity implements Listener {
         tvFeedback = findViewById(R.id.tvFeedback);
 
 
-        easyWayLocation = new EasyWayLocation(this, false, false, this);
-
+        easyWayLocation = new EasyWayLocation(this, true, false, this);
+        easyWayLocation.startLocation();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             iconSetting.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.colorAccent));
         }
