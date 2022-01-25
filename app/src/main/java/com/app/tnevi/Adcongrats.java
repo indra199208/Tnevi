@@ -13,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Adcongrats extends AppCompatActivity {
 
     LinearLayout btnFeaturead, btnPreview, btnShare;
+    String eventId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adcongrats);
+        Intent intent = getIntent();
+        eventId = intent.getStringExtra("eventId");
         btnFeaturead = findViewById(R.id.btnFeaturead);
         btnPreview = findViewById(R.id.btnPreview);
         btnShare = findViewById(R.id.btnShare);
@@ -28,6 +31,7 @@ public class Adcongrats extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Adcongrats.this, Featuread.class);
+                intent.putExtra("eventId", eventId);
                 startActivity(intent);
 
             }

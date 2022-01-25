@@ -166,6 +166,7 @@ EventimageuploadActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(EventimageuploadActivity.this, Adcongrats.class);
+                intent.putExtra("eventId", eventid);
                 startActivity(intent);
 
             }
