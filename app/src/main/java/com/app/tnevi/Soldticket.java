@@ -197,7 +197,7 @@ public class Soldticket extends SwipeActivityClass {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Soldticket.this, Settings.class);
+                Intent intent = new Intent(Soldticket.this, SettingsActivity.class);
                 startActivity(intent);
 
 

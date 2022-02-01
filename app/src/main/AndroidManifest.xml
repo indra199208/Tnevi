@@ -7,6 +7,10 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
+    <queries>
+        <package android:name="com.google.android.apps.maps" />
+    </queries>
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -32,46 +36,64 @@
         tools:replace="android:allowBackup">
         <activity
             android:name=".Editpaypal"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Plancheckout"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Epointcheckout"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity_checkout"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Chooseyoulike"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Notification"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Editseat"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Aboutus"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".QRcode"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".FAQ"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Contactsupport"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Ratenow"
-            android:exported="true" />
-        <activity android:name=".Viewallcategory" />
-        <activity android:name=".Cashouthistory" />
-        <activity android:name=".Ticketsales" />
-        <activity android:name=".Ticketdetails" />
-        <activity android:name=".Editevent2" />
-        <activity android:name=".Editevent" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Viewallcategory"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Cashouthistory"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Ticketsales"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Ticketdetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Editevent2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Editevent"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -102,52 +124,98 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".Arrangeseats" />
-        <activity android:name=".Updatepassword" />
-        <activity android:name=".Passwordchange" />
-        <activity android:name=".Emailverification2" />
-        <activity android:name=".Forgetpassword" />
-        <activity android:name=".Emailverification" />
-        <activity android:name=".Checkoutpaymentmethod" />
-        <activity android:name=".Checkoutpaymentoption" />
-        <activity android:name=".Checkoutaddbankacc" />
-        <activity android:name=".Checkoutbankinfo" />
-        <activity android:name=".Checkoutpaymentinfo" />
-        <activity android:name=".Checkoutaddress" />
-        <activity android:name=".Pricedetails" />
-        <activity android:name=".Gallerybooking" />
-        <activity android:name=".Comissiondetails" />
-        <activity android:name=".Eventgeneraldetails" />
-        <activity android:name=".Featuread" />
-        <activity android:name=".Ticketsalesreport" />
-        <activity android:name=".Commissionsearned" />
-        <activity android:name=".Eventdetails" />
-        <activity android:name=".Adcongrats" />
-        <activity android:name=".EventimageuploadActivity" />
-        <activity android:name=".Eventbaneerad" />
-        <activity android:name=".Eventcost" />
-        <activity android:name=".Eventdescription" />
-        <activity android:name=".Addeventdetails" />
-        <activity android:name=".Selectevent" />
-        <activity android:name=".Allcategory" />
-        <activity android:name=".Viewrewards" />
-        <activity android:name=".Buyepoint" />
-        <activity android:name=".Epointhistory" />
-        <activity android:name=".Sellingticket" />
-        <activity android:name=".Favticket" />
-        <activity android:name=".Soldticket" />
-        <activity android:name=".Mytickets" />
-        <activity android:name=".Events" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Profile2" />
-        <activity android:name=".Wallet" />
-        <activity android:name=".Search" />
-        <activity android:name=".Search2" />
-        <activity android:name=".Registration" />
-        <activity android:name=".Login" />
-        <activity android:name=".Comissionsales" />
-        <activity android:name=".Splash" />
+        <activity android:name=".Arrangeseats"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Updatepassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Passwordchange"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Emailverification2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Forgetpassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Emailverification"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutpaymentmethod"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutpaymentoption"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutaddbankacc"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutbankinfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutpaymentinfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Checkoutaddress"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Pricedetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Gallerybooking"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Comissiondetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Eventgeneraldetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Featuread"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Ticketsalesreport"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Commissionsearned"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Eventdetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Adcongrats"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EventimageuploadActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Eventbaneerad"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Eventcost"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Eventdescription"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Addeventdetails"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Selectevent"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Allcategory"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Viewrewards"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Buyepoint"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Epointhistory"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Sellingticket"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Favticket"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Soldticket"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Mytickets"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Events"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Profile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Profile2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Wallet"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Search"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Search2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Registration"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Comissionsales"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Splash"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -320,7 +320,7 @@ public class Favticket extends SwipeActivityClass {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Favticket.this, Settings.class);
+                Intent intent = new Intent(Favticket.this, SettingsActivity.class);
                 startActivity(intent);
 
 

@@ -202,7 +202,7 @@ public class Sellingticket extends SwipeActivityClass {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Sellingticket.this, Settings.class);
+                Intent intent = new Intent(Sellingticket.this, SettingsActivity.class);
                 startActivity(intent);
 
 

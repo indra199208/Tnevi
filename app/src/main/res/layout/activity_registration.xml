@@ -153,7 +153,7 @@
                     android:layout_weight="0.98"
                     android:layout_height="wrap_content"
                     app:tint="@color/colorAccent"
-                    android:src="@drawable/ic_error"/>
+                    android:src="@drawable/ic_error1"/>
 
 
             </LinearLayout>

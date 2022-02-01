@@ -283,7 +283,7 @@ public class Wallet extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Wallet.this, Settings.class);
+                Intent intent = new Intent(Wallet.this, SettingsActivity.class);
                 startActivity(intent);
 
 

@@ -1,6 +1,7 @@
 package com.app.tnevi;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,10 +16,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -32,6 +36,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -61,6 +66,12 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -82,7 +93,7 @@ import retrofit2.Retrofit;
 
 import static com.example.easywaylocation.EasyWayLocation.LOCATION_SETTING_REQUEST_CODE;
 
-public class Settings extends AppCompatActivity implements Listener {
+public class SettingsActivity extends AppCompatActivity implements Listener {
 
     LinearLayoutCompat btnHome, btnSearch, btnWallet, btnProf, btnSettings, btnEvent, btnUpdatepassword, btnLogout;
     ImageView iconSetting, imgPrf, btneditName;
@@ -109,7 +120,7 @@ public class Settings extends AppCompatActivity implements Listener {
     List<Address> addresses;
     Switch switchButton, switchNotification;
     //Location mylocation;
-
+    FusedLocationProviderClient mFusedLocationClient;
     Location currentLocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
@@ -119,6 +130,7 @@ public class Settings extends AppCompatActivity implements Listener {
     Geocoder geocoder;
     private GoogleApiClient mGoogleApi;
     EasyWayLocation easyWayLocation;
+    int PERMISSION_ID = 44;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +158,10 @@ public class Settings extends AppCompatActivity implements Listener {
         btnBankInfo = findViewById(R.id.btnBankInfo);
         tvFeedback = findViewById(R.id.tvFeedback);
 
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // method to get the location
+        getLastLocation();
 
         easyWayLocation = new EasyWayLocation(this, true, false, this);
         easyWayLocation.startLocation();
@@ -215,7 +231,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Settings.this, Checkoutpaymentoption.class);
+                Intent intent = new Intent(SettingsActivity.this, Checkoutpaymentoption.class);
                 startActivity(intent);
             }
         });
@@ -224,7 +240,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Settings.this, Checkoutbankinfo.class);
+                Intent intent = new Intent(SettingsActivity.this, Checkoutbankinfo.class);
                 startActivity(intent);
             }
         });
@@ -234,7 +250,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Settings.this, FAQ.class);
+                Intent intent = new Intent(SettingsActivity.this, FAQ.class);
                 startActivity(intent);
 
             }
@@ -245,7 +261,7 @@ public class Settings extends AppCompatActivity implements Listener {
             public void onClick(View view) {
 
 
-                Intent intent = new Intent(Settings.this, Aboutus.class);
+                Intent intent = new Intent(SettingsActivity.this, Aboutus.class);
                 startActivity(intent);
             }
         });
@@ -254,7 +270,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Settings.this, Contactsupport.class);
+                Intent intent = new Intent(SettingsActivity.this, Contactsupport.class);
                 startActivity(intent);
             }
         });
@@ -273,7 +289,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this, MainActivity.class);
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent);
 
             }
@@ -283,7 +299,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this, Search.class);
+                Intent intent = new Intent(SettingsActivity.this, Search.class);
                 startActivity(intent);
             }
         });
@@ -292,7 +308,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this, Events.class);
+                Intent intent = new Intent(SettingsActivity.this, Events.class);
                 startActivity(intent);
 
             }
@@ -302,7 +318,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Settings.this, Profile.class);
+                Intent intent = new Intent(SettingsActivity.this, Profile.class);
                 startActivity(intent);
 
 
@@ -314,7 +330,7 @@ public class Settings extends AppCompatActivity implements Listener {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(Settings.this, Wallet.class);
+                Intent intent = new Intent(SettingsActivity.this, Wallet.class);
                 startActivity(intent);
 
             }
@@ -334,7 +350,7 @@ public class Settings extends AppCompatActivity implements Listener {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(Settings.this, Updatepassword.class);
+                Intent intent = new Intent(SettingsActivity.this, Updatepassword.class);
                 startActivity(intent);
 
             }
@@ -381,7 +397,7 @@ public class Settings extends AppCompatActivity implements Listener {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Settings.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
                 builder.setMessage("Do you really want to logout?");
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
 
@@ -393,7 +409,7 @@ public class Settings extends AppCompatActivity implements Listener {
                         settings.edit().clear().apply();
                         LoginManager.getInstance().logOut();
                         signOut();
-                        startActivity(new Intent(Settings.this, Login.class));
+                        startActivity(new Intent(SettingsActivity.this, Login.class));
                         finish();
                     }
                 });
@@ -431,7 +447,7 @@ public class Settings extends AppCompatActivity implements Listener {
             Uri fileUri = data.getData();
             try {
 
-                uploadToServer(GetRealPathFromUri.getPathFromUri(Settings.this, fileUri));
+                uploadToServer(GetRealPathFromUri.getPathFromUri(SettingsActivity.this, fileUri));
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -460,7 +476,7 @@ public class Settings extends AppCompatActivity implements Listener {
         ApiInterface uploadAPIs = retrofit.create(ApiInterface.class);
         //Create a file object using file path
         File file = new File(fileUri);
-        File imageZipperFile = new ImageZipper(Settings.this)
+        File imageZipperFile = new ImageZipper(SettingsActivity.this)
                 .setQuality(50)
                 .setMaxWidth(300)
                 .setMaxHeight(300)
@@ -482,7 +498,7 @@ public class Settings extends AppCompatActivity implements Listener {
                         msg = mjonsresponse.getString("message");
                         String stat = mjonsresponse.getString("stat");
                         if (stat.equals("succ")) {
-                            Toast.makeText(Settings.this, msg, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SettingsActivity.this, msg, Toast.LENGTH_SHORT).show();
                             JSONObject userdeatisObj = mjonsresponse.getJSONObject("data");
                             JSONObject profileObj2 = userdeatisObj.getJSONObject("profile");
                             String picurl = profileObj2.getString("pro_pic");
@@ -490,7 +506,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
 
                             Log.v("picurl-->", picurl);
-                            Glide.with(Settings.this)
+                            Glide.with(SettingsActivity.this)
                                     .load("http://dev8.ivantechnology.in/tnevi/storage/app/" + picurl)
                                     .circleCrop()
                                     .placeholder(R.drawable.dp2)
@@ -575,7 +591,7 @@ public class Settings extends AppCompatActivity implements Listener {
                                     Log.d(TAG, "profileurl-->" + pro_pic);
 
 
-                                    Glide.with(Settings.this)
+                                    Glide.with(SettingsActivity.this)
                                             .load("http://dev8.ivantechnology.in/tnevi/storage/app/" + pro_pic)
                                             .circleCrop()
                                             .placeholder(R.drawable.dp2)
@@ -592,7 +608,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
                                     hideProgressDialog();
                                     Log.d(TAG, "unsuccessfull - " + "Error");
-                                    Toast.makeText(Settings.this, msg, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SettingsActivity.this, msg, Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -611,7 +627,7 @@ public class Settings extends AppCompatActivity implements Listener {
                         public void onErrorResponse(VolleyError error) {
 
                             hideProgressDialog();
-                            Toast.makeText(Settings.this, error.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SettingsActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }) {
 
@@ -639,7 +655,7 @@ public class Settings extends AppCompatActivity implements Listener {
     public void updateusername() {
         final EditText name;
         Button submit;
-        final Dialog dialog = new Dialog(Settings.this);
+        final Dialog dialog = new Dialog(SettingsActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         WindowManager.LayoutParams params = new WindowManager.LayoutParams();
         dialog.setContentView(R.layout.dialog);
@@ -696,7 +712,7 @@ public class Settings extends AppCompatActivity implements Listener {
                             public void onErrorResponse(VolleyError error) {
 
                                 hideProgressDialog();
-                                Toast.makeText(Settings.this, error.toString(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SettingsActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                             }
                         }) {
 
@@ -709,7 +725,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
                         };
 
-                        Volley.newRequestQueue(Settings.this).add(jsonRequest);
+                        Volley.newRequestQueue(SettingsActivity.this).add(jsonRequest);
 
 
                     } else {
@@ -789,7 +805,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
                     updateLocation();
                 }else{
-                    Toast.makeText(Settings.this,"Unable to get the location please try again",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SettingsActivity.this,"Unable to get the location please try again",Toast.LENGTH_LONG).show();
                     switchButton.setChecked(false);
                     hideProgressDialog();
                 }
@@ -818,7 +834,7 @@ public class Settings extends AppCompatActivity implements Listener {
     }
 
 
-    @Override
+  /*  @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CODE:
@@ -827,7 +843,7 @@ public class Settings extends AppCompatActivity implements Listener {
                 }
                 break;
         }
-    }
+    }*/
 
 
 //    @Override
@@ -866,7 +882,7 @@ public class Settings extends AppCompatActivity implements Listener {
 
                 Log.d("Response-->", String.valueOf(response));
                 switchButton.setChecked(true);
-                Toast.makeText(Settings.this, "Location Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, "Location Updated", Toast.LENGTH_SHORT).show();
 
                 hideProgressDialog();
 
@@ -874,7 +890,7 @@ public class Settings extends AppCompatActivity implements Listener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(Settings.this, "Invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
                     hideProgressDialog();
 
                 }
@@ -925,7 +941,7 @@ public class Settings extends AppCompatActivity implements Listener {
             JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.UpdateLocation, params, response -> {
 
                 Log.d("Response-->", String.valueOf(response));
-                Toast.makeText(Settings.this, "Location Off", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingsActivity.this, "Location Off", Toast.LENGTH_SHORT).show();
 
                 hideProgressDialog();
                 switchButton.setChecked(false);
@@ -934,7 +950,7 @@ public class Settings extends AppCompatActivity implements Listener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(Settings.this, "Invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
 
                 }
             }) {
@@ -987,7 +1003,7 @@ public class Settings extends AppCompatActivity implements Listener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(Settings.this, "Invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
 
                 }
             }) {
@@ -1041,7 +1057,7 @@ public class Settings extends AppCompatActivity implements Listener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(Settings.this, "Invalid", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
 
                 }
             }) {
@@ -1079,6 +1095,109 @@ public class Settings extends AppCompatActivity implements Listener {
     public void hideProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void getLastLocation() {
+        // check if permissions are given
+        if (checkPermissions()) {
+
+            // check if location is enabled
+            if (isLocationEnabled()) {
+
+                // getting last
+                // location from
+                // FusedLocationClient
+                // object
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        Location location = task.getResult();
+                        if (location == null) {
+                            requestNewLocationData();
+                        } else {
+                           /* latitudeTextView.setText(location.getLatitude() + "");
+                            longitTextView.setText(location.getLongitude() + "");*/
+                            Lat = location.getLatitude();
+                            Long = location.getLongitude();
+                        }
+                    }
+                });
+            } else {
+                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+            }
+        } else {
+            // if permissions aren't available,
+            // request for permissions
+            requestPermissions();
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void requestNewLocationData() {
+
+        // Initializing LocationRequest
+        // object with appropriate methods
+        LocationRequest mLocationRequest = new LocationRequest();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(5);
+        mLocationRequest.setFastestInterval(0);
+        mLocationRequest.setNumUpdates(1);
+
+        // setting LocationRequest
+        // on FusedLocationClient
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
+    }
+
+    private LocationCallback mLocationCallback = new LocationCallback() {
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            Location mLastLocation = locationResult.getLastLocation();
+           /* latitudeTextView.setText("Latitude: " + mLastLocation.getLatitude() + "");
+            longitTextView.setText("Longitude: " + mLastLocation.getLongitude() + "");*/
+            Lat = mLastLocation.getLatitude();
+            Long = mLastLocation.getLongitude();
+        }
+    };
+
+    // method to check for permissions
+    private boolean checkPermissions() {
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+
+        // If we want background location
+        // on Android 10.0 and higher,
+        // use:
+        // ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
+    }
+
+    // method to request for permissions
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION}, PERMISSION_ID);
+    }
+
+    // method to check
+    // if location is enabled
+    private boolean isLocationEnabled() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+    }
+
+    // If everything is alright then
+    @Override
+    public void
+    onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getLastLocation();
+            }
         }
     }
 

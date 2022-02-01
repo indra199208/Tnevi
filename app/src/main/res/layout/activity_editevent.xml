@@ -631,7 +631,7 @@
                         android:layout_weight="0.9"
                         android:layout_marginRight="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:src="@drawable/ic_error"
+                        android:src="@drawable/ic_error1"
                         app:tint="@color/colorAccent"/>
 
 

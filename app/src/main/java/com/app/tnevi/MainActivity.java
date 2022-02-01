@@ -36,7 +36,6 @@ import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.CategoryAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.HighlighteventAdapter;
-import com.app.tnevi.Adapters.MyViewallAdapter;
 import com.app.tnevi.Adapters.MyViewallAdapter2;
 import com.app.tnevi.Adapters.TopeventAdapter;
 import com.app.tnevi.Allurl.Allurl;
@@ -297,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Settings.class);
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
 
 
@@ -429,7 +428,7 @@ public class MainActivity extends AppCompatActivity {
                                             navBaraddress.setText("Unable to Fetch location");
                                         } else {
                                             addresses = geocoder.getFromLocation(lati, loni, 1);
-                                            String fulladdress = addresses.get(0).getAddressLine(0);
+//                                            String fulladdress = addresses.get(0).getAddressLine(0);
                                             String city = addresses.get(0).getLocality();
                                             String state = addresses.get(0).getAdminArea();
                                             String country = addresses.get(0).getCountryName();

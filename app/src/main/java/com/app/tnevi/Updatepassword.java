@@ -120,7 +120,7 @@ public class Updatepassword extends AppCompatActivity {
 
                         Toast.makeText(Updatepassword.this, msg, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(Updatepassword.this, Settings.class);
+                        Intent intent = new Intent(Updatepassword.this, SettingsActivity.class);
                         startActivity(intent);
 
                         hideProgressDialog();

@@ -134,7 +134,7 @@ public class Contactsupport extends AppCompatActivity {
                     if (stat.equals("succ")) {
 
                         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(Contactsupport.this, Settings.class);
+                        Intent intent = new Intent(Contactsupport.this, SettingsActivity.class);
                         startActivity(intent);
 
                     } else {

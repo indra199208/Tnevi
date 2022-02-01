@@ -27,7 +27,6 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -46,19 +45,16 @@ import com.android.volley.toolbox.Volley;
 import com.app.tnevi.Adapters.ChoosemayAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.GalleryAdapter;
+import com.app.tnevi.Allurl.Allurl;
+import com.app.tnevi.Utils.ItemOffsetDecoration;
 import com.app.tnevi.internet.CheckConnectivity;
+import com.app.tnevi.model.GalleryModel;
 import com.app.tnevi.model.GeteventModel;
 import com.app.tnevi.session.SessionManager;
 import com.bumptech.glide.Glide;
-
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
@@ -73,9 +69,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.app.tnevi.Allurl.Allurl;
-import com.app.tnevi.Utils.ItemOffsetDecoration;
-import com.app.tnevi.model.GalleryModel;
 import com.kv.popupimageview.PopupImageView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
@@ -160,7 +153,6 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         tvTiminig = findViewById(R.id.tvTiminig);
         imgPrfpic = findViewById(R.id.imgPrfpic);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
 
 
         sessionManager = new SessionManager(getApplicationContext());
@@ -466,25 +458,32 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
                         tvPostedby.setText(postedby);
                         tvEventdate.setText("$" + minprice + "-" + "$" + maxprice);
                         tvTicketprice.setText("$" + comission + "/Price");
-                        tvEventdate2.setText(eventdate+" and "+event_edate);
-                        tvTiminig.setText(stime+" and "+etime);
+                        tvEventdate2.setText(eventdate + " to " + event_edate);
+                        tvTiminig.setText(stime + " to " + etime);
                         tvAddress.setText(address);
                         tvEventdetails.setText(description);
                         btnHeart.setLiked(favstatus.equals("1"));
 
-                        youtube_player_view.initialize(new YouTubePlayerInitListener() {
-                            @Override
-                            public void onInitSuccess(final YouTubePlayer initializedYouTubePlayer) {
-                                initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
-                                    @Override
-                                    public void onReady() {
-                                        String videoId = getYouTubeId(youtubelink);
-                                        initializedYouTubePlayer.loadVideo(videoId, 0);
-                                        initializedYouTubePlayer.pause();
-                                    }
-                                });
-                            }
-                        }, true);
+
+                        if (youtubelink.length() == 0) {
+                            youtube_player_view.setVisibility(View.GONE);
+                        } else {
+                            youtube_player_view.setVisibility(View.VISIBLE);
+                            youtube_player_view.initialize(new YouTubePlayerInitListener() {
+                                @Override
+                                public void onInitSuccess(final YouTubePlayer initializedYouTubePlayer) {
+                                    initializedYouTubePlayer.addListener(new AbstractYouTubePlayerListener() {
+                                        @Override
+                                        public void onReady() {
+                                            String videoId = getYouTubeId(youtubelink);
+                                            initializedYouTubePlayer.loadVideo(videoId, 0);
+                                            initializedYouTubePlayer.pause();
+                                        }
+                                    });
+                                }
+                            }, true);
+                        }
+
 
                         fetchLocation();
                         choosemaylike();
@@ -650,7 +649,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-    public void getAccount(){
+    public void getAccount() {
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
 
@@ -1112,13 +1111,6 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
         adLoader.loadAd(new AdRequest.Builder().build());
 
     }
-
-
-
-
-
-
-
 
 
     public ProgressDialog mProgressDialog;
