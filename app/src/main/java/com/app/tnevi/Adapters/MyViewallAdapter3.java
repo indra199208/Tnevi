@@ -6,10 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,13 +18,6 @@ import com.app.tnevi.R;
 import com.app.tnevi.Search2;
 import com.app.tnevi.model.GeteventModel;
 import com.bumptech.glide.Glide;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdLoader;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.nativead.MediaView;
-import com.google.android.gms.ads.nativead.NativeAd;
-import com.google.android.gms.ads.nativead.NativeAdOptions;
-import com.google.android.gms.ads.nativead.NativeAdView;
 import com.like.LikeButton;
 import com.like.OnLikeListener;
 
@@ -37,10 +27,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class MyViewallAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class MyViewallAdapter3 extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private LayoutInflater inflater;
     private ArrayList<GeteventModel> homeEventsModelArrayList;
@@ -48,9 +37,9 @@ public class MyViewallAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHol
     private static final String TAG = "myapp";
     private static final int CONTENT_TYPE = 0;
     private static final int AD_TYPE = 1;
-    private final int limit = 6;
+    private final int limit = 4;
 
-    public MyViewallAdapter2(Context ctx, ArrayList<GeteventModel> homeEventsModelArrayList) {
+    public MyViewallAdapter3(Context ctx, ArrayList<GeteventModel> homeEventsModelArrayList) {
         inflater = LayoutInflater.from(ctx);
         this.homeEventsModelArrayList = homeEventsModelArrayList;
         this.ctx = ctx;

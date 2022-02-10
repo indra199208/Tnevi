@@ -765,7 +765,7 @@ public class Search2 extends AppCompatActivity {
             }
         });
         rvSearch.setLayoutManager(manager);
-        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing7);
         rvSearch.addItemDecoration(itemDecoration);
 
     }

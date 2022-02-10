@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +39,7 @@ import com.app.tnevi.Adapters.CategoryAdapter;
 import com.app.tnevi.Adapters.FeaturedAdapter;
 import com.app.tnevi.Adapters.HighlighteventAdapter;
 import com.app.tnevi.Adapters.MyViewallAdapter2;
+import com.app.tnevi.Adapters.MyViewallAdapter3;
 import com.app.tnevi.Adapters.TopeventAdapter;
 import com.app.tnevi.Allurl.Allurl;
 import com.app.tnevi.internet.CheckConnectivity;
@@ -45,6 +48,13 @@ import com.app.tnevi.model.GeteventModel;
 import com.app.tnevi.session.SessionManager;
 
 import com.app.tnevi.Utils.ItemOffsetDecoration;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.nativead.MediaView;
+import com.google.android.gms.ads.nativead.NativeAd;
+import com.google.android.gms.ads.nativead.NativeAdOptions;
+import com.google.android.gms.ads.nativead.NativeAdView;
 import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -65,6 +75,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     Geocoder geocoder;
     List<Address> addresses;
     FloatingActionButton fab;
-    RecyclerView rv_topevents, rv_highlight, rv_browsecat, rv_featured;
+    RecyclerView rv_topevents, rv_highlight, rv_browsecat, rv_featured, rv_featured2;
     String lat = "";
     String lon = "";
     private ArrayList<CategoryModel> categoryModelArrayList;
@@ -91,10 +102,12 @@ public class MainActivity extends AppCompatActivity {
     private HighlighteventAdapter highlighteventAdapter;
     private FeaturedAdapter featuredAdapter;
     private MyViewallAdapter2 myViewallAdapter2;
+    private MyViewallAdapter3 myViewallAdapter3;
     private static int AUTOCOMPLETE_REQUEST_CODE = 1;
     PlacesClient placesClient;
     Button Viewall;
     String bankdetails = "";
+    NativeAd nativeAd;
 
 
     @Override
@@ -135,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         navLocationchange = findViewById(R.id.navLocationchange);
         Viewall = findViewById(R.id.Viewall);
         imgNotification = findViewById(R.id.imgNotification);
+        rv_featured2 = findViewById(R.id.rv_featured2);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             imgHome.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.colorAccent));
@@ -372,6 +386,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Topevents();
                 featuredEvents();
+                featuredEvents2();
                 highlightEvents();
 
                 Log.i(TAG, "Place: " + lati + ", " + longi);
@@ -474,6 +489,8 @@ public class MainActivity extends AppCompatActivity {
                                     Topevents();
                                     highlightEvents();
                                     featuredEvents();
+                                    featuredEvents2();
+                                    refreshAd();
 
 
                                 } else {
@@ -902,16 +919,17 @@ public class MainActivity extends AppCompatActivity {
                             geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
                             geteventModel.setTicket_stat(responseobj.getString("top_events"));
                             geteventModel.setFav_status(responseobj.getString("fav_status"));
-                            if (i > 0 && i % 6 == 0) {
-                                homeEventsModelArrayList.add(null);
-                            }else {
-                                homeEventsModelArrayList.add(geteventModel);
-                            }
+//                            if (i > 0 && i % 6 == 0) {
+//                                homeEventsModelArrayList.add(null);
+//                            }else {
+//                                homeEventsModelArrayList.add(geteventModel);
+//                            }
 
                         }
 
-                        Viewall.setVisibility(response_data.length() > 8 ? View.VISIBLE : View.GONE);
+//                        Viewall.setVisibility(response_data.length() > 8 ? View.VISIBLE : View.GONE);
                         setupRecyclerFeaturedevents();
+
 
                     } else {
 
@@ -951,6 +969,125 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+    public void featuredEvents2() {
+
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+
+            showProgressDialog();
+
+            JSONObject params = new JSONObject();
+
+            try {
+                params.put("commission", "");
+                params.put("search_address", "");
+                params.put("page_no", 1);
+                params.put("categories", "");
+                params.put("search_date", "");
+                params.put("keyword", "");
+                params.put("featured_event", "");
+                params.put("fev_list", "");
+                params.put("highlight_event ", "");
+                params.put("featured_event ", 1);
+                params.put("top_events", "");
+                params.put("latitude", lat);
+                params.put("longitude", lon);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.GetEvent, params, response -> {
+
+                Log.i("Response-->", String.valueOf(response));
+
+                try {
+                    JSONObject result = new JSONObject(String.valueOf(response));
+                    String msg = result.getString("message");
+                    Log.d(TAG, "msg-->" + msg);
+                    String stat = result.getString("stat");
+                    if (stat.equals("succ")) {
+
+                        JSONArray response_data = result.getJSONArray("data");
+                        for (int i = 0; i < response_data.length(); i++) {
+
+                            GeteventModel geteventModel = new GeteventModel();
+                            JSONObject responseobj = response_data.getJSONObject(i);
+                            geteventModel.setId(responseobj.getString("id"));
+                            geteventModel.setEvent_name(responseobj.getString("event_name"));
+                            if (!responseobj.isNull("event_image")) {
+                                geteventModel.setEvent_image(responseobj.getString("event_image"));
+                            } else {
+                                geteventModel.setEvent_image("");
+                            }
+                            geteventModel.setFree_stat(responseobj.getString("free_stat"));
+                            geteventModel.setCurrency_id(responseobj.getString("currency_id"));
+                            geteventModel.setEvent_date(responseobj.getString("event_date"));
+                            geteventModel.setMax_price(responseobj.getString("max_price"));
+                            geteventModel.setMin_price(responseobj.getString("min_price"));
+                            geteventModel.setEvent_commission(responseobj.getString("event_commission"));
+                            geteventModel.setEvent_address(responseobj.getString("event_address"));
+                            geteventModel.setStatus(responseobj.getString("status"));
+                            geteventModel.setTicket_stat(responseobj.getString("ticket_stat"));
+                            geteventModel.setHighlightevent(responseobj.getString("highlight_event"));
+                            geteventModel.setTicket_stat(responseobj.getString("top_events"));
+                            geteventModel.setFav_status(responseobj.getString("fav_status"));
+//                            if (i > 0 && i % 6 == 0) {
+//                                homeEventsModelArrayList.add(null);
+//                            }else {
+//                                homeEventsModelArrayList.add(geteventModel);
+//                            }
+
+                        }
+
+                        Viewall.setVisibility(response_data.length() > 8 ? View.VISIBLE : View.GONE);
+                        setupRecyclerFeaturedevents2();
+
+
+                    } else {
+
+                        Log.d(TAG, "unsuccessfull - " + "Error");
+                        Toast.makeText(MainActivity.this, "invalid", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                hideProgressDialog();
+
+                //TODO: handle success
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                }
+            }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+            };
+
+            Volley.newRequestQueue(this).add(jsonRequest);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
+
+        }
+
+    }
+
 
 
     public void updateLocation() {
@@ -1036,35 +1173,41 @@ public class MainActivity extends AppCompatActivity {
         myViewallAdapter2 = new MyViewallAdapter2(this, homeEventsModelArrayList);
         rv_featured.setAdapter(myViewallAdapter2);
         GridLayoutManager manager = new GridLayoutManager(this, 2);
-        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-              /*  int spancount = position > 0 && (position % 4) == 0 ? 1 : 2;
-                Log.v("spancount", spancount + "");
-                return (spancount);*/
-
-                if (homeEventsModelArrayList.get(position) == null) {
-                    return 2;
-                } else {
-                    return 1;
-                }
-            }
-        });
+//        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//              /*  int spancount = position > 0 && (position % 4) == 0 ? 1 : 2;
+//                Log.v("spancount", spancount + "");
+//                return (spancount);*/
+//
+//                if (homeEventsModelArrayList.get(position) == null) {
+//                    return 2;
+//                } else {
+//                    return 1;
+//                }
+//            }
+//        });
         rv_featured.setLayoutManager(manager);
         ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing7);
         rv_featured.addItemDecoration(itemDecoration);
-
-
     }
 
+
+    private void setupRecyclerFeaturedevents2() {
+
+        myViewallAdapter3 = new MyViewallAdapter3(this, homeEventsModelArrayList);
+        rv_featured2.setAdapter(myViewallAdapter3);
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        rv_featured2.setLayoutManager(manager);
+        ItemOffsetDecoration itemDecoration = new ItemOffsetDecoration(getApplicationContext(), R.dimen.photos_list_spacing7);
+        rv_featured2.addItemDecoration(itemDecoration);
+    }
 
     public void addRemovefav(GeteventModel geteventModel) {
 
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
-
             showProgressDialog();
-
             JSONObject params = new JSONObject();
 
             try {
@@ -1123,6 +1266,105 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+    }
+
+
+    private void populateUnifiedNativeAdView(NativeAd nativeAd, NativeAdView adView) {
+        adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
+        adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
+        adView.setBodyView(adView.findViewById(R.id.ad_body));
+        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
+        adView.setIconView(adView.findViewById(R.id.ad_app_icon));
+        adView.setPriceView(adView.findViewById(R.id.ad_price));
+        adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
+        adView.setStoreView(adView.findViewById(R.id.ad_store));
+        adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
+
+
+        ((TextView) Objects.requireNonNull(adView.getHeadlineView())).setText(nativeAd.getHeadline());
+        Objects.requireNonNull(adView.getMediaView()).setMediaContent(Objects.requireNonNull(nativeAd.getMediaContent()));
+
+
+        if (nativeAd.getBody() == null) {
+            Objects.requireNonNull(adView.getBodyView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            adView.getBodyView().setVisibility(View.VISIBLE);
+            ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
+        }
+        if (nativeAd.getCallToAction() == null) {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getCallToActionView()).setVisibility(View.VISIBLE);
+            ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
+        }
+        if (nativeAd.getIcon() == null) {
+            Objects.requireNonNull(adView.getIconView()).setVisibility(View.GONE);
+        } else {
+            ((ImageView) Objects.requireNonNull(adView.getIconView())).setImageDrawable(nativeAd.getIcon().getDrawable());
+            adView.getIconView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getPrice() == null) {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.INVISIBLE);
+
+        } else {
+            Objects.requireNonNull(adView.getPriceView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
+        }
+        if (nativeAd.getStore() == null) {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.INVISIBLE);
+        } else {
+            Objects.requireNonNull(adView.getStoreView()).setVisibility(View.VISIBLE);
+            ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
+        }
+        if (nativeAd.getStarRating() == null) {
+            Objects.requireNonNull(adView.getStarRatingView()).setVisibility(View.INVISIBLE);
+        } else {
+            ((RatingBar) Objects.requireNonNull(adView.getStarRatingView())).setRating(nativeAd.getStarRating().floatValue());
+            adView.getStarRatingView().setVisibility(View.VISIBLE);
+        }
+
+        if (nativeAd.getAdvertiser() == null) {
+            Objects.requireNonNull(adView.getAdvertiserView()).setVisibility(View.INVISIBLE);
+        } else
+            ((TextView) Objects.requireNonNull(adView.getAdvertiserView())).setText(nativeAd.getAdvertiser());
+        adView.getAdvertiserView().setVisibility(View.VISIBLE);
+
+
+        adView.setNativeAd(nativeAd);
+
+
+    }
+
+
+    private void refreshAd() {
+        AdLoader.Builder builder = new AdLoader.Builder(this, getString(R.string.ADMOB_ADS_UNIT_ID));
+        builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(NativeAd unifiedNativeAd) {
+
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+                nativeAd = unifiedNativeAd;
+                FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+                NativeAdView adView = (NativeAdView) getLayoutInflater().inflate(R.layout.ad_helper, null);
+
+                populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                frameLayout.removeAllViews();
+                frameLayout.addView(adView);
+            }
+        }).build();
+        NativeAdOptions adOptions = new NativeAdOptions.Builder().build();
+        builder.withNativeAdOptions(adOptions);
+        AdLoader adLoader = builder.withAdListener(new AdListener() {
+            public void onAdFailedToLoad(int i) {
+
+            }
+        }).build();
+        adLoader.loadAd(new AdRequest.Builder().build());
 
     }
 

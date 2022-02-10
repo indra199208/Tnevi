@@ -800,8 +800,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     address = addresses.get(0).getLocality();
                     postalcode = addresses.get(0).getPostalCode();
                     countrycode = addresses.get(0).getCountryCode();
-
                     updateLocation();
+
                 }else{
                     Toast.makeText(Login.this,"Unable to get the location please try again",Toast.LENGTH_LONG).show();
                     hideProgressDialog();
