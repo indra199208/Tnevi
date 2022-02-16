@@ -94,6 +94,7 @@
             <com.amar.library.ui.StickyScrollView
                 android:id="@+id/scrollview"
                 android:layout_width="match_parent"
+
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_50sdp"
                 app:stickyFooter="@+id/buttonLayout">
