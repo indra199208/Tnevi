@@ -84,14 +84,14 @@ public class ChoosemayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 @Override
                 public void liked(LikeButton likeButton) {
 
-                    ((MainActivity) ctx).addRemovefav(homeEventsModelArrayList.get(i));
+                    ((Eventdetails) ctx).addRemovefav(homeEventsModelArrayList.get(i));
 
                 }
 
                 @Override
                 public void unLiked(LikeButton likeButton) {
 
-                    ((MainActivity) ctx).addRemovefav(homeEventsModelArrayList.get(i));
+                    ((Eventdetails) ctx).addRemovefav(homeEventsModelArrayList.get(i));
 
                 }
             });

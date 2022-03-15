@@ -251,13 +251,13 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void liked(LikeButton likeButton) {
 
-                addRemovefav();
+                addRemovefav1();
             }
 
             @Override
             public void unLiked(LikeButton likeButton) {
 
-                addRemovefav();
+                addRemovefav1();
             }
         });
 
@@ -763,7 +763,7 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void addRemovefav() {
+    public void addRemovefav1() {
 
 
         if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
@@ -830,6 +830,77 @@ public class Eventdetails extends AppCompatActivity implements OnMapReadyCallbac
 
 
     }
+
+
+
+    public void addRemovefav(GeteventModel geteventModel) {
+
+
+        if (CheckConnectivity.getInstance(getApplicationContext()).isOnline()) {
+
+            showProgressDialog();
+
+            JSONObject params = new JSONObject();
+
+            try {
+                params.put("event_id", eventId);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            JsonObjectRequest jsonRequest = new JsonObjectRequest(Request.Method.POST, Allurl.AddRemoveFav, params, response -> {
+
+                Log.i("Response-->", String.valueOf(response));
+                try {
+                    JSONObject result = new JSONObject(String.valueOf(response));
+                    String msg = result.getString("message");
+                    Log.d(TAG, "msg-->" + msg);
+                    String stat = result.getString("stat");
+                    if (stat.equals("succ")) {
+
+                        Toast.makeText(Eventdetails.this, msg, Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        Log.d(TAG, "unsuccessfull - " + "Error");
+                        Toast.makeText(Eventdetails.this, "Add to Favourite not successfull", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                hideProgressDialog();
+
+                //TODO: handle success
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(Eventdetails.this, error.toString(), Toast.LENGTH_SHORT).show();
+
+                }
+            }) {
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("Authorization", token);
+                    return params;
+                }
+            };
+
+            Volley.newRequestQueue(this).add(jsonRequest);
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Ooops! Internet Connection Error", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
+
 
 
     private void fetchLocation() {
